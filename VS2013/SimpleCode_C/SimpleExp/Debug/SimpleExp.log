@@ -1,0 +1,40 @@
+﻿生成启动时间为 2015/7/3 11:39:49。
+     1>项目“F:\百度云\文档\myProject\VS2013\SimpleCode_C\SimpleExp\SimpleExp.vcxproj”在节点 3 上(Build 个目标)。
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Test.vcxproj, 简单示例.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt "dll示例.cpp" "其他.cpp" "可变参数示例.cpp" "加密解密.cpp" "栈.cpp" "字符串数字互转.cpp" "多线程示例.cpp" "cgi示例.cpp"
+         cgi示例.cpp
+         多线程示例.cpp
+         字符串数字互转.cpp
+     1>f:\百度云\文档\myproject\vs2013\simplecode_c\simpleexp\字符串数字互转.cpp(28): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+         栈.cpp
+     1>f:\百度云\文档\myproject\vs2013\simplecode_c\simpleexp\栈.cpp(14): warning C4244: “初始化”: 从“time_t”转换到“unsigned int”，可能丢失数据
+         加密解密.cpp
+     1>f:\百度云\文档\myproject\vs2013\simplecode_c\simpleexp\加密解密.cpp(27): warning C4018: “<”: 有符号/无符号不匹配
+     1>f:\百度云\文档\myproject\vs2013\simplecode_c\simpleexp\加密解密.cpp(29): warning C4018: “<”: 有符号/无符号不匹配
+     1>f:\百度云\文档\myproject\vs2013\simplecode_c\simpleexp\加密解密.cpp(43): warning C4018: “<”: 有符号/无符号不匹配
+     1>f:\百度云\文档\myproject\vs2013\simplecode_c\simpleexp\加密解密.cpp(45): warning C4018: “<”: 有符号/无符号不匹配
+     1>f:\百度云\文档\myproject\vs2013\simplecode_c\simpleexp\加密解密.cpp(54): warning C4018: “<”: 有符号/无符号不匹配
+         可变参数示例.cpp
+     1>f:\百度云\文档\myproject\vs2013\simplecode_c\simpleexp\可变参数示例.cpp(10): warning C4018: “<”: 有符号/无符号不匹配
+         其他.cpp
+     1>f:\百度云\文档\myproject\vs2013\simplecode_c\simpleexp\其他.cpp(23): warning C4018: “<”: 有符号/无符号不匹配
+     1>f:\百度云\文档\myproject\vs2013\simplecode_c\simpleexp\其他.cpp(26): warning C4018: “<”: 有符号/无符号不匹配
+         dll示例.cpp
+         正在生成代码...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\百度云\文档\myProject\VS2013\SimpleCode_C\Debug\SimpleExp.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"F:\百度云\文档\myProject\VS2013\SimpleCode_C\Debug\SimpleExp.pdb" /STACK:"2097152" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\百度云\文档\myProject\VS2013\SimpleCode_C\Debug\SimpleExp.lib" /MACHINE:X86 "Debug\dll示例.obj"
+         "Debug\其他.obj"
+         "Debug\可变参数示例.obj"
+         "Debug\加密解密.obj"
+         "Debug\栈.obj"
+         "Debug\字符串数字互转.obj"
+         "Debug\多线程示例.obj"
+         "Debug\cgi示例.obj"
+            正在创建库 F:\百度云\文档\myProject\VS2013\SimpleCode_C\Debug\SimpleExp.lib 和对象 F:\百度云\文档\myProject\VS2013\SimpleCode_C\Debug\SimpleExp.exp
+         SimpleExp.vcxproj -> F:\百度云\文档\myProject\VS2013\SimpleCode_C\Debug\SimpleExp.exe
+     1>已完成生成项目“F:\百度云\文档\myProject\VS2013\SimpleCode_C\SimpleExp\SimpleExp.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:05.57

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;AutoCoding/mainStart.cpp&apos; to &apos;main.cpp&apos;" description="Rename resource &apos;mainStart.cpp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="mainStart.cpp" name="main.cpp" stamp="1418128438385" updateReferences="true"/>&#x0A;<refactoring comment="Move &apos;config.ini&apos; to &apos;AutoCoding&apos;" description="Move &apos;config.ini&apos; to &apos;AutoCoding&apos;" destination="/AutoCoding" element1="/AutoCodingTool/config.ini" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1418225906975" updateReferences="true"/>
+</session>

@@ -1,0 +1,44 @@
+/*
+ * LogTool.h
+ *
+ *  Created on: 2015年3月24日
+ *      Author: hdzhang
+ */
+
+#ifndef LOGTOOL_H_
+#define LOGTOOL_H_
+
+#include<iostream>
+#include<time.h>
+#include<fstream>
+#include<string>
+
+using namespace std;
+
+namespace n_log
+{
+	enum LOG_LEVEL
+	{
+		LOG_COMM,
+		LOG_DEBUG,
+		LOG_ERROR
+	};
+
+	class LogTool
+	{
+	private:
+		string logPath;
+		tm* current_time;
+		ofstream stream_file;
+	public:
+		LogTool();
+		LogTool(const string path);
+		~LogTool();
+
+		int initLog();
+		int PRINT_LOG(LOG_LEVEL log_level,const string str_log);
+	};
+
+}
+
+#endif /* LOGTOOL_H_ */

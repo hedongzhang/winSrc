@@ -1,0 +1,53 @@
+/*
+ * init.h
+ *
+ *  Created on: 2014骞?2鏈?4鏃?
+ *      Author: HDZhang
+ */
+
+#ifndef INC_INIT_H_
+#define INC_INIT_H_
+
+#include<iostream>
+#include<fstream>
+#include"base.h"
+
+using namespace std;
+using namespace n_base;
+
+namespace n_init
+{
+
+class Init
+{
+
+public:
+	/*启动初始化
+	 * 读取配置文件，根据配置文件读入关键变量值并载入关键字映射和模板
+	 * @字符------模板类型
+	 * 一般字符----模板路径
+	 * #字符------注释
+	 */
+    int startInit();
+
+private:
+
+    //读取配置信息
+	int readConfig();
+	//璇诲彇鍏抽敭瀛楁ā鏉块厤缃?
+	int readKeyTemplate(string path);
+	//璇诲彇浠ｇ爜妯℃澘閰嶇疆
+	int readCodeTemplate(string path);
+	//鏄剧ず鍒濆鍖栦俊鎭?
+	void showInitMessage();
+	//鍒濆鍖栫浉鍏冲€?
+	int InitOtherValue();
+};
+
+}
+
+
+
+
+
+#endif /* INC_INIT_H_ */

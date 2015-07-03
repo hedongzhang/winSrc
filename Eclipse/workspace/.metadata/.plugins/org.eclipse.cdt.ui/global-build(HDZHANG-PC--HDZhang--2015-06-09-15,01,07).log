@@ -1,0 +1,35 @@
+16:59:51 **** Clean-only build of configuration Debug for project AutoCoding ****
+Info: Configuration "Debug" uses tool-chain "MinGW GCC" that is unsupported on this system, attempting to build anyway.
+rm -rf src/ACConfManager.o src/ACManager.o src/ACService.d src/ACManager.d main.d AutoCoding.exe src/ACConfManager.d main.o src/ACSQLManager.d src/ACService.o src/ACSQLManager.o src/ACCodeManager.o src/ACCodeManager.d 
+Cannot run program "rm": Launching failed
+
+Error: Program "rm" not found in PATH
+PATH=[C:\MinGW\bin;\bin;C:/Program Files/Java/jre1.8.0_20/bin/server;C:/Program Files/Java/jre1.8.0_20/bin;C:/Program Files/Java/jre1.8.0_20/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x86;C:\Program Files\TortoiseSVN\bin;C:\ProgramFiles\EclipseForC++\eclipse]
+
+16:59:51 **** Clean-only build of configuration Debug for project AutoCoding ****
+Info: Configuration "Debug" uses tool-chain "MinGW GCC" that is unsupported on this system, attempting to build anyway.
+16:59:59 **** Rebuild of configuration Debug for project AutoCoding ****
+Info: Configuration "Debug" uses tool-chain "MinGW GCC" that is unsupported on this system, attempting to build anyway.
+Info: Internal Builder is used for build
+g++ -std=c++11 "-ID:\\百度云\\文档\\MyProject\\Eclipse\\workspace\\AutoCoding\\inc" -O0 -ggdb -Wall -c -fmessage-length=0 -o "src\\ACSQLManager.o" "..\\src\\ACSQLManager.cpp" 
+Cannot run program "g++": Launching failed
+
+Error: Program "g++" not found in PATH
+PATH=[C:\MinGW\bin;\bin;C:/Program Files/Java/jre1.8.0_20/bin/server;C:/Program Files/Java/jre1.8.0_20/bin;C:/Program Files/Java/jre1.8.0_20/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x86;C:\Program Files\TortoiseSVN\bin;C:\ProgramFiles\EclipseForC++\eclipse]
+
+14:38:48 **** Incremental Build of configuration Debug for project AutoCoding ****
+Info: Internal Builder is used for build
+g++ -std=c++11 "-ID:\\百度云\\文档\\MyProject\\Eclipse\\workspace\\AutoCoding\\inc" -O0 -ggdb -Wall -c -fmessage-length=0 -o "src\\ACSQLManager.o" "..\\src\\ACSQLManager.cpp" 
+In file included from c:\mingw\lib\gcc\mingw32\4.8.1\include\c++\cwchar:44:0,
+                 from c:\mingw\lib\gcc\mingw32\4.8.1\include\c++\bits\postypes.h:40,
+                 from c:\mingw\lib\gcc\mingw32\4.8.1\include\c++\iosfwd:40,
+                 from c:\mingw\lib\gcc\mingw32\4.8.1\include\c++\ios:38,
+                 from c:\mingw\lib\gcc\mingw32\4.8.1\include\c++\ostream:38,
+                 from c:\mingw\lib\gcc\mingw32\4.8.1\include\c++\iostream:39,
+                 from D:\百度云\文档\MyProject\Eclipse\workspace\AutoCoding\inc/ACService.h:11,
+                 from D:\百度云\文档\MyProject\Eclipse\workspace\AutoCoding\inc/ACSQLManager.h:11,
+                 from ..\src\ACSQLManager.cpp:8:
+c:\mingw\include\wchar.h:26:20: fatal error: stddef.h: No such file or directory
+ #include <stddef.h>
+                    ^
+compilation terminated.

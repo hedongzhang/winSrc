@@ -1,0 +1,322 @@
+/*
+ * ACManager.cpp
+ *
+ *  Created on: 2015年5月5日
+ *      Author: HDZhang
+ */
+
+#include <ACManager.h>
+#include <ACService.h>
+#include<fstream>
+#include<memory.h>
+#include"ACConfManager.h"
+
+using namespace n_acmanager;
+
+ACManager::ACManager(string configFile):configFile(configFile)
+{
+	initMessage();
+	creatServices();
+}
+
+ACManager::~ACManager() {
+	// TODO Auto-generated destructor stub
+}
+
+int ACManager::getBaseMessage(const string keyName,string codeTemplate)
+{
+    map<string,string>::iterator ite_baseMessage= m_baseMessage.find(keyName);
+    if(ite_baseMessage!=m_baseMessage.end())
+    {
+        codeTemplate=ite_baseMessage->second;
+        return RETURN_SUCCESS;
+    }
+    else
+    {
+        return RETURN_FAILED;
+    }
+}
+
+int ACManager::setBaseMessage(const string keyName,string codeTemplate)
+{
+    m_baseMessage.insert(map<string,string>::value_type(keyName,codeTemplate));
+	return RETURN_SUCCESS;
+}
+
+int ACManager::getKeyMap(const string keyName,map<string,string>& keyMap)
+{
+    map<string,map<string,string> >::iterator valueIter=ACManager::m_keyMap.find(keyName);
+    if(valueIter!=ACManager::m_keyMap.end())
+    {
+        keyMap=valueIter->second;
+        return RETURN_SUCCESS;
+    }
+    else
+    {
+        return RETURN_FAILED;
+    }
+}
+
+int ACManager::getCodeTemplateMap(const string keyName,string& codeTemplate)
+{
+    map<string,string>::iterator codeTemplateIter= ACManager::m_codeTemplateMap.find(keyName);
+    if(codeTemplateIter!=ACManager::m_codeTemplateMap.end())
+    {
+        codeTemplate=codeTemplateIter->second;
+        return RETURN_SUCCESS;
+    }
+    else
+    {
+        return RETURN_FAILED;
+    }
+}
+
+int ACManager::setKeyMap(const string keyName,map<string,string> keyMap)
+{
+    ACManager::m_keyMap.insert(map<string,map<string,string> >::value_type(keyName,keyMap));
+    return RETURN_SUCCESS;
+}
+
+int ACManager::setCodeTemplateMap(const string keyName,string codeTemplate)
+{
+    ACManager::m_codeTemplateMap.insert(map<string,string>::value_type(keyName,codeTemplate));
+    return RETURN_SUCCESS;
+}
+
+//显示初始化信息
+void ACManager::showBaseMessage()
+{
+	for (map<string,map<string,string> >::iterator ite = ACManager::m_keyMap.begin();ite != ACManager::m_keyMap.end(); ite++)
+	{
+		cout << ite->first << endl<< "{"<< endl;
+		for (map<string,string>::iterator ite1 = ite->second.begin();ite1 != ite->second.end(); ite1++)
+		{
+			cout <<"  "<< ite1->first << ":" << ite1->second << endl;
+		}
+		cout <<"}"<< endl;
+	}
+	for (map<string,string>::iterator ite = ACManager::m_codeTemplateMap.begin();ite != ACManager::m_codeTemplateMap.end(); ite++)
+	{
+		cout <<"  "<< ite->first << ":" << ite->second << endl;
+	}
+
+}
+
+int ACManager::initMess()
+{
+	cout<<"=====开始初始化====="<<endl;
+
+	//读取配置信息
+	if(readConfig()==RETURN_FAILED)
+	{
+		cout<<"=====读取配置信息失败====="<<endl;
+		return RETURN_FAILED;
+	}
+
+	cout<<"=====初始化完成====="<<endl;
+	return RETURN_SUCCESS;
+}
+
+//读取配置信息
+int ACManager::readConfig()
+{
+	cout<<"=====读取配置====="<<endl;
+	ifstream ifstre;
+	ifstre.open(this->configFile.c_str());
+	if(ifstre.is_open())
+	{
+		string currentTemplateName("");
+		string currentTemplateValue("");
+
+		while(!ifstre.eof())
+		{
+			char fileContextChar[200];
+			memset(fileContextChar,0,sizeof(fileContextChar));
+			ifstre.getline(fileContextChar,2000);
+			if(fileContextChar[0]=='@')
+			{
+				string templateName(fileContextChar);
+
+				if(templateName.compare("@ServiceTemplate")==0 || templateName.compare("@CodeTemplate")==0)
+				{
+					if(!currentTemplateName.empty())
+					{
+						int returnCode=RETURN_SUCCESS;
+						if(currentTemplateName.compare("@ServiceTemplate")==0)
+						{
+							//读取路径下的关键字映射文件
+							returnCode=readKeyTemplate(currentTemplateValue);
+						}
+						else if(currentTemplateName.compare("@CodeTemplate")==0)
+						{
+							//读取路径下的代码模板并与模板文件名映射
+							returnCode=readCodeTemplate(currentTemplateValue);
+						}
+						else
+						{
+							m_baseMessage.insert(map<string,string>::value_type(currentTemplateName,currentTemplateValue));
+						}
+						if(returnCode==RETURN_FAILED)
+						{
+							cout<<"=====读取关键字映射文件或代码模板配置文件出错！===="<<endl;
+							ifstre.close();
+							return RETURN_FAILED;
+						}
+					}
+				}
+				else if(currentTemplateName!=templateName)
+				{
+					if(!currentTemplateName.empty())
+					{
+						int returnCode=RETURN_SUCCESS;
+						if(currentTemplateName.compare("@ServiceTemplate")==0)
+						{
+							//读取路径下的关键字映射文件
+							returnCode=readKeyTemplate(currentTemplateValue);
+						}
+						else if(currentTemplateName.compare("@CodeTemplate")==0)
+						{
+							//读取路径下的代码模板并与模板文件名映射
+							returnCode=readCodeTemplate(currentTemplateValue);
+						}
+						else
+						{
+							m_baseMessage.insert(map<string,string>::value_type(currentTemplateName,currentTemplateValue));
+						}
+						if(returnCode==RETURN_FAILED)
+						{
+							cout<<"=====读取关键字映射文件或代码模板配置文件出错！====="<<endl;
+							ifstre.close();
+							return RETURN_FAILED;
+						}
+					}
+				}
+				currentTemplateName=templateName;
+				currentTemplateValue="";
+				//读到结束符退出
+				if(currentTemplateName.compare("@")==0)
+				{
+					break;
+				}
+				continue;
+			}
+			else if(fileContextChar[0]=='#')
+			{
+				//注释
+				continue;
+			}
+			else
+			{
+				currentTemplateValue+=string(fileContextChar);
+			}
+		}
+
+		//cout<<fileContext;
+		ifstre.close();
+	}
+	else
+	{
+		cout<<"=====打开配置文件异常====="<<endl;
+		ifstre.close();
+		return RETURN_FAILED;
+	}
+	showInitMessage();
+
+
+	cout<<"=====配置读取结束====="<<endl;
+	return RETURN_SUCCESS;
+}
+
+//根据路径读取关键字模板配置
+int ACManager::readKeyTemplate(string path)
+{
+    string keyTemplateName=path.substr(path.find_last_of('/')+1);
+    if(!keyTemplateName.empty())
+    {
+        ifstream ifstre;
+        ifstre.open(path.c_str());
+        if(ifstre.is_open())
+        {
+            map<string,string> keyTemplate;
+            string keyContext;
+            string templateContext;
+            while(!ifstre.eof())
+            {
+            	if(keyContext=="")
+            	{
+            		getline(ifstre,keyContext);
+            	}
+            	else
+            	{
+            		string strLine;
+            		getline(ifstre,strLine);
+            		if(strLine[0]!='@')
+            		{
+            			templateContext+=strLine;
+            		}
+            		else
+            		{
+            			keyTemplate.insert(pair<string,string>(keyContext,templateContext));
+            			keyContext=strLine;
+            			templateContext="";
+            		}
+            	}
+            	/*getline(ifstre,keyContext);
+            	getline(ifstre,templateContext);
+                //ifstre>>keyContext>>templateContext;
+                if(keyContext.empty()||templateContext.empty())
+                {
+                    return RETURN_FAILED;
+                }
+                keyTemplate.insert(pair<string,string>(keyContext,templateContext));*/
+            }
+            ifstre.close();
+            return ACManager::setKeyMap(keyTemplateName,keyTemplate);
+        }
+        return RETURN_FAILED;
+    }
+    return RETURN_SUCCESS;
+}
+//根据路径读取代码模板配置
+int ACManager::readCodeTemplate(string path)
+{
+    string keyTemplateName=path.substr(path.find_last_of('/')+1);
+    if(!keyTemplateName.empty())
+    {
+        return ACManager::setCodeTemplateMap(keyTemplateName,path);
+    }
+    return RETURN_SUCCESS;
+}
+
+//输出读取的配置信息
+void ACManager::showInitMessage() {
+	cout << "=====读取值列表=====" << endl;
+	for (map<string, string>::iterator ite = m_baseMessage.begin();
+			ite != m_baseMessage.end(); ite++) {
+		cout << ite->first << ":" << ite->second << endl;
+	}
+	cout << "=====读取模板列表=====" << endl;
+	ACManager::showBaseMessage();
+}
+
+
+//初始化服务类
+int ACManager::initServices()
+{
+	for (map<string,map<string,string> >::iterator ite = ACManager::m_keyMap.begin();ite != ACManager::m_keyMap.end(); ite++)
+	{
+		ACService::BaseMess baseMess;
+		baseMess.name=(ite->second.find("@SERVICE_NAME@"))->second;
+		baseMess.sql=(ite->second.find("@SQL@"))->second;
+		ACService service(baseMess);
+		/*service.initInputFields();
+		service.initOutputFields();*/
+		service.readOutputFields("./1.txt");
+		service.printService();
+
+		ACConfManager confManager("./");
+		confManager.parseFields(service.inputFields);
+		confManager.parseFields(service.outputFields);
+	}
+	return 0;
+}

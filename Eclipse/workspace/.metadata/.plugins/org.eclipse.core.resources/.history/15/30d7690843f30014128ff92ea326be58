@@ -1,0 +1,33 @@
+@AUTOR@
+HDZhang
+@TIME@
+2015年5月5日
+@SERVICE_NAME@
+PAY_ONCE_ITEM_REQ_TYPE
+@SERVICE_TYPE@
+ATOM_SERVICE_TYPE_SELECT
+@LIB_NAME@
+libcrmcommonqry.so
+@GROUP_ID@
+550
+@CLASS_ID@
+2574
+@INPUT_NOD@
+NULL
+@OUTPUT_NODE@
+RECORD_WYJ
+@SQL@
+select a.latn_id latn_id ,
+ a.acc_nbr acc_nbr ,
+ to_char(a.record_time, 'yyyy-mm-dd hh:mi:ss') data ,
+ (select c.staff_name from staff c where staff_id = a.staff_id) staff_name ,
+ (select b.channel_name from channel b where channel_id = a.channel_id) channel_name ,
+ a.total_money total_money ,
+ a.pdf_path pdf_path ,
+ from T_DEDIT_RECORD a
+ where a.latn_id = :LATN_ID 
+ and a.acc_nbr = :ACC_NBR ";
+@HEAD_TEMPLATE_TYPE@
+headTemplate1.tmp
+@SOURC_TEMPLATE_TYPE@
+sourcTemplate1.tmp

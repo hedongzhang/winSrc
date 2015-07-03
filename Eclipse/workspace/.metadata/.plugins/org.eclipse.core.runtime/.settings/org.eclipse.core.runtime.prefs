@@ -1,0 +1,14 @@
+content-types/org.eclipse.cdt.autotools.ui.automake/charset=UTF-8
+content-types/org.eclipse.cdt.core.asmSource/charset=UTF-8
+content-types/org.eclipse.cdt.core.cHeader/charset=UTF-8
+content-types/org.eclipse.cdt.core.cSource/charset=UTF-8
+content-types/org.eclipse.cdt.core.cxxSource/charset=UTF-8
+content-types/org.eclipse.cdt.make.core.makefile/charset=UTF-8
+content-types/org.eclipse.core.runtime.properties/charset=UTF-8
+content-types/org.eclipse.egit.contenttype.gitignore/charset=UTF-8
+content-types/org.eclipse.egit.patch/charset=UTF-8
+content-types/org.eclipse.linuxtools.rpm.createrepo.repoContent/charset=UTF-8
+content-types/org.eclipse.linuxtools.valgrind.editor.content-type/charset=UTF-8
+content-types/org.eclipse.mylyn.wikitext/charset=UTF-8
+content-types/org.eclipse.ui.views.log.log/charset=UTF-8
+eclipse.preferences.version=1

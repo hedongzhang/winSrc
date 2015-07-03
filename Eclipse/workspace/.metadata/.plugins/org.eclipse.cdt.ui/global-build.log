@@ -1,0 +1,27 @@
+20:28:03 **** Clean-only build of configuration Debug for project AutoCoding ****
+rm -rf src/ACManager.o src/ACManager.d src/ACService.d main.d src/ACCodeManager.o src/ACSQLManager.o src/ACSQLManager.d src/ACCodeManager.d main.o src/ACConfManager.o src/ACService.o AutoCoding.exe src/ACConfManager.d 
+20:28:08 **** Rebuild of configuration Debug for project AutoCoding ****
+Info: Internal Builder is used for build
+g++ -std=c++11 -static-libgcc -static-libstdc++ "-IF:\\百度云\\文档\\MyProject\\Eclipse\\workspace\\AutoCoding\\inc" -O0 -ggdb -Wall -c -fmessage-length=0 -o "src\\ACConfManager.o" "..\\src\\ACConfManager.cpp" 
+g++ -std=c++11 -static-libgcc -static-libstdc++ "-IF:\\百度云\\文档\\MyProject\\Eclipse\\workspace\\AutoCoding\\inc" -O0 -ggdb -Wall -c -fmessage-length=0 -o "src\\ACManager.o" "..\\src\\ACManager.cpp" 
+g++ -std=c++11 -static-libgcc -static-libstdc++ "-IF:\\百度云\\文档\\MyProject\\Eclipse\\workspace\\AutoCoding\\inc" -O0 -ggdb -Wall -c -fmessage-length=0 -o main.o "..\\main.cpp" 
+g++ -std=c++11 -static-libgcc -static-libstdc++ "-IF:\\百度云\\文档\\MyProject\\Eclipse\\workspace\\AutoCoding\\inc" -O0 -ggdb -Wall -c -fmessage-length=0 -o "src\\ACCodeManager.o" "..\\src\\ACCodeManager.cpp" 
+..\src\ACCodeManager.cpp: In member function 'std::string ACCodeManager::creatOutputFields()':
+..\src\ACCodeManager.cpp:227:90: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(vector<string>::size_type currIndex=0;currIndex<this->service.getNumOutputBindParam();currIndex++)
+                                                                                          ^
+g++ -std=c++11 -static-libgcc -static-libstdc++ "-IF:\\百度云\\文档\\MyProject\\Eclipse\\workspace\\AutoCoding\\inc" -O0 -ggdb -Wall -c -fmessage-length=0 -o "src\\ACService.o" "..\\src\\ACService.cpp" 
+g++ -std=c++11 -static-libgcc -static-libstdc++ "-IF:\\百度云\\文档\\MyProject\\Eclipse\\workspace\\AutoCoding\\inc" -O0 -ggdb -Wall -c -fmessage-length=0 -o "src\\ACSQLManager.o" "..\\src\\ACSQLManager.cpp" 
+..\src\ACSQLManager.cpp: In member function 'int ACSQLManager::creatParamCodeDetailSQL()':
+..\src\ACSQLManager.cpp:142:74: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for(vector<string>::size_type i=0;i<this->service.getNumInoutBindParam();i++)
+                                                                          ^
+..\src\ACSQLManager.cpp:167:75: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for(vector<string>::size_type i=0;i<this->service.getNumOutputBindParam();i++)
+                                                                           ^
+g++ -o AutoCoding.exe "src\\ACService.o" "src\\ACSQLManager.o" "src\\ACManager.o" "src\\ACConfManager.o" "src\\ACCodeManager.o" main.o 
+Info: Nothing to build for AutoCoding
+Info: Nothing to build for AutoCoding
+Info: Nothing to build for AutoCoding
+Info: Nothing to build for AutoCoding
+Info: Nothing to build for AutoCoding

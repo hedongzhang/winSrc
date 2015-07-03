@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;AutoCodingTool/resource/tempFile/keyTemplate1.txt&apos; to &apos;keyTemplate1.tmp&apos;" description="Rename resource &apos;keyTemplate1.txt&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="resource/tempFile/keyTemplate1.txt" name="keyTemplate1.tmp" stamp="1418136591553" updateReferences="true"/>
+</session>

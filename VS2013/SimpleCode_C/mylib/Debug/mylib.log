@@ -1,0 +1,31 @@
+﻿生成启动时间为 2015/7/3 11:39:49。
+     1>项目“F:\百度云\文档\myProject\VS2013\SimpleCode_C\mylib\mylib.vcxproj”在节点 4 上(Build 个目标)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt hdarray.cpp hdlist.cpp linkQueue.cpp linkStack.cpp myString.cpp sort.cpp
+         sort.cpp
+         myString.cpp
+         linkStack.cpp
+         linkQueue.cpp
+         hdlist.cpp
+         hdarray.cpp
+     1>f:\百度云\文档\myproject\vs2013\simplecode_c\mylib\hdarray.cpp(83): warning C4018: “<”: 有符号/无符号不匹配
+     1>f:\百度云\文档\myproject\vs2013\simplecode_c\mylib\hdarray.cpp(102): warning C4018: “<”: 有符号/无符号不匹配
+     1>f:\百度云\文档\myproject\vs2013\simplecode_c\mylib\hdarray.cpp(119): warning C4018: “<”: 有符号/无符号不匹配
+     1>f:\百度云\文档\myproject\vs2013\simplecode_c\mylib\hdarray.cpp(146): warning C4018: “<”: 有符号/无符号不匹配
+     1>f:\百度云\文档\myproject\vs2013\simplecode_c\mylib\hdarray.cpp(159): warning C4018: “<”: 有符号/无符号不匹配
+     1>f:\百度云\文档\myproject\vs2013\simplecode_c\mylib\hdarray.cpp(225): warning C4018: “<”: 有符号/无符号不匹配
+         正在生成代码...
+     1>f:\百度云\文档\myproject\vs2013\simplecode_c\mylib\mystring.cpp(28): warning C4715: “myStrstr”: 不是所有的控件路径都返回值
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"F:\百度云\文档\myProject\VS2013\SimpleCode_C\Debug\mylib.lib" /NOLOGO Debug\hdarray.obj
+         Debug\hdlist.obj
+         Debug\linkQueue.obj
+         Debug\linkStack.obj
+         Debug\myString.obj
+         Debug\sort.obj
+         mylib.vcxproj -> F:\百度云\文档\myProject\VS2013\SimpleCode_C\Debug\mylib.lib
+     1>已完成生成项目“F:\百度云\文档\myProject\VS2013\SimpleCode_C\mylib\mylib.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:01.58

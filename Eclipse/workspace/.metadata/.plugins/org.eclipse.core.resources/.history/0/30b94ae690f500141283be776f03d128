@@ -1,0 +1,126 @@
+/*
+ * ACService.h
+ *
+ *  Created on: 2015年5月5日
+ *      Author: HDZhang
+ */
+
+#ifndef ACSERVICE_H_
+#define ACSERVICE_H_
+
+#include<iostream>
+#include<vector>
+#include"ACService.h"
+
+using namespace std;
+
+//字段类型
+enum FieldType
+{
+	STRING,
+	LONG,
+	FML32,
+};
+//字段
+struct Field
+{
+	string name;
+	FieldType type;
+	long size;
+};
+
+
+//服务
+class ACService
+{
+
+public:
+	//保存服务基本信息
+	struct BaseMess
+	{
+		string name;          //服务名
+		string libName;       //库名
+		string type;          //服务类型
+		string sql;           //sql
+		string group_id;      //组ID
+		string class_id;	  //class_id
+		string input_node;    //入参节点
+		string output_node;   //出参节点
+	};
+
+	//保存服务其他信息
+	struct OtherMess
+	{
+		string className;    //类型名
+	};
+
+	/***********构造函数**********
+	 *
+	 */
+	ACService(BaseMess baseMess);
+	virtual ~ACService();
+
+	/**********根据基本信息初始化相关信息**********
+	 *
+	 */
+	int initOtherMess();
+	//生成类名
+	int creatClassName(string& className);
+
+
+	/**********根据sql初始化输入字段**********
+	 * 读取每个[:]之前直到空格的作为输入字段名称
+	 * exp:
+	 * 		latn_id = :LATN_ID
+	   	   	and a.acc_nbr = :ACC_NBR
+	        其他都会忽略
+	   exp:
+	   	   	to_char(a.record_time, 'yyyy-mm-dd hh:mi:ss') data ,
+	 */
+	int initInputFields();
+	/**********从文件读取输入字段**********
+	 * 文件格式很简单（一行一个输出字段名称）
+	 * exp:
+	 * 		LATN_ID
+	 * 		ACC_NBR
+	 */
+	int readInputFields(string path="./conf/inputFiled.ini");
+	/**********根据sql初始化输出字段**********
+	 * 读取每个[,]和空格之前直到另外一个空格为止的作为输出字段名称（自动转换为大写）
+	 * exp:
+	 *		select a.latn_id latn_id ,
+	 *		a.acc_nbr acc_nbr ,
+	 * 其他都会忽略
+	 * exp:
+	 * 	   	to_char(a.record_time, 'yyyy-mm-dd hh:mi:ss') data
+	 * 	   	a.pdf_path pdf_path,\
+	 * 	   	[,]之前无空格
+	 */
+	int initOutputFields();
+	/**********从文件读取输出字段
+	 * 文件格式很简单（一行一个输出字段名称）
+	 * exp:
+	 * 		LATN_ID
+	 * 		ACC_NBR
+	 */
+	int readOutputFields(string path="./conf/outputFiled.ini");
+
+	//打印服务信息
+	int printService();
+
+
+
+
+private:
+	BaseMess baseMess;    //基本信息
+	OtherMess otherMess;  //其他信息
+
+	vector<Field> inputFields;   //输入字段
+	vector<Field> outputFields;  //输出字段
+
+	map<string,string> m_simpleKeyValue;    //简单关键字值替换
+};
+
+
+
+#endif /* ACSERVICE_H_ */

@@ -1,0 +1,66 @@
+/*
+ * main.cpp
+ *
+ *  Created on: 2014年12月14日
+ *      Author: HDZhang
+ */
+
+#include"ACConfManager.h"
+#include"ACService.h"
+#include"ACManager.h"
+#include<memory.h>
+#include<map>
+
+using namespace n_acmanager;
+using namespace std;
+
+int main(void) {
+
+	/*ACConfManager confManager("./");
+	vector<Field> v_fields;
+	Field field;
+
+	field.name="BILL_DETAIL_UNIT";
+	field.type=FieldType::STRING;
+	v_fields.push_back(field);
+
+	field.name="CERT";
+	field.type=FieldType::STRING;
+	v_fields.push_back(field);
+
+	field.name="LATN_ID";
+	field.type=FieldType::LONG;
+	v_fields.push_back(field);
+
+	field.name="PAYMENT";
+	field.type=FieldType::FML32;
+	v_fields.push_back(field);
+
+	confManager.parseFields(v_fields);*/
+	/*ACService::BaseMess baseMess;
+	baseMess.name="CRM_PRICOMGRP_MACRO_001";
+	baseMess.sql="select a.latn_id latn_id ,\
+       a.acc_nbr acc_nbr ,\
+       to_char(a.record_time, 'yyyy-mm-dd hh:mi:ss') data ,\
+       (select c.staff_name from staff c where staff_id = a.staff_id) staff_name ,\
+       (select b.channel_name from channel b where channel_id = a.channel_id) channel_name ,\
+       a.total_money total_money ,\
+       a.pdf_path pdf_path ,\
+  from T_DEDIT_RECORD a\
+ where a.latn_id = :LATN_ID \
+   and a.acc_nbr = :ACC_NBR ";
+
+	ACService service(baseMess);
+	service.initInputFields();
+	service.initOutputFields();
+	service.printService();*/
+
+
+	ACManager acManager("./config.ini");
+	ACService::BaseMess baseMess;
+
+	return 0;
+}
+
+
+

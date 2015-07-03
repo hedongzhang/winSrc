@@ -1,0 +1,98 @@
+/*
+ * base.h
+ *
+ *  Created on: 2014年12月14日
+ *      Author: HDZhang
+ */
+
+#ifndef INC_BASE_H_
+#define INC_BASE_H_
+
+
+#include<map>
+#include<iostream>
+
+
+using namespace std;
+
+namespace n_base
+{
+
+
+//系统配置文件路径
+const string CONFIG_FILE_FULLNAME ="./config.ini";
+
+/* 保存关键值
+ * 保存结果路径 RESULT_PATH;
+ * 使用模板类型 TEMPLATE_TYPE;
+ * 服务名 SERVICE_NAME;
+ * 库名 LIB_NAME;
+ * SQL_CONTEXT;
+ * GROUP_ID;
+ * CLASS_ID;
+ * 节点名 INPUT_NODE; OUTPUT_NODE;
+ * 替换LATN_ID次数 RELPACE_LATNID_NUM;
+ */
+extern map<string,string> m_baseMessage;
+//获取关键值
+extern int getBaseMessage(const string keyName,string& codeTemplate);
+//设置关键值
+extern int setBaseMessage(const string keyName,string codeTemplate);
+//m_keyValue
+
+//返回值
+const int RETURN_FAILED=0;
+const int RETURN_SUCCESS=1;
+
+
+class Base
+{
+private:
+    //关键字映射
+    static map<string,map<string,string> > m_keyMap;
+    //代码模板映射
+    static map<string,string> m_codeTemplateMap;
+
+
+public:
+
+    //获取特定的关键字映射
+    static int getKeyMap(const string keyName,map<string,string>& keyMap);
+    //获取特定代码模板映射
+    static int getCodeTemplateMap(const string keyName,string& codeTemplate);
+    //插入关键字映射
+    static int setKeyMap(const string keyName,map<string,string> keyMap);
+    //插入代码模板映射
+    static int setCodeTemplateMap(const string keyName,string codeTemplate);
+
+    //显示初始化信息
+    static void showBaseMessage();
+};
+
+//配置模板类型
+//enum TemplateType
+//{
+ //   KeyTemplate,
+ //   CodeTemplate,
+ //   nullTemplate
+//};
+
+enum FieldType
+{
+	STRING,
+	LONG,
+	FML32,
+};
+
+
+struct FieldMess
+{
+	string name;
+	FieldType type;
+	long size;
+};
+
+}
+
+
+#endif /* INC_BASE_H_ */
