@@ -66,6 +66,7 @@
   <ItemGroup>
     <ClCompile Include="BigData.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="模板示例.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
