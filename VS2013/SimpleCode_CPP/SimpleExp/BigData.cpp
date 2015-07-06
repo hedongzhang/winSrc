@@ -154,7 +154,7 @@ public:
 
 
 
-void main1()
+void mainBD()
 {
 	char mod = 0;
 	cout << "请选择模式：加：+、乘：*、退出：0\n";
