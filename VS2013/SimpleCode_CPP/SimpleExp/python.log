@@ -1,0 +1,16 @@
+
+
+/------------------------------------------------------------------------------------------\
+BigWorld WorldOfTanks 2.8.0 (compiled at 18:56:46 May  4 2015) starting on 07/08/15 23:26:17
+
+INFO: [Config] Default encoding set to utf-8
+INFO: [PY_DEBUG] BigWorld Release Client - Content Type: n/a
+
+NOTICE: [NOTE] (scripts/common/fortified_regions.py, 211): fortified_regions.init()
+NOTICE: [NOTE] (scripts/common/clubs_settings.py, 46): clubs.init()
+NOTICE: [NOTE] (scripts/client/post_processing/__init__.py, 267): The quality = 4 was selected.
+NOTICE: [NOTE] (scripts/client/post_processing/__init__.py, 267): The quality = 3 was selected.
+INFO: PostProcessing.Phases.fini()
+
+\------------------------------------------------------------------------------------------/
+

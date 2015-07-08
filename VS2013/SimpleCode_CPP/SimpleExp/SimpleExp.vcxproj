@@ -67,7 +67,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BigData.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="模板元编程.cpp" />
     <ClCompile Include="强制 类型转换.cpp" />
     <ClCompile Include="智能指针.cpp" />
     <ClCompile Include="本地化.cpp" />

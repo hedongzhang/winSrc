@@ -20,3 +20,9 @@ g++ -std=c++11 -static-libgcc -static-libstdc++ "-IE:\\codeRepertory\\Eclipse\\w
 g++ -std=c++11 -static-libgcc -static-libstdc++ "-IE:\\codeRepertory\\Eclipse\\workspace\\AutoCoding\\inc" -O0 -ggdb -Wall -c -fmessage-length=0 -o "src\\ACManager.o" "..\\src\\ACManager.cpp" 
 g++ -std=c++11 -static-libgcc -static-libstdc++ "-IE:\\codeRepertory\\Eclipse\\workspace\\AutoCoding\\inc" -O0 -ggdb -Wall -c -fmessage-length=0 -o "src\\ACService.o" "..\\src\\ACService.cpp" 
 g++ -o AutoCoding.exe "src\\ACService.o" "src\\ACSQLManager.o" "src\\ACManager.o" "src\\ACConfManager.o" "src\\ACCodeManager.o" main.o 
+Info: Nothing to build for AutoCoding
+Info: Nothing to build for AutoCoding
+Info: Nothing to build for AutoCoding
+Info: Nothing to build for AutoCoding
+Info: Nothing to build for AutoCoding
+Info: Nothing to build for AutoCoding
