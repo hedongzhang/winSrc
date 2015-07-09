@@ -46,6 +46,9 @@ private:
 	string srcInputPath;		//源文件输入路径
 	string srcOutputPath;		//源文件输出路径
 
+	string AssemblyHead;        //动态拼接的头字串
+	string AssemblyEnd;         //动态拼接的尾字串
+
 
 	const string paramTmplString="\n"
 			"\t\tif(pTuxBuffer->GetValue(\"@FIELD_NAME@\",st@CORE_CLASS_NAME@In.@FIELD_NAME@)<0)\n"
@@ -53,6 +56,10 @@ private:
 				"\t\t\tCRM_LOG((LC_DEBUG,\"get parameter[@FIELD_NAME@]  failed\"));\n"
 				"\t\t\treturn -1;\n"
 			"\t\t}\n"
+			"\t\tCRM_LOG((LC_DEBUG,\"get parameter[@FIELD_NAME@]  is %s\",st@CORE_CLASS_NAME@In.@FIELD_NAME@));\n\n";
+
+	const string paramTmplStringAssembly="\n"
+			"\t\tpTuxBuffer->GetValue(\"@FIELD_NAME@\",st@CORE_CLASS_NAME@In.@FIELD_NAME@);\n"
 			"\t\tCRM_LOG((LC_DEBUG,\"get parameter[@FIELD_NAME@]  is %s\",st@CORE_CLASS_NAME@In.@FIELD_NAME@));\n\n";
 
 
@@ -80,6 +87,11 @@ private:
 				"\t\t\treturn -1;\n"
 			"\t\t}\n"
 			"\t\tCRM_LOG((LC_DEBUG,\"get parameter[@FIELD_NAME@]  is %ld\",st@CORE_CLASS_NAME@In.@FIELD_NAME@));\n\n";
+
+	const string paramTmplLongAssembly="\n"
+			"\t\tpTuxBuffer->GetValue(\"@FIELD_NAME@\",(char*)&st@CORE_CLASS_NAME@In.@FIELD_NAME@);\n"
+			"\t\tCRM_LOG((LC_DEBUG,\"get parameter[@FIELD_NAME@]  is %ld\",st@CORE_CLASS_NAME@In.@FIELD_NAME@));\n\n";
+
 
 	const string inputTempHead="\
 	pTuxBufferAll->RsOpen();\n\
@@ -149,6 +161,10 @@ private:
 		long nLATN_ID=@LATN_ID@;\n\
 \n\
 		string extraSQL=\"\";\n\
+		list<char*> l_ExtraValue;\n\
+		bool isFirst=true;\n\
+\n\
+@ASSEMBLY_HEAD@\
 \n\
 		DCCrmDBAgent dbAgent;\n\
 		if (InitDBAgent(&dbAgent, class_id, true, nLATN_ID, nLATN_ID,extraSQL) < 0) {\n\
@@ -159,7 +175,68 @@ private:
 			CRM_LOG((LC_ERROR,\"Bind SQL[%ld] failed %s\", class_id, dbAgent.GetErrorMsg()));\n\
 			this->SetErrorMsg(nErrorCode, \"Bind SQL[%ld] failed \", class_id);\n\
 			return -1;\n\
-		}\n";
+		}\n\
+		\n\
+@ASSEMBLY_END@\
+		\n";
+
+	const string AssemblyHeadTmplUpdateStr="\
+		if(iter->@FIELD_NAME@[0]!=\'\\0\')\n\
+		{\n\
+			if(!isFirst)\n\
+			{\n\
+				extraSQL+=\",\";\n\
+			}\n\
+			extraSQL+=\" @FIELD_NAME@=:@FIELD_NAME@ \";\n\
+			l_ExtraValue.push_back(iter->@FIELD_NAME@);\n\
+			isFirst=false;\n\
+		}\n\n";
+	const string AssemblyHeadTmplUpdateLong="\
+		char str_@FIELD_NAME@[64]={0};\n\
+		if(iter->@FIELD_NAME@!=0)\n\
+		{\n\
+			sprintf(str_@FIELD_NAME@,\"%ld\",iter->@FIELD_NAME@);\n\
+			if(!isFirst)\n\
+			{\n\
+				extraSQL+=\",\";\n\
+			}\n\
+			extraSQL+=\" @FIELD_NAME@=:@FIELD_NAME@ \";\n\
+			l_ExtraValue.push_back(str_@FIELD_NAME@);\n\
+			isFirst=false;\n\
+		}\n\n";
+	const string AssemblyHeadTmplSelectStr="\
+		if(iter->@FIELD_NAME@[0]!=\'\\0\')\n\
+		{\n\
+			if(!isFirst)\n\
+			{\n\
+				extraSQL+=\"AND\";\n\
+			}\n\
+			extraSQL+=\" @FIELD_NAME@=:@FIELD_NAME@ \";\n\
+			l_ExtraValue.push_back(iter->@FIELD_NAME@);\n\
+			isFirst=false;\n\
+		}\n\n";
+	const string AssemblyHeadTmplSelectLong="\
+		char str_@FIELD_NAME@[64]={0};\n\
+		if(iter->@FIELD_NAME@!=0)\n\
+		{\n\
+			sprintf(str_@FIELD_NAME@,\"%ld\",iter->@FIELD_NAME@);\n\
+			if(!isFirst)\n\
+			{\n\
+				extraSQL+=\"AND\";\n\
+			}\n\
+			extraSQL+=\" @FIELD_NAME@=:@FIELD_NAME@ \";\n\
+			l_ExtraValue.push_back(str_@FIELD_NAME@);\n\
+			isFirst=false;\n\
+		}\n\n";
+
+	const string AssemblyEndTmpl="\
+		list<char*>::iterator iter_temp=l_ExtraValue.begin();\n\
+		while(iter_temp!=l_ExtraValue.end())\n\
+		{\n\
+			dbAgent.BindExtraParam(*iter_temp);\n\
+			iter_temp++;\n\
+		}\n\
+		";
 
 
 	const string bissnessProcessEnd1="\n\

@@ -334,15 +334,26 @@ int ACService::readFieldsFile(string path)
 					{
 						field.isNihil=true;
 					}
+					else if(temp=="%")
+					{
+						field.needAssembly=true;
+					}
 					else
 					{
 
 						istringstream istringstreTemp(temp);
 						istringstreTemp>>field.size;
 						istringstre>>temp;
-						if(temp=="$")
+						if(temp!="")
 						{
-							field.isNihil=true;
+							if(temp=="$")
+							{
+								field.isNihil=true;
+							}
+							else if(temp=="%")
+							{
+								field.needAssembly=true;
+							}
 						}
 					}
 				}
@@ -369,11 +380,11 @@ int ACService::readFieldsFile(string path)
 				field.type=FieldType::STRING;
 				this->outputFields.push_back(field);
 			}
-			if(this->numInputBindParam==0)
-				this->numInputBindParam=this->inputFields.size();
-			if(this->numOutputBindParam==0)
-				this->numOutputBindParam=this->outputFields.size();
 		}
+		/*if(this->numInputBindParam==0)
+			this->numInputBindParam=this->inputFields.size();
+		if(this->numOutputBindParam==0)
+			this->numOutputBindParam=this->outputFields.size();*/
 		cout<<"======读取字段配置完成====="<<endl<<endl;
 		ifstre.close();
 	}

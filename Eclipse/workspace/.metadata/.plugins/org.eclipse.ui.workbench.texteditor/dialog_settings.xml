@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Temp" key="selection"/>
+		<item value="creatBusinessProcess" key="selection"/>
 		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="creatBusinessProcess"/>
+			<item value="bindCount"/>
+			<item value="$"/>
 			<item value="Temp"/>
 			<item value="￥"/>
 			<item value="@CLASS_NAME@"/>
 			<item value="ACServiceTypeSelect"/>
 			<item value="ATOM_SERVICE_TYPE_SELECT"/>
-			<item value="NODE_NAME"/>
-			<item value="getInputParamStr"/>
-			<item value="+++"/>
 		</list>
 		<list key="replacehistory">
 			<item value="@CORE_CLASS_NAME@"/>

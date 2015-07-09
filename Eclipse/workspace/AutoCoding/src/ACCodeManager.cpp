@@ -247,6 +247,8 @@ string ACCodeManager::creatOutputFields()
 string ACCodeManager::creatGetInputParam()
 {
 	string getInputParamStr="";
+	this->AssemblyHead="";
+	this->AssemblyEnd="";
 
 	if(this->service.getBaseMessage().input_node=="NULL")
 	{
@@ -255,23 +257,65 @@ string ACCodeManager::creatGetInputParam()
 		getInputParamStr+="\tmemset(&st@CORE_CLASS_NAME@In,0x00,sizeof(st@CORE_CLASS_NAME@In));\n";
 
 		string allField="";
+		string allAssemblyHeadTemp="";
 		for(Field currField:this->service.getInputField())
 		{
 			string getParamTmpl="";
-			if(currField.type==FieldType::STRING && currField.isNihil==false)
+			string AssemblyHeadTemp="";
+			if(currField.type==FieldType::STRING)
 			{
-				getParamTmpl=paramTmplString;
-			}
-			else if(currField.type==FieldType::STRING && currField.isNihil==true)
-			{
-				getParamTmpl=paramTmplStringNihil;
+				if(currField.isNihil)
+				{
+					getParamTmpl=paramTmplStringNihil;
+				}
+				else if(currField.needAssembly)
+				{
+					getParamTmpl=paramTmplStringAssembly;
+					if(this->service.getOtherMessage().type==ACServiceTypeSelect)
+					{
+						AssemblyHeadTemp=AssemblyHeadTmplSelectStr;
+					}
+					else
+					{
+						AssemblyHeadTemp=AssemblyHeadTmplUpdateStr;
+					}
+					if(this->AssemblyEnd=="")
+					{
+						this->AssemblyEnd=AssemblyEndTmpl;
+					}
+				}
+				else
+				{
+					getParamTmpl=paramTmplString;
+				}
 			}
 			else if(currField.type==FieldType::LONG)
 			{
-				getParamTmpl=paramTmplLong;
+				if(currField.needAssembly)
+				{
+					getParamTmpl=paramTmplLongAssembly;
+					if(this->service.getOtherMessage().type==ACServiceTypeSelect)
+					{
+						AssemblyHeadTemp=AssemblyHeadTmplSelectLong;
+					}
+					else
+					{
+						AssemblyHeadTemp=AssemblyHeadTmplUpdateLong;
+					}
+					if(AssemblyEnd=="")
+					{
+						AssemblyEnd=AssemblyEndTmpl;
+					}
+				}
+				else
+				{
+					getParamTmpl=paramTmplLong;
+				}
 			}
 			getParamTmpl=n_acmanager::replaceString(getParamTmpl,"@FIELD_NAME@",currField.name);
 			getParamTmpl=n_acmanager::replaceString(getParamTmpl,"@CORE_CLASS_NAME@",this->coreClassName);
+			AssemblyHeadTemp=n_acmanager::replaceString(AssemblyHeadTemp,"@FIELD_NAME@",currField.name);
+			allAssemblyHeadTemp+=AssemblyHeadTemp;
 			if(currField.name=="LATN_ID")
 			{
 				allField=getParamTmpl+allField;
@@ -281,6 +325,7 @@ string ACCodeManager::creatGetInputParam()
 				allField+=getParamTmpl;
 			}
 		}
+		this->AssemblyHead+=allAssemblyHeadTemp;
 		getInputParamStr+=allField;
 		getInputParamStr+="\tthis->l_@CORE_CLASS_NAME@In.push_back(st@CORE_CLASS_NAME@In);\n";
 		getInputParamStr=n_acmanager::replaceString(getInputParamStr,"@CORE_CLASS_NAME@",this->coreClassName);
@@ -293,23 +338,66 @@ string ACCodeManager::creatGetInputParam()
 		getInputParamStr+="\t\tmemset(&st@CORE_CLASS_NAME@In,0x00,sizeof(st@CORE_CLASS_NAME@In));\n";
 
 		string allField="";
+		string allAssemblyHeadTemp="";
 		for(Field currField:this->service.getInputField())
 		{
 			string getParamTmpl="";
-			if(currField.type==FieldType::STRING && currField.isNihil==false)
+			string AssemblyHeadTemp="";
+			if(currField.type==FieldType::STRING)
 			{
-				getParamTmpl=paramTmplString;
-			}
-			else if(currField.type==FieldType::STRING && currField.isNihil==true)
-			{
-				getParamTmpl=paramTmplStringNihil;
+				if(currField.isNihil)
+				{
+					getParamTmpl=paramTmplStringNihil;
+				}
+				else if(currField.needAssembly)
+				{
+					getParamTmpl=paramTmplStringAssembly;
+					if(this->service.getOtherMessage().type==ACServiceTypeSelect)
+					{
+						AssemblyHeadTemp=AssemblyHeadTmplSelectStr;
+					}
+					else
+					{
+						AssemblyHeadTemp=AssemblyHeadTmplUpdateStr;
+					}
+					if(this->AssemblyEnd=="")
+					{
+						this->AssemblyEnd=AssemblyEndTmpl;
+					}
+				}
+				else
+				{
+					getParamTmpl=paramTmplString;
+				}
 			}
 			else if(currField.type==FieldType::LONG)
 			{
-				getParamTmpl=paramTmplLong;
+				if(currField.needAssembly)
+				{
+					getParamTmpl=paramTmplLongAssembly;
+					if(this->service.getOtherMessage().type==ACServiceTypeSelect)
+					{
+						AssemblyHeadTemp=AssemblyHeadTmplSelectLong;
+					}
+					else
+					{
+						AssemblyHeadTemp=AssemblyHeadTmplUpdateLong;
+					}
+					if(this->AssemblyEnd=="")
+					{
+						this->AssemblyEnd=AssemblyEndTmpl;
+					}
+				}
+				else
+				{
+					getParamTmpl=paramTmplLong;
+				}
 			}
 			getParamTmpl=n_acmanager::replaceString(getParamTmpl,"@FIELD_NAME@",currField.name);
 			getParamTmpl=n_acmanager::replaceString(getParamTmpl,"@CORE_CLASS_NAME@",this->coreClassName);
+			AssemblyHeadTemp=n_acmanager::replaceString(AssemblyHeadTemp,"@FIELD_NAME@",currField.name);
+			allAssemblyHeadTemp+=AssemblyHeadTemp;
+
 			if(currField.name=="LATN_ID")
 			{
 				allField=getParamTmpl+allField;
@@ -319,6 +407,7 @@ string ACCodeManager::creatGetInputParam()
 				allField+=getParamTmpl;
 			}
 		}
+		this->AssemblyHead+=allAssemblyHeadTemp;
 		getInputParamStr+=allField;
 		getInputParamStr+="\t\tthis->l_@CORE_CLASS_NAME@In.push_back(st@CORE_CLASS_NAME@In);\n";
 		getInputParamStr=n_acmanager::replaceString(getInputParamStr,"@CORE_CLASS_NAME@",this->coreClassName);
@@ -351,6 +440,8 @@ string ACCodeManager::creatBusinessProcess()
 	}
 	bissnessProcessStr=n_acmanager::replaceString(bissnessProcessStr,"@SERVICE_NAME@",this->service.getBaseMessage().name);
 	bissnessProcessStr=n_acmanager::replaceString(bissnessProcessStr,"@CORE_CLASS_NAME@",this->coreClassName);
+	bissnessProcessStr=n_acmanager::replaceString(bissnessProcessStr,"@ASSEMBLY_HEAD@",this->AssemblyHead);
+	bissnessProcessStr=n_acmanager::replaceString(bissnessProcessStr,"@ASSEMBLY_END@",this->AssemblyEnd);
 
 	return bissnessProcessStr;
 }

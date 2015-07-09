@@ -103,8 +103,17 @@ int ACSQLManager::creatSQLParamSQL()
 		if(this->service.getBaseMessage().output_node!="NULL")
 			colCount--;
 
-		sqlParamSQL=replaceString(sqlParamSQL,"@BIND_COUNT@",longToString(service.getNumInoutBindParam()));
-		sqlParamSQL=replaceString(sqlParamSQL,"@COL_COUNT@",longToString(service.getNumOutputBindParam()));
+		if(service.getNumInoutBindParam()==0 && service.getNumOutputBindParam()==0)
+		{
+			sqlParamSQL=replaceString(sqlParamSQL,"@BIND_COUNT@",longToString(0));
+			sqlParamSQL=replaceString(sqlParamSQL,"@COL_COUNT@",longToString(1));
+
+		}
+		else
+		{
+			sqlParamSQL=replaceString(sqlParamSQL,"@BIND_COUNT@",longToString(service.getNumInoutBindParam()));
+			sqlParamSQL=replaceString(sqlParamSQL,"@COL_COUNT@",longToString(service.getNumOutputBindParam()));
+		}
 
 		ofstre<<sqlParamSQL;
 		ofstre.flush();
@@ -138,6 +147,18 @@ int ACSQLManager::creatParamCodeDetailSQL()
 
 		string paramCodedetailSQL2Temp=replaceString(paramCodedetailSQLTemp2,"@CLASS_ID@",this->service.getBaseMessage().class_id);
 		paramCodedetailSQL2Temp=replaceString(paramCodedetailSQL2Temp,"@GROUP_ID@",this->service.getBaseMessage().group_id);
+
+		//当既无入参又无出参的时候默认加一个出参
+		if(service.getNumInoutBindParam()==0 && service.getNumOutputBindParam()==0)
+		{
+			string paramCodedetailTemp=replaceString(paramCodedetailSQL2Temp,"@PARAM_TYPE@",longToString(0));
+			paramCodedetailTemp=replaceString(paramCodedetailTemp,"@ORDER_ID@",longToString(1));
+			paramCodedetailTemp=replaceString(paramCodedetailTemp,"@VALUE_TYPE@",longToString(6));
+			paramCodedetailTemp=replaceString(paramCodedetailTemp,"@VALUE_LENGTH@",longToString(0));
+			paramCodedetailTemp=replaceString(paramCodedetailTemp,"@FIELD_NAME@","DEFINE");
+
+			paramCodedetailSQL2+=paramCodedetailTemp;
+		}
 
 		for(vector<string>::size_type i=0;i<this->service.getNumInoutBindParam();i++)
 		{

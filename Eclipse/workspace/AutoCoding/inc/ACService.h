@@ -30,6 +30,7 @@ public:
 	FieldType type;
 	long size;
 	bool isNihil;
+	bool needAssembly;
 
 	Field()
 	{
@@ -37,6 +38,7 @@ public:
 		type=FieldType::STRING;
 		size=64;
 		isNihil=false;
+		needAssembly=false;
 	}
 };
 
