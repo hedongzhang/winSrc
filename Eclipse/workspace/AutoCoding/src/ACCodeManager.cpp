@@ -253,12 +253,18 @@ string ACCodeManager::creatGetInputParam()
 		getInputParamStr+="\n\tDCTuxBuffer *pTuxBuffer = (DCTuxBuffer*)pBuffer;\n";
 		getInputParamStr+="\tST@CORE_CLASS_NAME@In st@CORE_CLASS_NAME@In;\n";
 		getInputParamStr+="\tmemset(&st@CORE_CLASS_NAME@In,0x00,sizeof(st@CORE_CLASS_NAME@In));\n";
+
+		string allField="";
 		for(Field currField:this->service.getInputField())
 		{
 			string getParamTmpl="";
-			if(currField.type==FieldType::STRING)
+			if(currField.type==FieldType::STRING && currField.isNihil==false)
 			{
 				getParamTmpl=paramTmplString;
+			}
+			else if(currField.type==FieldType::STRING && currField.isNihil==true)
+			{
+				getParamTmpl=paramTmplStringNihil;
 			}
 			else if(currField.type==FieldType::LONG)
 			{
@@ -266,8 +272,16 @@ string ACCodeManager::creatGetInputParam()
 			}
 			getParamTmpl=n_acmanager::replaceString(getParamTmpl,"@FIELD_NAME@",currField.name);
 			getParamTmpl=n_acmanager::replaceString(getParamTmpl,"@CORE_CLASS_NAME@",this->coreClassName);
-			getInputParamStr+=getParamTmpl;
+			if(currField.name=="LATN_ID")
+			{
+				allField=getParamTmpl+allField;
+			}
+			else
+			{
+				allField+=getParamTmpl;
+			}
 		}
+		getInputParamStr+=allField;
 		getInputParamStr+="\tthis->l_@CORE_CLASS_NAME@In.push_back(st@CORE_CLASS_NAME@In);\n";
 		getInputParamStr=n_acmanager::replaceString(getInputParamStr,"@CORE_CLASS_NAME@",this->coreClassName);
 	}
@@ -277,21 +291,35 @@ string ACCodeManager::creatGetInputParam()
 		getInputParamStr+=inputTempHead;
 		getInputParamStr+="\t\tST@CORE_CLASS_NAME@In st@CORE_CLASS_NAME@In;\n";
 		getInputParamStr+="\t\tmemset(&st@CORE_CLASS_NAME@In,0x00,sizeof(st@CORE_CLASS_NAME@In));\n";
+
+		string allField="";
 		for(Field currField:this->service.getInputField())
 		{
 			string getParamTmpl="";
-			if(currField.type==FieldType::STRING)
+			if(currField.type==FieldType::STRING && currField.isNihil==false)
 			{
-				getParamTmpl="\t\t"+paramTmplString;
+				getParamTmpl=paramTmplString;
+			}
+			else if(currField.type==FieldType::STRING && currField.isNihil==true)
+			{
+				getParamTmpl=paramTmplStringNihil;
 			}
 			else if(currField.type==FieldType::LONG)
 			{
-				getParamTmpl="\t\t"+paramTmplLong;
+				getParamTmpl=paramTmplLong;
 			}
 			getParamTmpl=n_acmanager::replaceString(getParamTmpl,"@FIELD_NAME@",currField.name);
 			getParamTmpl=n_acmanager::replaceString(getParamTmpl,"@CORE_CLASS_NAME@",this->coreClassName);
-			getInputParamStr+=getParamTmpl;
+			if(currField.name=="LATN_ID")
+			{
+				allField=getParamTmpl+allField;
+			}
+			else
+			{
+				allField+=getParamTmpl;
+			}
 		}
+		getInputParamStr+=allField;
 		getInputParamStr+="\t\tthis->l_@CORE_CLASS_NAME@In.push_back(st@CORE_CLASS_NAME@In);\n";
 		getInputParamStr=n_acmanager::replaceString(getInputParamStr,"@CORE_CLASS_NAME@",this->coreClassName);
 		getInputParamStr=n_acmanager::replaceString(getInputParamStr,"@NODE_NAME@",this->service.getBaseMessage().input_node);

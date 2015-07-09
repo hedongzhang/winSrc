@@ -136,14 +136,17 @@ int ACConfManager::parseCrmdemFml32(ACService& service)
 		{
 			v_inputFields[i].type=this->m_allFileMess.find(v_inputFields[i].name)->second.type;
 			//v_inputFields[i]=(this->m_allFileMess.find(v_inputFields[i].name))->second;
-			if(v_inputFields[i].type==FieldType::LONG)
-				v_inputFields[i].size=0;
-			else if(v_inputFields[i].type==FieldType::STRING)
+
+			if(v_inputFields[i].type==FieldType::STRING)
 			{
 				if(v_inputFields[i].size==0)
 					v_inputFields[i].size=64;
 			}
-			else if(v_inputFields[i].type==FieldType::FML32)
+			else if(v_inputFields[i].type==FieldType::LONG && !v_inputFields[i].isNihil)
+			{
+				v_inputFields[i].size=0;
+			}
+			else if(v_inputFields[i].type==FieldType::FML32 || v_inputFields[i].isNihil)
 			{
 				v_inputFields[i].name=v_inputFields[i].name+"_NEW";
 				i--;

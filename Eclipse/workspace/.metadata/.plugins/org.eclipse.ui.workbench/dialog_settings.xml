@@ -8,7 +8,7 @@
 	</section>
 	<section name="org.eclipse.ui.internal.QuickAccess">
 		<item value="556" key="dialogHeight"/>
-		<item value="967" key="dialogWidth"/>
+		<item value="977" key="dialogWidth"/>
 		<list key="textEntries">
 		</list>
 		<list key="orderedElements">
@@ -24,8 +24,6 @@
 			<item value="C:\ProgramFiels\EclipseForC++\eclipse一般配置.epf"/>
 			<item value="D:\SetupFile\工作\C后台环境\eclipse一般配置.epf"/>
 		</list>
-	</section>
-	<section name="NewWizardAction">
 	</section>
 	<section name="ImportExportAction">
 		<item value="org.eclipse.ui.wizards.export.Preferences" key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID"/>

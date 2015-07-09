@@ -25,9 +25,19 @@ enum FieldType
 //字段
 struct Field
 {
+public:
 	string name;
 	FieldType type;
 	long size;
+	bool isNihil;
+
+	Field()
+	{
+		name="";
+		type=FieldType::STRING;
+		size=64;
+		isNihil=false;
+	}
 };
 
 //服务类型

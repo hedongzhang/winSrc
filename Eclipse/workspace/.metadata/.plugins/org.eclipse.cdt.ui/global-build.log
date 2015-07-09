@@ -1,7 +1,16 @@
-20:22:41 **** Clean-only build of configuration Debug for project AutoCoding ****
+17:03:06 **** Clean-only build of configuration Debug for project AutoCoding ****
 rm -rf src/ACManager.o src/ACSQLManager.o main.d src/ACCodeManager.o main.o src/ACManager.d AutoCoding.exe src/ACService.o src/ACConfManager.d src/ACConfManager.o src/ACService.d src/ACSQLManager.d src/ACCodeManager.d 
-20:22:45 **** Rebuild of configuration Debug for project AutoCoding ****
+17:03:09 **** Rebuild of configuration Debug for project AutoCoding ****
 Info: Internal Builder is used for build
+g++ -std=c++11 -static-libgcc -static-libstdc++ "-IE:\\codeRepertory\\Eclipse\\workspace\\AutoCoding\\inc" -O0 -ggdb -Wall -c -fmessage-length=0 -o "src\\ACConfManager.o" "..\\src\\ACConfManager.cpp" 
+g++ -std=c++11 -static-libgcc -static-libstdc++ "-IE:\\codeRepertory\\Eclipse\\workspace\\AutoCoding\\inc" -O0 -ggdb -Wall -c -fmessage-length=0 -o "src\\ACService.o" "..\\src\\ACService.cpp" 
+g++ -std=c++11 -static-libgcc -static-libstdc++ "-IE:\\codeRepertory\\Eclipse\\workspace\\AutoCoding\\inc" -O0 -ggdb -Wall -c -fmessage-length=0 -o main.o "..\\main.cpp" 
+g++ -std=c++11 -static-libgcc -static-libstdc++ "-IE:\\codeRepertory\\Eclipse\\workspace\\AutoCoding\\inc" -O0 -ggdb -Wall -c -fmessage-length=0 -o "src\\ACManager.o" "..\\src\\ACManager.cpp" 
+g++ -std=c++11 -static-libgcc -static-libstdc++ "-IE:\\codeRepertory\\Eclipse\\workspace\\AutoCoding\\inc" -O0 -ggdb -Wall -c -fmessage-length=0 -o "src\\ACCodeManager.o" "..\\src\\ACCodeManager.cpp" 
+..\src\ACCodeManager.cpp: In member function 'std::string ACCodeManager::creatOutputFields()':
+..\src\ACCodeManager.cpp:227:90: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(vector<string>::size_type currIndex=0;currIndex<this->service.getNumOutputBindParam();currIndex++)
+                                                                                          ^
 g++ -std=c++11 -static-libgcc -static-libstdc++ "-IE:\\codeRepertory\\Eclipse\\workspace\\AutoCoding\\inc" -O0 -ggdb -Wall -c -fmessage-length=0 -o "src\\ACSQLManager.o" "..\\src\\ACSQLManager.cpp" 
 ..\src\ACSQLManager.cpp: In member function 'int ACSQLManager::creatParamCodeDetailSQL()':
 ..\src\ACSQLManager.cpp:142:74: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
@@ -10,18 +19,68 @@ g++ -std=c++11 -static-libgcc -static-libstdc++ "-IE:\\codeRepertory\\Eclipse\\w
 ..\src\ACSQLManager.cpp:167:75: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
    for(vector<string>::size_type i=0;i<this->service.getNumOutputBindParam();i++)
                                                                            ^
-g++ -std=c++11 -static-libgcc -static-libstdc++ "-IE:\\codeRepertory\\Eclipse\\workspace\\AutoCoding\\inc" -O0 -ggdb -Wall -c -fmessage-length=0 -o main.o "..\\main.cpp" 
-g++ -std=c++11 -static-libgcc -static-libstdc++ "-IE:\\codeRepertory\\Eclipse\\workspace\\AutoCoding\\inc" -O0 -ggdb -Wall -c -fmessage-length=0 -o "src\\ACConfManager.o" "..\\src\\ACConfManager.cpp" 
+g++ -o AutoCoding.exe "src\\ACService.o" "src\\ACSQLManager.o" "src\\ACManager.o" "src\\ACConfManager.o" "src\\ACCodeManager.o" main.o 
+17:06:00 **** Incremental Build of configuration Debug for project AutoCoding ****
+Info: Internal Builder is used for build
 g++ -std=c++11 -static-libgcc -static-libstdc++ "-IE:\\codeRepertory\\Eclipse\\workspace\\AutoCoding\\inc" -O0 -ggdb -Wall -c -fmessage-length=0 -o "src\\ACCodeManager.o" "..\\src\\ACCodeManager.cpp" 
 ..\src\ACCodeManager.cpp: In member function 'std::string ACCodeManager::creatOutputFields()':
 ..\src\ACCodeManager.cpp:227:90: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
   for(vector<string>::size_type currIndex=0;currIndex<this->service.getNumOutputBindParam();currIndex++)
                                                                                           ^
-g++ -std=c++11 -static-libgcc -static-libstdc++ "-IE:\\codeRepertory\\Eclipse\\workspace\\AutoCoding\\inc" -O0 -ggdb -Wall -c -fmessage-length=0 -o "src\\ACManager.o" "..\\src\\ACManager.cpp" 
-g++ -std=c++11 -static-libgcc -static-libstdc++ "-IE:\\codeRepertory\\Eclipse\\workspace\\AutoCoding\\inc" -O0 -ggdb -Wall -c -fmessage-length=0 -o "src\\ACService.o" "..\\src\\ACService.cpp" 
 g++ -o AutoCoding.exe "src\\ACService.o" "src\\ACSQLManager.o" "src\\ACManager.o" "src\\ACConfManager.o" "src\\ACCodeManager.o" main.o 
 Info: Nothing to build for AutoCoding
 Info: Nothing to build for AutoCoding
+17:08:18 **** Incremental Build of configuration Debug for project AutoCoding ****
+Info: Internal Builder is used for build
+g++ -std=c++11 -static-libgcc -static-libstdc++ "-IE:\\codeRepertory\\Eclipse\\workspace\\AutoCoding\\inc" -O0 -ggdb -Wall -c -fmessage-length=0 -o "src\\ACCodeManager.o" "..\\src\\ACCodeManager.cpp" 
+..\src\ACCodeManager.cpp: In member function 'std::string ACCodeManager::creatOutputFields()':
+..\src\ACCodeManager.cpp:227:90: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(vector<string>::size_type currIndex=0;currIndex<this->service.getNumOutputBindParam();currIndex++)
+                                                                                          ^
+g++ -o AutoCoding.exe "src\\ACService.o" "src\\ACSQLManager.o" "src\\ACManager.o" "src\\ACConfManager.o" "src\\ACCodeManager.o" main.o 
+17:08:54 **** Incremental Build of configuration Debug for project AutoCoding ****
+Info: Internal Builder is used for build
+g++ -std=c++11 -static-libgcc -static-libstdc++ "-IE:\\codeRepertory\\Eclipse\\workspace\\AutoCoding\\inc" -O0 -ggdb -Wall -c -fmessage-length=0 -o "src\\ACCodeManager.o" "..\\src\\ACCodeManager.cpp" 
+..\src\ACCodeManager.cpp: In member function 'std::string ACCodeManager::creatOutputFields()':
+..\src\ACCodeManager.cpp:227:90: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(vector<string>::size_type currIndex=0;currIndex<this->service.getNumOutputBindParam();currIndex++)
+                                                                                          ^
+g++ -std=c++11 -static-libgcc -static-libstdc++ "-IE:\\codeRepertory\\Eclipse\\workspace\\AutoCoding\\inc" -O0 -ggdb -Wall -c -fmessage-length=0 -o "src\\ACService.o" "..\\src\\ACService.cpp" 
+g++ -o AutoCoding.exe "src\\ACService.o" "src\\ACSQLManager.o" "src\\ACManager.o" "src\\ACConfManager.o" "src\\ACCodeManager.o" main.o 
+17:09:17 **** Incremental Build of configuration Debug for project AutoCoding ****
+Info: Internal Builder is used for build
+g++ -std=c++11 -static-libgcc -static-libstdc++ "-IE:\\codeRepertory\\Eclipse\\workspace\\AutoCoding\\inc" -O0 -ggdb -Wall -c -fmessage-length=0 -o "src\\ACCodeManager.o" "..\\src\\ACCodeManager.cpp" 
+..\src\ACCodeManager.cpp: In member function 'std::string ACCodeManager::creatOutputFields()':
+..\src\ACCodeManager.cpp:227:90: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(vector<string>::size_type currIndex=0;currIndex<this->service.getNumOutputBindParam();currIndex++)
+                                                                                          ^
+g++ -std=c++11 -static-libgcc -static-libstdc++ "-IE:\\codeRepertory\\Eclipse\\workspace\\AutoCoding\\inc" -O0 -ggdb -Wall -c -fmessage-length=0 -o "src\\ACService.o" "..\\src\\ACService.cpp" 
+g++ -o AutoCoding.exe "src\\ACService.o" "src\\ACSQLManager.o" "src\\ACManager.o" "src\\ACConfManager.o" "src\\ACCodeManager.o" main.o 
+17:10:00 **** Incremental Build of configuration Debug for project AutoCoding ****
+Info: Internal Builder is used for build
+g++ -std=c++11 -static-libgcc -static-libstdc++ "-IE:\\codeRepertory\\Eclipse\\workspace\\AutoCoding\\inc" -O0 -ggdb -Wall -c -fmessage-length=0 -o "src\\ACCodeManager.o" "..\\src\\ACCodeManager.cpp" 
+..\src\ACCodeManager.cpp: In member function 'std::string ACCodeManager::creatOutputFields()':
+..\src\ACCodeManager.cpp:227:90: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(vector<string>::size_type currIndex=0;currIndex<this->service.getNumOutputBindParam();currIndex++)
+                                                                                          ^
+g++ -std=c++11 -static-libgcc -static-libstdc++ "-IE:\\codeRepertory\\Eclipse\\workspace\\AutoCoding\\inc" -O0 -ggdb -Wall -c -fmessage-length=0 -o "src\\ACService.o" "..\\src\\ACService.cpp" 
+g++ -o AutoCoding.exe "src\\ACService.o" "src\\ACSQLManager.o" "src\\ACManager.o" "src\\ACConfManager.o" "src\\ACCodeManager.o" main.o 
+17:19:09 **** Incremental Build of configuration Debug for project AutoCoding ****
+Info: Internal Builder is used for build
+g++ -std=c++11 -static-libgcc -static-libstdc++ "-IE:\\codeRepertory\\Eclipse\\workspace\\AutoCoding\\inc" -O0 -ggdb -Wall -c -fmessage-length=0 -o "src\\ACCodeManager.o" "..\\src\\ACCodeManager.cpp" 
+..\src\ACCodeManager.cpp: In member function 'std::string ACCodeManager::creatOutputFields()':
+..\src\ACCodeManager.cpp:227:90: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(vector<string>::size_type currIndex=0;currIndex<this->service.getNumOutputBindParam();currIndex++)
+                                                                                          ^
+g++ -o AutoCoding.exe "src\\ACService.o" "src\\ACSQLManager.o" "src\\ACManager.o" "src\\ACConfManager.o" "src\\ACCodeManager.o" main.o 
+17:20:16 **** Incremental Build of configuration Debug for project AutoCoding ****
+Info: Internal Builder is used for build
+g++ -std=c++11 -static-libgcc -static-libstdc++ "-IE:\\codeRepertory\\Eclipse\\workspace\\AutoCoding\\inc" -O0 -ggdb -Wall -c -fmessage-length=0 -o "src\\ACCodeManager.o" "..\\src\\ACCodeManager.cpp" 
+..\src\ACCodeManager.cpp: In member function 'std::string ACCodeManager::creatOutputFields()':
+..\src\ACCodeManager.cpp:227:90: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(vector<string>::size_type currIndex=0;currIndex<this->service.getNumOutputBindParam();currIndex++)
+                                                                                          ^
+g++ -o AutoCoding.exe "src\\ACService.o" "src\\ACSQLManager.o" "src\\ACManager.o" "src\\ACConfManager.o" "src\\ACCodeManager.o" main.o 
 Info: Nothing to build for AutoCoding
 Info: Nothing to build for AutoCoding
 Info: Nothing to build for AutoCoding

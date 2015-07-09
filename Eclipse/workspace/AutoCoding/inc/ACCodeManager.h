@@ -55,6 +55,24 @@ private:
 			"\t\t}\n"
 			"\t\tCRM_LOG((LC_DEBUG,\"get parameter[@FIELD_NAME@]  is %s\",st@CORE_CLASS_NAME@In.@FIELD_NAME@));\n\n";
 
+
+	const string paramTmplStringNihil="\n"
+			"\t\tchar @FIELD_NAME@_Temp[64]={0};\n"
+			"\t\tif(pTuxBuffer->GetValue(\"@FIELD_NAME@\",@FIELD_NAME@_Temp)<0)\n"
+			"\t\t{\n"
+			"\t\t\tCRM_LOG((LC_DEBUG,\"get parameter[@FIELD_NAME@]  failed\"));\n"
+			"\t\t\tthis->SetErrorMsg(CRM_ERROR_SERVICE_GETINPUT_FAILED,\"get parameter[@FIELD_NAME@] failed\");\n"
+			"\t\t\treturn -1;\n"
+			"\t\t}\n"
+			"\t\tif(GetSepcValue(\"@FIELD_NAME@\",@FIELD_NAME@_Temp,st@CORE_CLASS_NAME@In.LATN_ID,st@CORE_CLASS_NAME@In.@FIELD_NAME@) < 0)\n"
+			"\t\t{\n"
+			"\t\t\tCRM_LOG((LC_ERROR,\"get parameter[@FIELD_NAME@] failed\"));\n"
+			"\t\t\tthis->SetErrorMsg(CRM_ERROR_SERVICE_GETINPUT_FAILED,\"get parameter[@FIELD_NAME@] failed\");\n"
+			"\t\t\treturn -1;\n"
+			"\t\t}\n"
+			"\t\tCRM_LOG((LC_DEBUG,\"get parameter[@FIELD_NAME@]  is %s\",st@CORE_CLASS_NAME@In.@FIELD_NAME@));\n\n";
+
+
 	const string paramTmplLong="\n"
 			"\t\tif(pTuxBuffer->GetValue(\"@FIELD_NAME@\",(char*)&st@CORE_CLASS_NAME@In.@FIELD_NAME@)<0)\n"
 			"\t\t{\n"

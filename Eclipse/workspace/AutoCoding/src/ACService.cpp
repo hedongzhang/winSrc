@@ -325,7 +325,28 @@ int ACService::readFieldsFile(string path)
 				Field field;
 				field.size=0;
 				istringstre>>field.name;
-				istringstre>>field.size;
+
+				string temp;
+				istringstre>>temp;
+				if(temp!="")
+				{
+					if(temp=="$")
+					{
+						field.isNihil=true;
+					}
+					else
+					{
+
+						istringstream istringstreTemp(temp);
+						istringstreTemp>>field.size;
+						istringstre>>temp;
+						if(temp=="$")
+						{
+							field.isNihil=true;
+						}
+					}
+				}
+
 				if(field.size==0)
 					field.size=64;
 				field.type=FieldType::STRING;
@@ -387,16 +408,38 @@ int ACService::printService()
 
 
 	cout<<"输入字段（"<<this->inputFields.size()<<"）："<<endl;
-	cout<<"名称		类型  	大小"<<endl;
+	cout<<"名称";
+	for(int i=0;i<68;i++)
+	{
+		cout<<" ";
+	}
+	cout<<"类型            大小            虚值"<<endl;
 	for(Field field:this->inputFields)
 	{
-		cout<<field.name<<"		"<<field.type<<"	"<<field.size<<endl;
+		int spaceNum=32-field.name.length();
+		cout<<field.name;
+		for(int i=0;i<spaceNum;i++)
+		{
+			cout<<" ";
+		}
+		cout<<field.type<<"      "<<field.size<<"      "<<field.isNihil<<endl;
 	}
 	cout<<endl<<"输出字段（"<<this->outputFields.size()<<"）："<<endl;
-	cout<<"名称		类型  	大小"<<endl;
+	cout<<"名称";
+	for(int i=0;i<68;i++)
+	{
+		cout<<" ";
+	}
+	cout<<"类型            大小            虚值"<<endl;
 	for(Field field:this->outputFields)
 	{
-		cout<<field.name<<"		"<<field.type<<"	"<<field.size<<endl;
+		int spaceNum=32-field.name.length();
+		cout<<field.name;
+		for(int i=0;i<spaceNum;i++)
+		{
+			cout<<" ";
+		}
+		cout<<field.type<<"      "<<field.size<<"      "<<field.isNihil<<endl;
 	}
 	cout<<"======================================="<<endl;
 	return n_acmanager::RETURN_SUCCESS;
