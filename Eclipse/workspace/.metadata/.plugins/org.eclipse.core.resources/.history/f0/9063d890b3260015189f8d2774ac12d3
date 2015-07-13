@@ -349,7 +349,7 @@ string ACCodeManager::creatBusinessProcess()
 	{
 		bissnessProcessStr+=bissnessProcessEnd2;
 	}*/
-	if(this->service.getNumOutputBindParam()!=0)
+	if(this->service.numOutputBindParam!=0)
 	{
 		bissnessProcessStr+=bissnessProcessEnd1;
 	}
