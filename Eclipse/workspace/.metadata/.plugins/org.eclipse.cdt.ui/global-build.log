@@ -117,3 +117,4 @@ g++ -std=c++11 -static-libgcc -static-libstdc++ "-IE:\\codeRepertory\\Eclipse\\w
   for(vector<string>::size_type currIndex=0;currIndex<this->service.getNumOutputBindParam();currIndex++)
                                                                                           ^
 g++ -o AutoCoding.exe "src\\ACService.o" "src\\ACSQLManager.o" "src\\ACManager.o" "src\\ACConfManager.o" "src\\ACCodeManager.o" main.o 
+Info: Nothing to build for AutoCoding
