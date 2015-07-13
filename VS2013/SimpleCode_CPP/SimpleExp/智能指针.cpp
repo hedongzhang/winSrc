@@ -31,8 +31,11 @@ public:
 
 void test()
 {
-	parent_ptr father(new parent());
-	children_ptr son(new children);
+	//parent_ptr father(new parent());
+	shared_ptr<parent> father(new parent());
+	shared_ptr<parent> temp = make_shared<parent>();
+	unique_ptr<parent>  father1();
+	shared_ptr<children> son(new children);
 
 	father->children = son;
 	son->parent = father;

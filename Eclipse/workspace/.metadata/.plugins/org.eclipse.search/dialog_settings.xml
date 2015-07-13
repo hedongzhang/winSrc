@@ -106,7 +106,11 @@
 			<item value="false" key="ignoreCase"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="isWholeWord"/>
+<<<<<<< HEAD
 			<item value="sql" key="textPattern"/>
+=======
+			<item value="ATOM_SERVICE_TYPE_UPDATE" key="textPattern"/>
+>>>>>>> 614f0c3e54fa6b49e14867985e8bfb580f853c32
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -115,10 +119,15 @@
 			</list>
 		</section>
 		<section name="HISTORY3">
-			<item value="true" key="ignoreCase"/>
+			<item value="false" key="ignoreCase"/>
 			<item value="0" key="scope"/>
+<<<<<<< HEAD
 			<item value="false" key="isWholeWord"/>
 			<item value="ACServiceTypeSelect" key="textPattern"/>
+=======
+			<item value="true" key="isWholeWord"/>
+			<item value="sql" key="textPattern"/>
+>>>>>>> 614f0c3e54fa6b49e14867985e8bfb580f853c32
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -130,7 +139,11 @@
 			<item value="false" key="ignoreCase"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="isWholeWord"/>
+<<<<<<< HEAD
 			<item value="numInputBindParam" key="textPattern"/>
+=======
+			<item value="ACServiceTypeSelect" key="textPattern"/>
+>>>>>>> 614f0c3e54fa6b49e14867985e8bfb580f853c32
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -142,7 +155,11 @@
 			<item value="false" key="ignoreCase"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="isWholeWord"/>
+<<<<<<< HEAD
 			<item value="ATOM_SERVICE_TYPE_UPDATE" key="textPattern"/>
+=======
+			<item value="ACServiceTypeUpdate" key="textPattern"/>
+>>>>>>> 614f0c3e54fa6b49e14867985e8bfb580f853c32
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>

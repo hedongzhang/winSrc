@@ -430,7 +430,15 @@ string ACCodeManager::creatBusinessProcess()
 	}
 	bissnessProcessStr=n_acmanager::replaceString(bissnessProcessStr,"@LATN_ID@",latnID);
 
-	if(this->service.getOtherMessage().type==ACServiceTypeSelect)
+	/*if(this->service.getOtherMessage().type==ACServiceTypeSelect)
+	{
+		bissnessProcessStr+=bissnessProcessEnd1;
+	}
+	else
+	{
+		bissnessProcessStr+=bissnessProcessEnd2;
+	}*/
+	if(this->service.getNumOutputBindParam()!=0)
 	{
 		bissnessProcessStr+=bissnessProcessEnd1;
 	}
@@ -438,6 +446,8 @@ string ACCodeManager::creatBusinessProcess()
 	{
 		bissnessProcessStr+=bissnessProcessEnd2;
 	}
+
+
 	bissnessProcessStr=n_acmanager::replaceString(bissnessProcessStr,"@SERVICE_NAME@",this->service.getBaseMessage().name);
 	bissnessProcessStr=n_acmanager::replaceString(bissnessProcessStr,"@CORE_CLASS_NAME@",this->coreClassName);
 	bissnessProcessStr=n_acmanager::replaceString(bissnessProcessStr,"@ASSEMBLY_HEAD@",this->AssemblyHead);

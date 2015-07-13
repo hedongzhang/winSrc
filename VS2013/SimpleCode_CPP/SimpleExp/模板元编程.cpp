@@ -31,7 +31,7 @@ int met(int i)
 	}
 }
 
-void main()
+void mainMBY()
 {
 	cout << data<40>::res << endl;
 	cout<<met(40)<<endl;
