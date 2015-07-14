@@ -6,6 +6,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->x=1000;
+    this->y=500;
+    resize(this->x,this->y);
 }
 
 MainWindow::~MainWindow()
