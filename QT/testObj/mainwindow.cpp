@@ -15,3 +15,8 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+/*MainWindow::MainWindow(const MainWindow& other)
+{
+}
+*/

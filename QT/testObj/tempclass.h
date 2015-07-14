@@ -1,11 +1,14 @@
 #ifndef TEMPCLASS_H
 #define TEMPCLASS_H
 
-
-class tempClass
+class tempclass
 {
 public:
-    tempClass();
+    void printt();
+
+private:
+    int value;
+
 };
 
 #endif // TEMPCLASS_H

@@ -9,11 +9,15 @@ class MainWindow;
 
 class MainWindow : public QMainWindow
 {
-    Q_OBJECT
-
 public:
+    Q_OBJECT
+public:
+
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+
+    //MainWindow(const MainWindow&);
+
 private:
     Ui::MainWindow *ui;
     int x,y;

@@ -1,7 +1,7 @@
 #include "tempclass.h"
+#include<iostream>
 
-tempClass::tempClass()
+void tempclass::printt()
 {
-
+    std::cout << this->value << std::endl;
 }
-
