@@ -4,7 +4,13 @@
 class tempclass
 {
 public:
+    tempclass();
+    tempclass(int value);
+    tempclass(tempclass& value);
+
     void printt();
+
+    operator int();
 
 private:
     int value;
