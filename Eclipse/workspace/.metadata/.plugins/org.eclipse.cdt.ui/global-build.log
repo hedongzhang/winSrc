@@ -20,3 +20,4 @@ g++ -std=c++11 -static-libgcc -static-libstdc++ "-IE:\\codeRepertory\\Eclipse\\w
 g++ -o AutoCoding.exe "src\\ACService.o" "src\\ACSQLManager.o" "src\\ACManager.o" "src\\ACConfManager.o" "src\\ACCodeManager.o" main.o 
 Info: Nothing to build for AutoCoding
 Info: Nothing to build for AutoCoding
+Info: Nothing to build for AutoCoding
