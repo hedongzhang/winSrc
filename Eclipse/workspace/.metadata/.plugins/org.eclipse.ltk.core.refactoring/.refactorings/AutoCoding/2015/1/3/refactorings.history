@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;AutoCoding/ReadMe.txt&apos; to &apos;readme.txt&apos;" description="Rename resource &apos;ReadMe.txt&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="ReadMe.txt" name="readme.txt" stamp="1421044350131" updateReferences="true"/>&#x0A;<refactoring comment="Create method InitOtherValue" description="Extract Method Refactoring" fileName="file:/C:/ProgramFiels/EclipseForC++/eclipse/workspace/AutoCoding/src/init.cpp" flags="4" id="org.eclipse.cdt.internal.ui.refactoring.extractfunction.ExtractFunctionRefactoring" name="InitOtherValue" replaceDuplicates="false" selection="491,574" stamp="1421054727162" visibility="private"/>
-</session>
