@@ -1,9 +1,0 @@
-09:26:14 **** Incremental Build of configuration Debug for project newWS ****
-make all 
-Cannot run program "make": Launching failed
-
-Error: Program "make" not found in PATH
-PATH=[D:\ProgramFileW\EclipseForC++\eclipse;D:/ProgramFileW/java/bin/server;D:/ProgramFileW/java/bin;D:/ProgramFileW/java/lib/amd64;D:\ProgramFileW\oracle10g\product\10.2.0\client_1\bin;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;D:\ProgramFileW\TortoiseSVN\bin;D:\ProgramFileW\MinGW\bin;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SDKs\TypeScript\1.0\;C:\Program Files (x86)\Common Files\Acronis\SnapAPI\]
-
-09:26:15 Build Finished (took 208ms)
-

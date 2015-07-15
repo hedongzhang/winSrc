@@ -1,8 +1,0 @@
-LATN_ID                            1    string   -    -
-ACC_NBR                            2    string   -    -LATN_ID                            3    string   -    -
-ACC_NBR                            4    string   -    -
-DATA                               5    string   -    -
-STAFF_NAME                         6    string   -    -
-CHANNEL_NAME                       7    string   -    -
-TOTAL_MONEY                        8    string   -    -
-PDF_PATH                           9    string   -    -

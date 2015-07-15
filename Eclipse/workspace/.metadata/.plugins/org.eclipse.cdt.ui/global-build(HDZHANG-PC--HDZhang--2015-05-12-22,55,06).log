@@ -1,4 +1,0 @@
-22:55:02 **** Incremental Build of configuration Debug for project AutoCoding ****
-Info: Internal Builder is used for build
-g++ -std=c++11 "-IF:\\°Ù¶ÈÔÆ\\ÎÄµµ\\MyProject\\workspace\\AutoCoding\\inc" -O0 -ggdb -Wall -c -fmessage-length=0 -o "src\\ACConfManager.o" "..\\src\\ACConfManager.cpp" 
-g++ -o AutoCoding.exe "src\\ACService.o" "src\\ACManager.o" "src\\ACConfManager.o" main.o 
