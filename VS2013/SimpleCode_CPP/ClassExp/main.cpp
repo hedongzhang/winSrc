@@ -4,13 +4,17 @@
 void main()
 {
 	ClassTemp classTemp;
-	classTemp.print();
+	cout << classTemp << endl;
 	FirendClass firendClass;
+	firendClass.printf();
 	firendClass.setValue(classTemp, 8);
-	classTemp.print();
+	//cout << classTemp << endl;
+
+	firendClass=classTemp + firendClass;
+	firendClass.printf();
 
 	ClassTemp classTemp1(classTemp);
-	classTemp1.print();
+	//cout << classTemp1 << endl;
 
 	system("pause");
 }
