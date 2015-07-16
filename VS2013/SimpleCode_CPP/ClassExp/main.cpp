@@ -1,7 +1,7 @@
 #include"ClassTemp.h"
 #include<iostream>
 
-void main()
+void main1()
 {
 	ClassTemp classTemp;
 	cout << classTemp << endl;
