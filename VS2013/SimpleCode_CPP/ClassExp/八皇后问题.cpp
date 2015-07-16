@@ -86,10 +86,10 @@ void bahuanghou(vector<int> xs, vector<int> ys, vector<pos> l_currPoss)
 
 
 
-int main(int argc, char *argv[])
+int mainBHH(int argc, char *argv[])
 {
-    vector<int> xs={0,1,2,3,4,5,6,7,8};
-    vector<int> ys={0,1,2,3,4,5,6,7,8};
+    vector<int> xs={0,1,2,3,4,5,6,7};
+    vector<int> ys={0,1,2,3,4,5,6,7};
 	vector<pos> l_currPoss;
 	l_currPoss.clear();
     bahuanghou(xs,ys,l_currPoss);

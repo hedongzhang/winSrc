@@ -1,3 +1,4 @@
+#pragma once
 #include<iostream>
 using namespace std;
 
@@ -7,12 +8,17 @@ public:
 	ClassTemp();
 	virtual ~ClassTemp();
 
+	virtual void setValue(int value);
+
 	friend class FirendClass;
 	int print();
 	friend ostream& operator<<(ostream&, ClassTemp);
 	ClassTemp& operator+(ClassTemp& tempclass1);
 private:
 	int value=0;
+public:
+	static int count;
+	static int getCout();
 };
 
 

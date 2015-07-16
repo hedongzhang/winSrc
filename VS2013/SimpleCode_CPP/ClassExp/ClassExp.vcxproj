@@ -65,10 +65,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ClassTemp.h" />
+    <ClInclude Include="SonClass.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ClassTemp.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SonClass.cpp" />
     <ClCompile Include="八皇后问题.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
