@@ -15,9 +15,11 @@ CONFIG += c++11
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    tempclass.cpp
+    parentclass.cpp \
+    sonclass.cpp
 
 HEADERS  += mainwindow.h \
-    tempclass.h
+    parentclass.h \
+    sonclass.h
 
 FORMS    += mainwindow.ui

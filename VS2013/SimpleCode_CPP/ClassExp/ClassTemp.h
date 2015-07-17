@@ -5,7 +5,7 @@ using namespace std;
 class ClassTemp
 {
 public:
-	ClassTemp();
+	 ClassTemp();
 	virtual ~ClassTemp();
 
 	virtual void setValue(int value);

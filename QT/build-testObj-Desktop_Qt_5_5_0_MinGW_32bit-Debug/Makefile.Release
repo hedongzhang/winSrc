@@ -45,16 +45,20 @@ OBJECTS_DIR   = release/
 
 SOURCES       = ../testObj/main.cpp \
 		../testObj/mainwindow.cpp \
-		../testObj/tempclass.cpp release/moc_mainwindow.cpp
+		../testObj/parentclass.cpp \
+		../testObj/sonclass.cpp release/moc_mainwindow.cpp
 OBJECTS       = release/main.o \
 		release/mainwindow.o \
-		release/tempclass.o \
+		release/parentclass.o \
+		release/sonclass.o \
 		release/moc_mainwindow.o
 
 DIST          =  ../testObj/mainwindow.h \
-		../testObj/tempclass.h ../testObj/main.cpp \
+		../testObj/parentclass.h \
+		../testObj/sonclass.h ../testObj/main.cpp \
 		../testObj/mainwindow.cpp \
-		../testObj/tempclass.cpp
+		../testObj/parentclass.cpp \
+		../testObj/sonclass.cpp
 QMAKE_TARGET  = testObj
 DESTDIR        = release/ #avoid trailing-slash linebreak
 TARGET         = testObj.exe
@@ -93,7 +97,7 @@ dist:
 	$(ZIP) testObj.zip $(SOURCES) $(DIST) ../testObj/testObj.pro C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/features/spec_pre.prf C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/qdevice.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/features/device_config.prf C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/qconfig.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_3dcore.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_3dcore_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_3dinput.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_3dinput_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_3dquick.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_3dquick_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_3dquickrenderer.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_3dquickrenderer_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_3drenderer.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_3drenderer_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_axbase.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_axbase_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_axcontainer.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_axcontainer_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_axserver.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_axserver_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_bluetooth.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_bluetooth_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_bootstrap_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_clucene_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_concurrent.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_concurrent_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_core.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_core_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_dbus.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_dbus_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_declarative.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_declarative_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_designer.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_designer_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_designercomponents_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_enginio.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_enginio_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_gui.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_gui_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_help.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_help_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_location.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_location_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_multimedia.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_multimedia_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_multimediawidgets.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_multimediawidgets_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_network.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_network_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_nfc.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_nfc_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_opengl.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_opengl_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_openglextensions.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_openglextensions_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_platformsupport_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_positioning.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_positioning_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_printsupport.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_printsupport_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_qml.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_qml_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_qmldevtools_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_qmltest.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_qmltest_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_qtmultimediaquicktools_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_quick.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_quick_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_quickparticles_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_quickwidgets.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_quickwidgets_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_script.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_script_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_scripttools.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_scripttools_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_sensors.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_sensors_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_serialport.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_serialport_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_sql.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_sql_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_svg.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_svg_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_testlib.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_testlib_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_uiplugin.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_uitools.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_uitools_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_webchannel.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_webchannel_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_webkit.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_webkit_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_webkitwidgets.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_webkitwidgets_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_websockets.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_websockets_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_widgets.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_widgets_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_winextras.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_winextras_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_xml.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_xml_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_xmlpatterns.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_xmlpatterns_private.pri C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/features/qt_functions.prf C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/features/qt_config.prf C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/features/win32/qt_config.prf C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/win32-g++/qmake.conf C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/features/spec_post.prf C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/features/exclusive_builds.prf C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/features/default_pre.prf C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/features/win32/default_pre.prf C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/features/resolve_config.prf C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/features/exclusive_builds_post.prf C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/features/default_post.prf C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/features/build_pass.prf C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/features/c++11.prf C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/features/win32/rtti.prf C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/features/precompile_header.prf C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/features/warn_on.prf C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/features/qt.prf C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/features/resources.prf C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/features/moc.prf C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/features/win32/opengl.prf C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/features/uic.prf C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/features/win32/windows.prf C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/features/testcase_targets.prf C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/features/exceptions.prf C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/features/yacc.prf C:/ProgramFiels/Qt/5.5/mingw492_32/mkspecs/features/lex.prf ../testObj/testObj.pro C:/ProgramFiels/Qt/5.5/mingw492_32/lib/qtmain.prl C:/ProgramFiels/Qt/5.5/mingw492_32/lib/Qt5Widgets.prl C:/ProgramFiels/Qt/5.5/mingw492_32/lib/Qt5Gui.prl C:/ProgramFiels/Qt/5.5/mingw492_32/lib/Qt5Core.prl  NO_PCH_SOURCES RESOURCES HEADERS SOURCES OBJECTIVE_SOURCES FORMS YACCSOURCES YACCSOURCES LEXSOURCES 
 
 clean: compiler_clean 
-	-$(DEL_FILE) release/main.o release/mainwindow.o release/tempclass.o release/moc_mainwindow.o
+	-$(DEL_FILE) release/main.o release/mainwindow.o release/parentclass.o release/sonclass.o release/moc_mainwindow.o
 
 distclean: clean 
 	-$(DEL_FILE) $(DESTDIR_TARGET)
@@ -346,14 +350,15 @@ release/main.o: ../testObj/main.cpp ../testObj/mainwindow.h \
 		C:/ProgramFiels/Qt/5.5/mingw492_32/include/QtGui/qtouchdevice.h \
 		C:/ProgramFiels/Qt/5.5/mingw492_32/include/QtWidgets/qtabwidget.h \
 		C:/ProgramFiels/Qt/5.5/mingw492_32/include/QtGui/qicon.h \
-		../testObj/tempclass.h \
 		C:/ProgramFiels/Qt/5.5/mingw492_32/include/QtWidgets/QApplication \
 		C:/ProgramFiels/Qt/5.5/mingw492_32/include/QtWidgets/qapplication.h \
 		C:/ProgramFiels/Qt/5.5/mingw492_32/include/QtCore/qcoreapplication.h \
 		C:/ProgramFiels/Qt/5.5/mingw492_32/include/QtCore/qeventloop.h \
 		C:/ProgramFiels/Qt/5.5/mingw492_32/include/QtWidgets/qdesktopwidget.h \
 		C:/ProgramFiels/Qt/5.5/mingw492_32/include/QtGui/qguiapplication.h \
-		C:/ProgramFiels/Qt/5.5/mingw492_32/include/QtGui/qinputmethod.h
+		C:/ProgramFiels/Qt/5.5/mingw492_32/include/QtGui/qinputmethod.h \
+		../testObj/parentclass.h \
+		../testObj/sonclass.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/main.o ../testObj/main.cpp
 
 release/mainwindow.o: ../testObj/mainwindow.cpp ../testObj/mainwindow.h \
@@ -510,8 +515,11 @@ release/mainwindow.o: ../testObj/mainwindow.cpp ../testObj/mainwindow.h \
 		C:/ProgramFiels/Qt/5.5/mingw492_32/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/mainwindow.o ../testObj/mainwindow.cpp
 
-release/tempclass.o: ../testObj/tempclass.cpp ../testObj/tempclass.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/tempclass.o ../testObj/tempclass.cpp
+release/parentclass.o: ../testObj/parentclass.cpp ../testObj/parentclass.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/parentclass.o ../testObj/parentclass.cpp
+
+release/sonclass.o: ../testObj/sonclass.cpp ../testObj/sonclass.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/sonclass.o ../testObj/sonclass.cpp
 
 release/moc_mainwindow.o: release/moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/moc_mainwindow.o release/moc_mainwindow.cpp

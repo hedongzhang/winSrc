@@ -5,14 +5,23 @@
 
 void main()
 {
+	ClassTemp* pTempClass=new ClassTemp;
+	pTempClass->setValue(10);
+	pTempClass->print();
 
-	SonClass sonClass;
-	sonClass.setValue(190);
+	SonClass* pSonClass =static_cast<SonClass>(pTempClass);
+	delete(pSonClass);
+
+	
+
+
+	/*SonClass sonClass;
+	sonClass.setValue(20);
 	sonClass.print();
 
-	ClassTemp* pTClass = &sonClass;
-	pTClass->setValue(190);
-	pTClass->print();
+	ClassTemp* pTempClass=&sonClass;
+	pTempClass->setValue(20);
+	pTempClass->print();*/
 
 	system("pause");
 }
