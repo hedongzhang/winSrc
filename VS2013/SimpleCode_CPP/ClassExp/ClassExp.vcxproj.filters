@@ -18,12 +18,21 @@
     <ClInclude Include="ClassTemp.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="SonClass.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ClassTemp.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="八皇后问题.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SonClass.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,6 +1,8 @@
 #include "ClassTemp.h"
 #include<iostream>
 
+int ClassTemp::count = 0;
+
 ClassTemp::ClassTemp()
 {
 }
@@ -10,6 +12,11 @@ ClassTemp::~ClassTemp()
 {
 }
 
+
+void ClassTemp::setValue(int value)
+{
+	this->value = value;
+}
 
 int ClassTemp::print()
 {
@@ -21,6 +28,11 @@ ClassTemp& ClassTemp::operator+(ClassTemp& tempclass)
 {
 	this->value += tempclass.value;
 	return *this;
+}
+
+int ClassTemp::getCout()
+{
+	return ClassTemp::count;
 }
 
 void FirendClass::setValue(ClassTemp& classTemp,int value)

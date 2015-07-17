@@ -1,6 +1,6 @@
 #include "tempclass.h"
 #include<iostream>
-
+#include<cmath>
 
 tempclass::tempclass()
 {

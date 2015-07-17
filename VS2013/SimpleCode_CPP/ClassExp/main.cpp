@@ -1,20 +1,18 @@
 #include"ClassTemp.h"
+#include"SonClass.h"
 #include<iostream>
+
 
 void main()
 {
-	ClassTemp classTemp;
-	cout << classTemp << endl;
-	FirendClass firendClass;
-	firendClass.printf();
-	firendClass.setValue(classTemp, 8);
-	//cout << classTemp << endl;
 
-	firendClass=classTemp + firendClass;
-	firendClass.printf();
+	SonClass sonClass;
+	sonClass.setValue(190);
+	sonClass.print();
 
-	ClassTemp classTemp1(classTemp);
-	//cout << classTemp1 << endl;
+	ClassTemp* pTClass = &sonClass;
+	pTClass->setValue(190);
+	pTClass->print();
 
 	system("pause");
 }
