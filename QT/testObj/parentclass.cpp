@@ -3,7 +3,7 @@
 
 using namespace std;
 
-ParentClass::ParentClass():value(5)
+ParentClass::ParentClass()
 {
     cout<<"父类构造函数"<<endl;
 }
@@ -13,7 +13,8 @@ ParentClass::~ParentClass()
     cout<<"父类析构函数"<<endl;
 }
 
-int ParentClass::setValue(int value)
+template<class T>
+int ParentClass::setValue(T value)
 {
     this->value=value;
 }
