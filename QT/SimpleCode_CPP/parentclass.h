@@ -1,7 +1,7 @@
 #ifndef PARENTCLASS_H
 #define PARENTCLASS_H
 
-template<class T>
+
 class ParentClass
 {
 public:
@@ -9,11 +9,10 @@ public:
     virtual ~ParentClass();
 
 public:
-    extern virtual int setValue(T value);
-    extern int print();
-    //virtual int tempMet();
+    int setValue(int value);
+    int print();
 private:
-    T value;
+    int value=0;
 };
 
 #endif // PARENTCLASS_H
