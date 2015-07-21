@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int mainEx()
+void main()
 {
 	
 

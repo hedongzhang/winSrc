@@ -1,27 +1,22 @@
 #include"ClassTemp.h"
 #include"SonClass.h"
 #include<iostream>
-
+#include"MyArray.h"
+#include<string>
+#include<array>
 
 void main()
 {
-	ClassTemp* pTempClass=new ClassTemp;
-	pTempClass->setValue(10);
-	pTempClass->print();
+	MyArray<> myArray;
+	myArray[0] = 0;
+	myArray[1] = 1;
+	myArray[2] = 2;
+	myArray[3] = 3;
+	myArray[4] = 4;
+	myArray.print();
 
-	SonClass* pSonClass =static_cast<SonClass>(pTempClass);
-	delete(pSonClass);
-
-	
-
-
-	/*SonClass sonClass;
-	sonClass.setValue(20);
-	sonClass.print();
-
-	ClassTemp* pTempClass=&sonClass;
-	pTempClass->setValue(20);
-	pTempClass->print();*/
+	int str = myArray;
+	cout << str << endl;
 
 	system("pause");
 }

@@ -12,21 +12,17 @@ SonClass::~SonClass()
     cout<<"子类析造函数"<<endl;
 }
 
-int SonClass::setValue(int value)
+void SonClass::setValue(int value)
 {
     this->sonValue=value*value;
 }
 
-int SonClass::print(int a)
-{
-    cout<<"子类值："<<this->sonValue<<endl;
-}
-int SonClass::print()
+void SonClass::print()
 {
     cout<<"子类值："<<this->sonValue<<endl;
 }
 
-int SonClass::tempMet()
+void SonClass::tempMet()
 {
     cout<<"我是子类的tempMet函数"<<endl;
 }
