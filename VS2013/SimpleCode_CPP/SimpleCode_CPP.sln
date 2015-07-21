@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SimpleExp", "SimpleExp\Simp
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ClassExp", "ClassExp\ClassExp.vcxproj", "{BD0B1121-EDE9-4944-BAC2-0FE260F79A6A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MyLib", "MyLib\MyLib.vcxproj", "{9B39B59E-B5B8-47F1-B9A5-28120A799A4E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -21,6 +23,10 @@ Global
 		{BD0B1121-EDE9-4944-BAC2-0FE260F79A6A}.Debug|Win32.Build.0 = Debug|Win32
 		{BD0B1121-EDE9-4944-BAC2-0FE260F79A6A}.Release|Win32.ActiveCfg = Release|Win32
 		{BD0B1121-EDE9-4944-BAC2-0FE260F79A6A}.Release|Win32.Build.0 = Release|Win32
+		{9B39B59E-B5B8-47F1-B9A5-28120A799A4E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9B39B59E-B5B8-47F1-B9A5-28120A799A4E}.Debug|Win32.Build.0 = Debug|Win32
+		{9B39B59E-B5B8-47F1-B9A5-28120A799A4E}.Release|Win32.ActiveCfg = Release|Win32
+		{9B39B59E-B5B8-47F1-B9A5-28120A799A4E}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
