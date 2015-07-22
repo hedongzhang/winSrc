@@ -4,21 +4,20 @@
 #include<string>
 using namespace std;
 
-#define MAX_SIZE 20
+#define MAX_SIZE 50000000
 
-struct BigNum
+class BigNum
 {
 private:
 	char data[MAX_SIZE];
 	char* pDataEnd;
 	int size;
+
 public:
-	BigNum(const char* pData)
+	//构造函数
+	BigNum(const char* pData) :pDataEnd(nullptr), size(0)
 	{
-		for (size_t i = 0; i < MAX_SIZE; i++)
-		{
-			data[i] = '\0';
-		}
+		//init(0);
 
 		if ((*pData) == '\0')
 		{
@@ -50,7 +49,116 @@ public:
 		this->pDataEnd = data + index - 1;
 		this->size = index;
 	}
+	BigNum(int intValue) :pDataEnd(nullptr), size(0)
+	{
+		if (intValue == 0)
+		{
+			init(1);
+			return;
+		}
+		init(0);
+		while (intValue>0 && this->size<MAX_SIZE)
+		{
+			data[this->size] = intValue % 10+'0';
+			intValue /= 10;
+			(this->size)++;
+		}
+		this->pDataEnd = this->data+size-1;
+	}
+	//拷贝构造函数
+	BigNum(const BigNum& other)
+	{
+		for (size_t i = 0; i < MAX_SIZE; i++)
+		{
+			this->data[i] = other.data[i];
+		}
+		this->size = other.size;
+		this->pDataEnd = this->data + size-1;
+	}
 
+	BigNum& operator=(BigNum& other)
+	{
+		for (size_t i = 0; i < MAX_SIZE; i++)
+		{
+			this->data[i] = other.data[i];
+		}
+		this->size = other.size;
+		this->pDataEnd = this->data + size - 1;
+		return *this;
+	}
+
+	//初始化（数据置零）
+	void init(int type)
+	{	
+		for (size_t i = 0; i < MAX_SIZE; i++)
+		{
+			data[i] = '\0';
+		}
+		if (type == 0)
+		{
+			data[0] = '\0';
+			this->size = 0;
+			this->pDataEnd = this->data;
+		}
+		else
+		{
+			data[0] = '0';
+			this->size = 1;
+			this->pDataEnd = this->data;
+		}
+	}
+	//获取大数的位数
+	int getSize()
+	{
+		return this->size;
+	}
+
+public:
+	//比较大小
+	int cmp(BigNum& otherNum)
+	{
+		if (this->size>otherNum.size)
+		{
+			return 1;
+		}
+		else if (this->size<otherNum.size)
+		{
+			return -1;
+		}
+		else
+		{
+			char* myCurrPtr = this->pDataEnd;
+			char* otherCurrPtr = otherNum.pDataEnd;
+
+			while ( (myCurrPtr + 1) != this->data && (otherCurrPtr+1)!=otherNum.data)
+			{
+				if ((*myCurrPtr) > (*otherCurrPtr))
+				{
+					return 1;
+				}
+				else if ((*myCurrPtr) < (*otherCurrPtr))
+				{
+					return -1;
+				}
+				else
+				{
+					myCurrPtr--;
+					otherCurrPtr--;
+				}
+			}
+			return 0;
+		}
+	}
+	bool operator >(BigNum& otherNum)
+	{
+		if (this->cmp(otherNum) > 0)
+		{
+			return true;
+		}
+		return false;
+	}
+	
+	//相加
 	void add(BigNum& otherNum)
 	{
 		char* pOtherDataEnd = otherNum.data;
@@ -77,7 +185,7 @@ public:
 			(this->pDataEnd)++;
 			this->size++;
 		}
-		if (this->size < MAX_SIZE)
+		if (this->size < MAX_SIZE && jinwei!=0)
 		{
 			*(this->pDataEnd) = jinwei + '0';
 		}
@@ -87,27 +195,85 @@ public:
 			this->size--;
 		}
 	}
+	//相减
+	void sub(BigNum& otherNum)
+	{
+		if (this->cmp(otherNum) <= 0)
+		{
+			this->init(1);
+		}
+		else
+		{
+			int jiewei = 0;		//借位
+			char* pMyCurrPtr = this->data;
+			char* pOtherCurrPtr = otherNum.data;
+			while (pMyCurrPtr!=this->pDataEnd+1)
+			{
+				if (*pOtherCurrPtr != '\0')
+				{
+					jiewei += *pOtherCurrPtr;
+				}
+				else
+				{
+					jiewei += '0';
+				}
 
+				if ((*pMyCurrPtr) >= jiewei)
+				{
+					*pMyCurrPtr = *pMyCurrPtr - jiewei + '0';
+					jiewei = 0;
+				}
+				else
+				{
+					*pMyCurrPtr = 10 + *pMyCurrPtr - jiewei + '0';
+					jiewei = 1;
+				}
+
+				pMyCurrPtr++;
+				pOtherCurrPtr++;
+			}
+			while (*this->pDataEnd == '0' && this->pDataEnd>this->data)
+			{
+				*(this->pDataEnd) = '\0';
+				this->pDataEnd--;
+				this->size--;
+			}
+		}
+	}
+	BigNum operator--()
+	{
+		BigNum tempNum(1);
+		this->sub(tempNum);
+		return *this;
+	}
+	//相乘
 	void mul(BigNum& otherNum)
 	{
-		char* pCurrChar = otherNum.data;
-		char tempData[MAX_SIZE + MAX_SIZE] = { 0 };
-		char* pTempData = tempData;
+		BigNum tempNum(0);
+		if (otherNum > tempNum)
+		{
+			char* pCurrChar = otherNum.data;
+			char tempData[MAX_SIZE + MAX_SIZE] = { 0 };
+			char* pTempData = tempData;
 
-		while (*pCurrChar != '\0')
-		{
-			mulBase(this->data, pTempData++, pCurrChar++);
+			while (*pCurrChar != '\0')
+			{
+				mulBase(this->data, pTempData++, pCurrChar++);
+			}
+			//memset(this->data, 0, sizeof(this->data));
+			strncpy(this->data, tempData, MAX_SIZE - 1);
+			this->size = 0;
+			while (this->data[this->size] != '\0')
+			{
+				this->size++;
+			}
+			this->pDataEnd = this->data + size - 1;
 		}
-		//memset(this->data, 0, sizeof(this->data));
-		strncpy(this->data, tempData, MAX_SIZE - 1);
-		this->size = 0;
-		while (this->data[this->size] != '\0')
+		else
 		{
-			this->size++;
+			init(1);
 		}
-		this->pDataEnd = this->data + size - 1;
 	}
-
 	void mulBase(char*  pData, char* pStartPos, char* currChar)
 	{
 		int currValue = *currChar - '0';
@@ -141,12 +307,42 @@ public:
 
 	}
 
-	void printf()
+	//相除
+	void div(BigNum& otherNum)
 	{
-		char* pCurr = this->pDataEnd;
-		while (pCurr != this->data - 1)
+		if (this->size < otherNum.size)
 		{
-			cout << *pCurr--;
+			init(1);
+		}
+		else
+		{
+
+		}
+			
+	}
+
+	//阶乘
+	static BigNum factorial(BigNum startNum, BigNum countNum)
+	{
+		BigNum tempNum(0);
+		BigNum tempMulNum(1);
+		while (countNum>tempNum)
+		{
+			tempMulNum.mul(startNum);
+			--startNum;
+			--countNum;
+			//temp.print();
+		}
+		//bigNum1.print();
+		return tempMulNum;
+	}
+
+	void print()
+	{
+		char* pCurrPtr = this->pDataEnd;
+		while (pCurrPtr != this->data - 1)
+		{
+			cout << *pCurrPtr--;
 		}
 		cout << endl;
 	}
@@ -154,14 +350,16 @@ public:
 
 
 
-void mainBD()
+void main()
 {
 	char mod = 0;
-	cout << "请选择模式：加：+、乘：*、退出：0\n";
-	cin >> mod;
-	cout << endl;
+	
 	while (mod != '0')
 	{
+		cout << "请选择模式======<<  加：+、减：-、乘：*、除：/、阶乘：！、退出：0 >>======\n\n";
+		cin >> mod;
+		cout << endl;
+
 		string value1;
 		string value2;
 		cout << "输入第一个数：";
@@ -177,20 +375,43 @@ void mainBD()
 			bigNum1.add(bigNum2);
 			cout << "相加";
 		}
+		else if (mod == '-')
+		{
+			bigNum1.sub(bigNum2);
+			cout << "相减";
+		}
 		else if (mod == '*')
 		{
 			bigNum1.mul(bigNum2);
 			cout << "相乘";
 		}
-		cout << "结果是：";
-		bigNum1.printf();
-		cout << endl;
-
-
-		cout << "请选择模式：加：+、乘：*、退出：0";
-		cin >> mod;
+		else if (mod == '/')
+		{
+			bigNum1.div(bigNum2);
+			cout << "相除";
+		}
+		else if(mod == '!')
+		{
+			bigNum1 = BigNum::factorial(bigNum1, bigNum2);
+			cout << "阶乘";
+		}
+		else
+		{
+			continue;
+		}
+		
+		cout << "结果是："<<endl;
+		bigNum1.print();
+		cout << "位数是：";
+		cout << bigNum1.getSize();
 		cout << endl;
 	}
+
+	
+	/*//大数阶乘
+	BigNum bigNum1 = BigNum::factorial(1000);
+	bigNum1.print();
+	cout << bigNum1.getSize() << endl;*/
 
 	system("pause");
 }

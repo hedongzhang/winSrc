@@ -15,6 +15,8 @@ public:
     virtual void tempMet();
 private:
     int sonValue;
+    double doubleValue;
+    char sonStr[20];
 };
 
 #endif // SONCLASS_H
