@@ -68,6 +68,7 @@
   <ItemGroup>
     <ClCompile Include="BigData.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="位运算实现算数运算.cpp" />
     <ClCompile Include="多线程.cpp" />
     <ClCompile Include="模板元编程.cpp" />
     <ClCompile Include="强制 类型转换.cpp" />

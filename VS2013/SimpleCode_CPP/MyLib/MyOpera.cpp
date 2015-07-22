@@ -5,9 +5,16 @@ using namespace std;
 
 int main()
 {	
-	int i = 0;
-	int j = 9;
-	/*int z = add<int>(i , j);
-	cout << z<< endl;*/
+	while (true)
+	{
+		int i;
+		int j ;
+		cin >> i >> j;
+		int z = add<int>(i, j);
+		cout << z << endl;
+
+		system("pause");
+	}
+	
 	return 1;
 }
