@@ -1,3 +1,0 @@
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\SimpleCode_CPP.dir/objects.a
-C:\ProgramFiels\Qt\Tools\mingw492_32\bin\ar.exe cr CMakeFiles\SimpleCode_CPP.dir/objects.a @CMakeFiles\SimpleCode_CPP.dir\objects1.rsp
-C:\ProgramFiels\Qt\Tools\mingw492_32\bin\g++.exe     -Wl,--whole-archive CMakeFiles\SimpleCode_CPP.dir/objects.a -Wl,--no-whole-archive  -o SimpleCode_CPP.exe -Wl,--out-implib,libSimpleCode_CPP.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\SimpleCode_CPP.dir\linklibs.rsp

@@ -10,12 +10,13 @@ public:
     ~SonClass();
 
 public:
-    int setValue(int value);
-    int print();
-    int print(int a);
-    virtual int tempMet();
+    void setValue(int value);
+    void print();
+    virtual void tempMet();
 private:
     int sonValue;
+    double doubleValue;
+    char sonStr[20];
 };
 
 #endif // SONCLASS_H
