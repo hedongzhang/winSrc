@@ -1,7 +1,7 @@
 /*
  * ACSQLManager.h
  *
- *  Created on: 2015å¹´5æœˆ14æ—¥
+ *  Created on: 2015Äê5ÔÂ14ÈÕ
  *      Author: HDZhang
  */
 
@@ -15,16 +15,16 @@ class ACSQLManager
 public:
 	ACSQLManager(ACService service);
 
-	/*ç”Ÿæˆsqlè„šæœ¬
+	/*Éú³Ésql½Å±¾
 	 *
 	 */
 	int complateSQLScript();
 
-	//åˆ›å»ºæœåŠ¡é…ç½®sqlè„šæœ¬
+	//´´½¨·şÎñÅäÖÃsql½Å±¾
 	int creatServiceSQL();
-	//åˆ›å»ºsqlé…ç½®sqlè„šæœ¬
+	//´´½¨sqlÅäÖÃsql½Å±¾
 	int creatSQLParamSQL();
-	//åˆ›å»ºå‚æ•°é…ç½®sqlè„šæœ¬
+	//´´½¨²ÎÊıÅäÖÃsql½Å±¾
 	int creatParamCodeDetailSQL();
 private:
 	ACService service;

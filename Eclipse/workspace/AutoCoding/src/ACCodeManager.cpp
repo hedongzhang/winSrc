@@ -1,7 +1,7 @@
 /*
  * ACCodeManager.cpp
  *
- *  Created on: 2015å¹´5æœˆ14æ—¥
+ *  Created on: 2015Äê5ÔÂ14ÈÕ
  *      Author: HDZhang
  */
 
@@ -13,22 +13,22 @@ using namespace n_acmanager;
 
 ACCodeManager::ACCodeManager(ACService service):service(service)
 {
-	cout<<endl<<"=====å¼€å§‹åˆå§‹åŒ–ACCodeManager====="<<endl;
+	cout<<endl<<"=====¿ªÊ¼³õÊ¼»¯ACCodeManager====="<<endl;
 	if(init()==n_acmanager::RETURN_SUCCESS)
 	{
-		cout<<"=====åˆå§‹åŒ–ACCodeManagerå®Œæˆ====="<<endl;
+		cout<<"=====³õÊ¼»¯ACCodeManagerÍê³É====="<<endl;
 		if(start()==n_acmanager::RETURN_SUCCESS)
 		{
-			cout<<endl<<"=====ç”Ÿæˆä»£ç æ–‡ä»¶æˆåŠŸ====="<<endl;
+			cout<<endl<<"=====Éú³É´úÂëÎÄ¼þ³É¹¦====="<<endl;
 		}
 		else
 		{
-			cout<<endl<<"=====ç”Ÿæˆä»£ç æ–‡ä»¶å¤±è´¥====="<<endl;
+			cout<<endl<<"=====Éú³É´úÂëÎÄ¼þÊ§°Ü====="<<endl;
 		}
 	}
 	else
 	{
-		cout<<"=====åˆå§‹åŒ–ACCodeManagerå¤±è´¥=====";
+		cout<<"=====³õÊ¼»¯ACCodeManagerÊ§°Ü=====";
 	}
 }
 
@@ -38,7 +38,7 @@ int ACCodeManager::init()
 	this->srcInputPath=this->service.m_KeyValue.find("@SOURC_TEMPLATE_TYPE@")->second;
 	if(this->headInputPath.empty() || this->srcInputPath.empty())
 	{
-		cout<<"æ— å¤´æ–‡ä»¶æˆ–è€…æºæ–‡ä»¶æ¨¡æ¿ï¼Œæ— æ³•ç”Ÿæˆä»£ç æ–‡ä»¶ï¼"<<endl;
+		cout<<"ÎÞÍ·ÎÄ¼þ»òÕßÔ´ÎÄ¼þÄ£°å£¬ÎÞ·¨Éú³É´úÂëÎÄ¼þ£¡"<<endl;
 		return n_acmanager::RETURN_FAILED;
 	}
 
@@ -63,7 +63,7 @@ int ACCodeManager::init()
 	{
 		this->upperClassName[indexTemp]=toupper(this->upperClassName[indexTemp]);
 	}
-	cout<<className<<endl<<"ç”Ÿæˆï¼š\n"<<this->coreClassName<<endl<<this->upperClassName<<endl;
+	cout<<className<<endl<<"Éú³É£º\n"<<this->coreClassName<<endl<<this->upperClassName<<endl;
 
 
 
@@ -72,18 +72,18 @@ int ACCodeManager::init()
 
 int ACCodeManager::start()
 {
-	cout<<"=====å¼€å§‹åˆ›å»ºä»£ç æ–‡ä»¶====="<<endl;
+	cout<<"=====¿ªÊ¼´´½¨´úÂëÎÄ¼þ====="<<endl;
 	if(creatHeadFile()!=n_acmanager::RETURN_SUCCESS)
 	{
-		cout<<"=====åˆ›å»ºå¤´æ–‡ä»¶å¤±è´¥====="<<endl;
+		cout<<"=====´´½¨Í·ÎÄ¼þÊ§°Ü====="<<endl;
 		return n_acmanager::RETURN_FAILED;
 	}
 	if(creatSrcFile()!=n_acmanager::RETURN_SUCCESS)
 	{
-		cout<<"=====åˆ›å»ºæºæ–‡ä»¶å¤±è´¥====="<<endl;
+		cout<<"=====´´½¨Ô´ÎÄ¼þÊ§°Ü====="<<endl;
 		return n_acmanager::RETURN_FAILED;
 	}
-	cout<<"=====åˆ›å»ºä»£ç å®Œæˆ====="<<endl;
+	cout<<"=====´´½¨´úÂëÍê³É====="<<endl;
 	return n_acmanager::RETURN_SUCCESS;
 }
 
@@ -121,13 +121,13 @@ int ACCodeManager::creatHeadFile()
 		ofstre.flush();
 		ofstre.close();
 		ifstre.close();
-		cout<<"=====ç”Ÿæˆå¤´æ–‡ä»¶å®Œæˆ====="<<endl;
+		cout<<"=====Éú³ÉÍ·ÎÄ¼þÍê³É====="<<endl;
 	}
 	else
 	{
 		ofstre.close();
 		ifstre.close();
-		cout<<"=====è¯»å–å¤´æ¨¡æ¿æ–‡ä»¶æˆ–æ‰“å¼€å¤´æ–‡ä»¶ç”Ÿæˆæ–‡ä»¶å¼‚å¸¸====="<<endl;
+		cout<<"=====¶ÁÈ¡Í·Ä£°åÎÄ¼þ»ò´ò¿ªÍ·ÎÄ¼þÉú³ÉÎÄ¼þÒì³£====="<<endl;
 		return n_acmanager::RETURN_FAILED;
 	}
 
@@ -168,13 +168,13 @@ int ACCodeManager::creatSrcFile()
 		ofstre.flush();
 		ofstre.close();
 		ifstre.close();
-		cout<<"=====ç”Ÿæˆæºæ–‡ä»¶å®Œæˆ====="<<endl;
+		cout<<"=====Éú³ÉÔ´ÎÄ¼þÍê³É====="<<endl;
 	}
 	else
 	{
 		ofstre.close();
 		ifstre.close();
-		cout<<"=====è¯»å–æºæ¨¡æ¿æ–‡ä»¶æˆ–æ‰“å¼€æºæ–‡ä»¶ç”Ÿæˆæ–‡ä»¶å¼‚å¸¸====="<<endl;
+		cout<<"=====¶ÁÈ¡Ô´Ä£°åÎÄ¼þ»ò´ò¿ªÔ´ÎÄ¼þÉú³ÉÎÄ¼þÒì³£====="<<endl;
 		return n_acmanager::RETURN_FAILED;
 	}
 

@@ -1,7 +1,7 @@
 /*
  * ACCodeManager.h
  *
- *  Created on: 2015å¹´5æœˆ14æ—¥
+ *  Created on: 2015Äê5ÔÂ14ÈÕ
  *      Author: HDZhang
  */
 
@@ -37,17 +37,17 @@ public:
 
 private:
 	ACService service;
-	string coreClassName;		//ç”¨äºæ›¿æ¢å…³é”®å­—
-	string upperClassName;		//ç”¨äºæ›¿æ¢å¤´æ–‡ä»¶é¢„å®šä¹‰å®å…³é”®å­—
+	string coreClassName;		//ÓÃÓÚÌæ»»¹Ø¼ü×Ö
+	string upperClassName;		//ÓÃÓÚÌæ»»Í·ÎÄ¼şÔ¤¶¨Òåºê¹Ø¼ü×Ö
 
-	string headInputPath;		//å¤´æ–‡ä»¶è¾“å…¥è·¯å¾„
-	string headOutputPath;		//å¤´æ–‡ä»¶è¾“å‡ºè·¯å¾„
+	string headInputPath;		//Í·ÎÄ¼şÊäÈëÂ·¾¶
+	string headOutputPath;		//Í·ÎÄ¼şÊä³öÂ·¾¶
 
-	string srcInputPath;		//æºæ–‡ä»¶è¾“å…¥è·¯å¾„
-	string srcOutputPath;		//æºæ–‡ä»¶è¾“å‡ºè·¯å¾„
+	string srcInputPath;		//Ô´ÎÄ¼şÊäÈëÂ·¾¶
+	string srcOutputPath;		//Ô´ÎÄ¼şÊä³öÂ·¾¶
 
-	string AssemblyHead;        //åŠ¨æ€æ‹¼æ¥çš„å¤´å­—ä¸²
-	string AssemblyEnd;         //åŠ¨æ€æ‹¼æ¥çš„å°¾å­—ä¸²
+	string AssemblyHead;        //¶¯Ì¬Æ´½ÓµÄÍ·×Ö´®
+	string AssemblyEnd;         //¶¯Ì¬Æ´½ÓµÄÎ²×Ö´®
 
 
 	const string paramTmplString="\n"
