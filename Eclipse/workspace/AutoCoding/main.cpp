@@ -1,7 +1,7 @@
 /*
  * main.cpp
  *
- *  Created on: 2014å¹´12æœˆ14æ—¥
+ *  Created on: 2014Äê12ÔÂ14ÈÕ
  *      Author: HDZhang
  */
 #include<stdlib.h>

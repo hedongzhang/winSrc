@@ -1,7 +1,7 @@
 /*
  * ACService.cpp
  *
- *  Created on: 2015å¹´5æœˆ5æ—¥
+ *  Created on: 2015Äê5ÔÂ5ÈÕ
  *      Author: HDZhang
  */
 
@@ -21,11 +21,11 @@ ACService::ACService(map<string,string>& baseMessage):m_KeyValue(baseMessage)
 	outputFields.clear();
 	//m_KeyValue.clear();
 
-	cout<<endl<<"=====å¼€å§‹åˆ›å»ºæœåŠ¡=====<"<<this->m_KeyValue.find("@SERVICE_NAME@")->second<<">"<<endl;
+	cout<<endl<<"=====¿ªÊ¼´´½¨·şÎñ=====<"<<this->m_KeyValue.find("@SERVICE_NAME@")->second<<">"<<endl;
 
 	if(init()!=RETURN_SUCCESS)
 	{
-		cout<<"=====ACServiceåˆå§‹åŒ–å¤±è´¥=====<"<<this->baseMess.name<<">"<<endl;
+		cout<<"=====ACService³õÊ¼»¯Ê§°Ü=====<"<<this->baseMess.name<<">"<<endl;
 	}
 }
 
@@ -34,12 +34,12 @@ ACService::~ACService()
 }
 
 
-/**********åˆå§‹åŒ–æœåŠ¡**********
+/**********³õÊ¼»¯·şÎñ**********
 	 *
 	 */
 int ACService::init()
 {
-	//æå–æœåŠ¡åŸºæœ¬ä¿¡æ¯
+	//ÌáÈ¡·şÎñ»ù±¾ĞÅÏ¢
 	this->baseMess.name=this->m_KeyValue.find("@SERVICE_NAME@")->second;
 	this->baseMess.sql=this->m_KeyValue.find("@SQL@")->second;
 	this->baseMess.class_id=this->m_KeyValue.find("@CLASS_ID@")->second;
@@ -49,13 +49,13 @@ int ACService::init()
 	this->baseMess.libName=this->m_KeyValue.find("@LIB_NAME@")->second;
 	//this->baseMess.type=this->m_KeyValue.find("@SERVICE_TYPE@")->second;
 
-	//åˆå§‹åŒ–ç”Ÿæˆå…¶ä»–æœåŠ¡ä¿¡æ¯
+	//³õÊ¼»¯Éú³ÉÆäËû·şÎñĞÅÏ¢
 	if(initOtherMessage()!=n_acmanager::RETURN_SUCCESS)
 	{
 		return n_acmanager::RETURN_FAILED;
 	}
 
-	//ç”Ÿæˆè¾“å…¥è¾“å‡ºå­—æ®µä¿¡æ¯
+	//Éú³ÉÊäÈëÊä³ö×Ö¶ÎĞÅÏ¢
 	if(this->m_KeyValue.find("@FIELDS@")!=m_KeyValue.end())
 	{
 		string fieldFilePath=this->m_KeyValue.find("@FIELDS@")->second;
@@ -68,17 +68,17 @@ int ACService::init()
 	{
 		if(initInputFields()==n_acmanager::RETURN_FAILED || initOutputFields()==n_acmanager::RETURN_FAILED)
 		{
-			cout<<"=====æ ¹æ®sqlåˆå§‹åŒ–è¾“å…¥è¾“å‡ºå­—æ®µå¤±è´¥ï¼====="<<endl;
+			cout<<"=====¸ù¾İsql³õÊ¼»¯ÊäÈëÊä³ö×Ö¶ÎÊ§°Ü£¡====="<<endl;
 			return n_acmanager::RETURN_FAILED;
 		}
 	}
 
-	//å¤„ç†é…ç½®æ–‡ä»¶
+	//´¦ÀíÅäÖÃÎÄ¼ş
 	ACConfManager acConfManager(*this);
-	//ç”Ÿæˆsqlè„šæœ¬
+	//Éú³Ésql½Å±¾
 	ACSQLManager acSQLManager(*this);
 
-	//æ‰“å°æœåŠ¡ä¿¡æ¯
+	//´òÓ¡·şÎñĞÅÏ¢
 	//printService();
 	ACCodeManager acCodeManager(*this);
 	//ACCodeManager acCodeManager("");
@@ -99,7 +99,7 @@ int ACService::creatClassName(string& className)
 {
 	if(this->baseMess.name=="")
 	{
-		cout<<"æœåŠ¡åä¸ºç©ºï¼Œç”Ÿæˆç±»å‹åå¤±è´¥ï¼"<<endl;
+		cout<<"·şÎñÃûÎª¿Õ£¬Éú³ÉÀàĞÍÃûÊ§°Ü£¡"<<endl;
 		return n_acmanager::RETURN_FAILED;
 	}
 
@@ -119,7 +119,7 @@ int ACService::creatClassName(string& className)
 	className = "DCCrm";
 	className += serviceName;
 
-	//cout << "ç”Ÿæˆç±»åï¼š" + className << endl;
+	//cout << "Éú³ÉÀàÃû£º" + className << endl;
 	return n_acmanager::RETURN_SUCCESS;
 }
 int ACService::creatServiceType()
@@ -165,21 +165,21 @@ int ACService::creatServiceType()
 	}
 }
 
-/*æ ¹æ®sqlåˆå§‹åŒ–è¾“å…¥å­—æ®µ
- * è¯»å–æ¯ä¸ª[:]ä¹‹å‰ç›´åˆ°ç©ºæ ¼çš„ä½œä¸ºè¾“å…¥å­—æ®µåç§°ï¼ˆè‡ªåŠ¨è½¬æ¢ä¸ºå¤§å†™ï¼‰
+/*¸ù¾İsql³õÊ¼»¯ÊäÈë×Ö¶Î
+ * ¶ÁÈ¡Ã¿¸ö[:]Ö®Ç°Ö±µ½¿Õ¸ñµÄ×÷ÎªÊäÈë×Ö¶ÎÃû³Æ£¨×Ô¶¯×ª»»Îª´óĞ´£©
  * exp:
  * 		latn_id = :LATN_ID
    	   	and a.acc_nbr = :ACC_NBR
-        å…¶ä»–éƒ½ä¼šå¿½ç•¥
+        ÆäËû¶¼»áºöÂÔ
    exp:
    	   	to_char(a.record_time, 'yyyy-mm-dd hh:mi:ss') data ,
  */
 int ACService::initInputFields()
 {
-	cout<<endl<<"=====æ ¹æ®sqlåˆå§‹åŒ–è¾“å…¥å­—æ®µ====="<<endl;
+	cout<<endl<<"=====¸ù¾İsql³õÊ¼»¯ÊäÈë×Ö¶Î====="<<endl;
 	if(this->baseMess.sql=="")
 	{
-		cout<<"æœåŠ¡sqlä¸ºç©ºï¼Œæ— æ³•ç”Ÿæˆè¾“å…¥å­—æ®µ!"<<endl;
+		cout<<"·şÎñsqlÎª¿Õ£¬ÎŞ·¨Éú³ÉÊäÈë×Ö¶Î!"<<endl;
 		return n_acmanager::RETURN_FAILED;
 	}
 	string sql=this->baseMess.sql;
@@ -217,23 +217,23 @@ int ACService::initInputFields()
 	return n_acmanager::RETURN_SUCCESS;
 }
 
-/*æ ¹æ®sqlåˆå§‹åŒ–è¾“å‡ºå­—æ®µ
- * è¯»å–æ¯ä¸ª[,]å’Œç©ºæ ¼ä¹‹å‰ç›´åˆ°å¦å¤–ä¸€ä¸ªç©ºæ ¼ä¸ºæ­¢çš„ä½œä¸ºè¾“å‡ºå­—æ®µåç§°ï¼ˆè‡ªåŠ¨è½¬æ¢ä¸ºå¤§å†™ï¼‰
+/*¸ù¾İsql³õÊ¼»¯Êä³ö×Ö¶Î
+ * ¶ÁÈ¡Ã¿¸ö[,]ºÍ¿Õ¸ñÖ®Ç°Ö±µ½ÁíÍâÒ»¸ö¿Õ¸ñÎªÖ¹µÄ×÷ÎªÊä³ö×Ö¶ÎÃû³Æ£¨×Ô¶¯×ª»»Îª´óĞ´£©
  * exp:
  *		select a.latn_id latn_id ,
  *		a.acc_nbr acc_nbr ,
- * å…¶ä»–éƒ½ä¼šå¿½ç•¥
+ * ÆäËû¶¼»áºöÂÔ
  * exp:
  * 	   	to_char(a.record_time, 'yyyy-mm-dd hh:mi:ss') data
  * 	   	a.pdf_path pdf_path,\
- * 	   	[,]ä¹‹å‰æ— ç©ºæ ¼
+ * 	   	[,]Ö®Ç°ÎŞ¿Õ¸ñ
  */
 int ACService::initOutputFields()
 {
-	cout<<endl<<"=====æ ¹æ®sqlåˆå§‹åŒ–è¾“å‡ºå­—æ®µ====="<<endl;
+	cout<<endl<<"=====¸ù¾İsql³õÊ¼»¯Êä³ö×Ö¶Î====="<<endl;
 	if(this->baseMess.sql=="")
 	{
-		cout<<"=====æœåŠ¡sqlä¸ºç©ºï¼Œæ— æ³•ç”Ÿæˆè¾“å‡ºå­—æ®µ!====="<<endl;
+		cout<<"=====·şÎñsqlÎª¿Õ£¬ÎŞ·¨Éú³ÉÊä³ö×Ö¶Î!====="<<endl;
 		return n_acmanager::RETURN_FAILED;
 	}
 	string sql=this->baseMess.sql;
@@ -246,7 +246,7 @@ int ACService::initOutputFields()
 
 	if(sql[currIndex]!='s' && sql[currIndex]!='S')
 	{
-		//cout<<"=====ä¸æ˜¯selectè¯­å¥ï¼Œæ— è¾“å‡ºå­—æ®µï¼====="<<endl;
+		//cout<<"=====²»ÊÇselectÓï¾ä£¬ÎŞÊä³ö×Ö¶Î£¡====="<<endl;
 		return n_acmanager::RETURN_SUCCESS;
 	}
 
@@ -284,12 +284,12 @@ int ACService::initOutputFields()
 
 }
 
-/**********ä»æ–‡ä»¶è¯»å–è¾“å…¥è¾“å‡ºå­—æ®µ**********
+/**********´ÓÎÄ¼ş¶ÁÈ¡ÊäÈëÊä³ö×Ö¶Î**********
  *
  */
 int ACService::readFieldsFile(string path)
 {
-	cout<<endl<<"=====å¼€å§‹è¯»å–å­—æ®µé…ç½®æ–‡ä»¶====="<<endl;
+	cout<<endl<<"=====¿ªÊ¼¶ÁÈ¡×Ö¶ÎÅäÖÃÎÄ¼ş====="<<endl;
 	ifstream ifstre;
 	ifstre.open(path);
 	if(ifstre.is_open())
@@ -385,12 +385,12 @@ int ACService::readFieldsFile(string path)
 			this->numInputBindParam=this->inputFields.size();
 		if(this->numOutputBindParam==0)
 			this->numOutputBindParam=this->outputFields.size();*/
-		cout<<"======è¯»å–å­—æ®µé…ç½®å®Œæˆ====="<<endl<<endl;
+		cout<<"======¶ÁÈ¡×Ö¶ÎÅäÖÃÍê³É====="<<endl<<endl;
 		ifstre.close();
 	}
 	else
 	{
-		cout<<"=====è¯»å–å­—æ®µé…ç½®æ–‡ä»¶å¼‚å¸¸====="<<endl<<endl;
+		cout<<"=====¶ÁÈ¡×Ö¶ÎÅäÖÃÎÄ¼şÒì³£====="<<endl<<endl;
 		ifstre.close();
 		return RETURN_FAILED;
 	}
@@ -398,33 +398,33 @@ int ACService::readFieldsFile(string path)
 }
 
 
-//æ‰“å°æœåŠ¡ä¿¡æ¯
+//´òÓ¡·şÎñĞÅÏ¢
 int ACService::printService()
 {
-	cout<<"================æ‰“å°æœåŠ¡================"<<endl;
-	cout<<"åŸºæœ¬ä¿¡æ¯ï¼š"<<endl<<"{"<<endl;
-	cout<<"	æœåŠ¡åï¼š"<<this->baseMess.name<<endl;
-	cout<<"	class_idï¼š"<<this->baseMess.class_id<<endl;
-	cout<<"	group_idï¼š"<<this->baseMess.group_id<<endl;
-	cout<<"	å…¥å‚èŠ‚ç‚¹ï¼š"<<this->baseMess.input_node<<endl;
-	cout<<"	å‡ºå‚èŠ‚ç‚¹ï¼š"<<this->baseMess.output_node<<endl;
-	cout<<"	åº“åï¼š"<<this->baseMess.libName<<endl;
-	cout<<"	SQLï¼š"<<this->baseMess.sql<<endl;
+	cout<<"================´òÓ¡·şÎñ================"<<endl;
+	cout<<"»ù±¾ĞÅÏ¢£º"<<endl<<"{"<<endl;
+	cout<<"	·şÎñÃû£º"<<this->baseMess.name<<endl;
+	cout<<"	class_id£º"<<this->baseMess.class_id<<endl;
+	cout<<"	group_id£º"<<this->baseMess.group_id<<endl;
+	cout<<"	Èë²Î½Úµã£º"<<this->baseMess.input_node<<endl;
+	cout<<"	³ö²Î½Úµã£º"<<this->baseMess.output_node<<endl;
+	cout<<"	¿âÃû£º"<<this->baseMess.libName<<endl;
+	cout<<"	SQL£º"<<this->baseMess.sql<<endl;
 	cout<<"}"<<endl;
-	cout<<"ç”Ÿæˆä¿¡æ¯ï¼š"<<endl<<"{"<<endl;
-	cout<<"	ç”Ÿæˆç±»åï¼š"<<this->otherMess.className<<endl;
-	cout<<"	ç”ŸæˆæœåŠ¡ç±»å‹ï¼š"<<this->otherMess.type<<endl;
+	cout<<"Éú³ÉĞÅÏ¢£º"<<endl<<"{"<<endl;
+	cout<<"	Éú³ÉÀàÃû£º"<<this->otherMess.className<<endl;
+	cout<<"	Éú³É·şÎñÀàĞÍ£º"<<this->otherMess.type<<endl;
 	cout<<"}"<<endl<<endl;
 
 
 
-	cout<<"è¾“å…¥å­—æ®µï¼ˆ"<<this->inputFields.size()<<"ï¼‰ï¼š"<<endl;
-	cout<<"åç§°";
+	cout<<"ÊäÈë×Ö¶Î£¨"<<this->inputFields.size()<<"£©£º"<<endl;
+	cout<<"Ãû³Æ";
 	for(int i=0;i<68;i++)
 	{
 		cout<<" ";
 	}
-	cout<<"ç±»å‹            å¤§å°            è™šå€¼"<<endl;
+	cout<<"ÀàĞÍ            ´óĞ¡            ĞéÖµ"<<endl;
 	for(Field field:this->inputFields)
 	{
 		int spaceNum=32-field.name.length();
@@ -435,13 +435,13 @@ int ACService::printService()
 		}
 		cout<<field.type<<"      "<<field.size<<"      "<<field.isNihil<<endl;
 	}
-	cout<<endl<<"è¾“å‡ºå­—æ®µï¼ˆ"<<this->outputFields.size()<<"ï¼‰ï¼š"<<endl;
-	cout<<"åç§°";
+	cout<<endl<<"Êä³ö×Ö¶Î£¨"<<this->outputFields.size()<<"£©£º"<<endl;
+	cout<<"Ãû³Æ";
 	for(int i=0;i<68;i++)
 	{
 		cout<<" ";
 	}
-	cout<<"ç±»å‹            å¤§å°            è™šå€¼"<<endl;
+	cout<<"ÀàĞÍ            ´óĞ¡            ĞéÖµ"<<endl;
 	for(Field field:this->outputFields)
 	{
 		int spaceNum=32-field.name.length();
@@ -466,7 +466,7 @@ ACService::OtherMess& ACService::getOtherMessage()
 	return this->otherMess;
 }
 
-//è®¿é—®è¾“å…¥è¾“å‡ºå­—æ®µ
+//·ÃÎÊÊäÈëÊä³ö×Ö¶Î
 int ACService::setInputField(vector<Field>& field)
 {
 	this->inputFields=field;
@@ -486,12 +486,12 @@ vector<Field>& ACService::getOutputField()
 	return this->outputFields;
 }
 
-//è·å–SQLç»‘å®šå‚æ•°ä¸ªæ•°
+//»ñÈ¡SQL°ó¶¨²ÎÊı¸öÊı
 int ACService::getNumInoutBindParam()
 {
 	return this->numInputBindParam;
 }
-//è·å–SQLè¿”å›å‚æ•°ä¸ªæ•°
+//»ñÈ¡SQL·µ»Ø²ÎÊı¸öÊı
 int ACService::getNumOutputBindParam()
 {
 	return this->numOutputBindParam;

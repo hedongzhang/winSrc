@@ -1,7 +1,7 @@
 /*
  * ACManager.h
  *
- *  Created on: 2015å¹´5æœˆ5æ—¥
+ *  Created on: 2015Äê5ÔÂ5ÈÕ
  *      Author: HDZhang
  */
 
@@ -19,30 +19,30 @@ namespace n_acmanager
 	class ACManager
 	{
 	private:
-		//ç³»ç»Ÿé…ç½®æ–‡ä»¶è·¯å¾„
+		//ÏµÍ³ÅäÖÃÎÄ¼şÂ·¾¶
 		string configFile;
 
-		/* ä¿å­˜åŸºæœ¬é…ç½®å€¼
-		 * ä½œè€… AUTOR
-		 * ä¿å­˜ç»“æœè·¯å¾„ RESULT_PATH
-		 * æ—¶é—´ TIME
+		/* ±£´æ»ù±¾ÅäÖÃÖµ
+		 * ×÷Õß AUTOR
+		 * ±£´æ½á¹ûÂ·¾¶ RESULT_PATH
+		 * Ê±¼ä TIME
 		 */
 		map<string,string> m_baseMessage;
 
-		/* ä¿å­˜æœåŠ¡åŸºæœ¬ä¿¡æ¯
-		 * æœåŠ¡å SERVICE_NAME
-		 * æœåŠ¡ç±»å‹ SERVICE_TYPE
-		 * åº“å LIB_NAME
+		/* ±£´æ·şÎñ»ù±¾ĞÅÏ¢
+		 * ·şÎñÃû SERVICE_NAME
+		 * ·şÎñÀàĞÍ SERVICE_TYPE
+		 * ¿âÃû LIB_NAME
 		 * SQL SQL_CONTEXT
 		 * GROUP_ID
 		 * CLASS_ID
-		 * èŠ‚ç‚¹å INPUT_NODE OUTPUT_NODE
-		 * å¤´æ–‡ä»¶æ¨¡æ¿ HEAD_TEMPLATE_TYPE
-		 * æºæ–‡ä»¶æ¨¡æ¿ SOURC_TEMPLATE_TYPE
+		 * ½ÚµãÃû INPUT_NODE OUTPUT_NODE
+		 * Í·ÎÄ¼şÄ£°å HEAD_TEMPLATE_TYPE
+		 * Ô´ÎÄ¼şÄ£°å SOURC_TEMPLATE_TYPE
 		 */
 		map<string,map<string,string> > m_keyMap;
 
-		/*ä»£ç æ¨¡æ¿æ˜ å°„
+		/*´úÂëÄ£°åÓ³Éä
 		 *
 		 */
 		map<string,string> m_codeTemplateMap;
@@ -51,57 +51,57 @@ namespace n_acmanager
 		ACManager(string configFile="./conf/config.ini");
 		virtual ~ACManager();
 
-		/**********å¯åŠ¨åˆå§‹åŒ–**********
-		 * è¯»å–é…ç½®æ–‡ä»¶ï¼Œæ ¹æ®é…ç½®æ–‡ä»¶è¯»å…¥å…³é”®å˜é‡å€¼å¹¶è½½å…¥å…³é”®å­—æ˜ å°„å’Œæ¨¡æ¿
-		 * @å­—ç¬¦------æ¨¡æ¿ç±»å‹
-		 * ä¸€èˆ¬å­—ç¬¦----æ¨¡æ¿è·¯å¾„
-		 * #å­—ç¬¦------æ³¨é‡Š
+		/**********Æô¶¯³õÊ¼»¯**********
+		 * ¶ÁÈ¡ÅäÖÃÎÄ¼ş£¬¸ù¾İÅäÖÃÎÄ¼ş¶ÁÈë¹Ø¼ü±äÁ¿Öµ²¢ÔØÈë¹Ø¼ü×ÖÓ³ÉäºÍÄ£°å
+		 * @×Ö·û------Ä£°åÀàĞÍ
+		 * Ò»°ã×Ö·û----Ä£°åÂ·¾¶
+		 * #×Ö·û------×¢ÊÍ
 		 */
 		int init();
 
-		/**********æ‰“å°è¯»å–çš„åŸºæœ¬ä¿¡æ¯**********
+		/**********´òÓ¡¶ÁÈ¡µÄ»ù±¾ĞÅÏ¢**********
 		 *
 		 */
 		void showBaseMessage();
 
-		/**********è‡ªåŠ¨ç”ŸæˆæœåŠ¡**********
+		/**********×Ô¶¯Éú³É·şÎñ**********
 		 *
 		 */
 		int creatServices();
 
 
-		//è¯»å–é…ç½®ä¿¡æ¯
+		//¶ÁÈ¡ÅäÖÃĞÅÏ¢
 		int readConfig();
-		//æ ¹æ®è·¯å¾„è¯»å–å…³é”®å­—æ¨¡æ¿é…ç½®
+		//¸ù¾İÂ·¾¶¶ÁÈ¡¹Ø¼ü×ÖÄ£°åÅäÖÃ
 		int readKeyTemplate(string path);
-		//æ ¹æ®è·¯å¾„è¯»å–ä»£ç æ¨¡æ¿é…ç½®
+		//¸ù¾İÂ·¾¶¶ÁÈ¡´úÂëÄ£°åÅäÖÃ
 		int readCodeTemplate(string path);
 
-		//è·å–å…³é”®å€¼
+		//»ñÈ¡¹Ø¼üÖµ
 		int getBaseMessage(const string keyName,string codeTemplate);
-		//è®¾ç½®å…³é”®å€¼
+		//ÉèÖÃ¹Ø¼üÖµ
 		int setBaseMessage(const string keyName,string codeTemplate);
-		//è·å–ç‰¹å®šçš„å…³é”®å­—æ˜ å°„
+		//»ñÈ¡ÌØ¶¨µÄ¹Ø¼ü×ÖÓ³Éä
 		int getKeyMap(const string keyName,map<string,string>& keyMap);
-		//è·å–ç‰¹å®šä»£ç æ¨¡æ¿æ˜ å°„
+		//»ñÈ¡ÌØ¶¨´úÂëÄ£°åÓ³Éä
 		int getCodeTemplateMap(const string keyName,string& codeTemplate);
-		//æ’å…¥å…³é”®å­—æ˜ å°„
+		//²åÈë¹Ø¼ü×ÖÓ³Éä
 		int setKeyMap(const string keyName,map<string,string> keyMap);
-		//æ’å…¥ä»£ç æ¨¡æ¿æ˜ å°„
+		//²åÈë´úÂëÄ£°åÓ³Éä
 		int setCodeTemplateMap(const string keyName,string codeTemplate);
 	};
 
 
 
-	//è¿”å›å€¼
+	//·µ»ØÖµ
 	const int RETURN_FAILED=0;
 	const int RETURN_SUCCESS=1;
 
-	//æ›¿æ¢å­—ç¬¦ä¸²
+	//Ìæ»»×Ö·û´®
 	string replaceString(string srcString ,string keyString ,string valueString);
-	//longè½¬åŒ–ä¸ºstring
+	//long×ª»¯Îªstring
 	string longToString(long longVaiue);
-	//è·å–å½“å‰æ—¥æœŸ
+	//»ñÈ¡µ±Ç°ÈÕÆÚ
 	string getNowDate();
 }
 

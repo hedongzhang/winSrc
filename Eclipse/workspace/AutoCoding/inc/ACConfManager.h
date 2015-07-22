@@ -1,7 +1,7 @@
 /*
  * ACConfManager.h
  *
- *  Created on: 2015å¹´5æœˆ4æ—¥
+ *  Created on: 2015Äê5ÔÂ4ÈÕ
  *      Author: HDZhang
  */
 
@@ -14,7 +14,7 @@
 #include"ACManager.h"
 #include"ACService.h"
 /*
- * ä¸»è¦åŠŸèƒ½ï¼šå®Œæˆé…ç½®æ–‡ä»¶çš„ç”Ÿæˆå·¥ä½œ
+ * Ö÷Òª¹¦ÄÜ£ºÍê³ÉÅäÖÃÎÄ¼şµÄÉú³É¹¤×÷
  *
  *
  */
@@ -22,24 +22,24 @@
 class ACConfManager
 {
 public:
-	//ä»¥é…ç½®æ–‡ä»¶è·¯å¾„åˆå§‹åŒ–ç±»
+	//ÒÔÅäÖÃÎÄ¼şÂ·¾¶³õÊ¼»¯Àà
 	ACConfManager(ACService& service);
-	//è¯»å–CrmdemFml32æ–‡ä»¶
+	//¶ÁÈ¡CrmdemFml32ÎÄ¼ş
 	int readCrmdemFml32();
-	//è¯»å–MetadataInæ–‡ä»¶
+	//¶ÁÈ¡MetadataInÎÄ¼ş
 	int readMetadataIn();
-	/* å¤„ç†é…ç½®æ–‡ä»¶
+	/* ´¦ÀíÅäÖÃÎÄ¼ş
 	 *
 	 */
 	int complateConfig(ACService& service);
 
-	//è§£æcrmdem.fml32æ–‡ä»¶ï¼Œå¹¶å°†æœªå†™å…¥çš„å­—æ®µå†™å…¥
+	//½âÎöcrmdem.fml32ÎÄ¼ş£¬²¢½«Î´Ğ´ÈëµÄ×Ö¶ÎĞ´Èë
 	int parseCrmdemFml32(ACService& service);
-	//å†™å…¥CrmdemFml32æ–‡ä»¶
+	//Ğ´ÈëCrmdemFml32ÎÄ¼ş
 	int writeCrmdemFml32(Field& Field);
-	//è§£æmetadata.inæ–‡ä»¶ï¼Œå¹¶å°†æœåŠ¡é…ç½®å†™å…¥
+	//½âÎömetadata.inÎÄ¼ş£¬²¢½«·şÎñÅäÖÃĞ´Èë
 	int parseMetadataIn(ACService& service);
-	//å†™å…¥metadata.inæ–‡ä»¶
+	//Ğ´Èëmetadata.inÎÄ¼ş
 	int writeMetadataIn(string serverTemp,string serviceName);
 
 private:

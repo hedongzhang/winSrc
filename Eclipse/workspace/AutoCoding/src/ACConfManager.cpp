@@ -1,7 +1,7 @@
 /*
  * ACConfManager.cpp
  *
- *  Created on: 2015å¹´5æœˆ4æ—¥
+ *  Created on: 2015Äê5ÔÂ4ÈÕ
  *      Author: HDZhang
  */
 
@@ -62,13 +62,13 @@ int ACConfManager::readCrmdemFml32()
 			}
 			//cout<<currStr<<endl;
 		}
-		cout<<"=====è¯»å–crmdem.fml32æ–‡ä»¶å®Œæˆ====="<<endl;
-		cout<<"è¯»å–æ•°æ®"<<m_allFileMess.size()<<"æ¡ï¼"<<endl;
+		cout<<"=====¶ÁÈ¡crmdem.fml32ÎÄ¼þÍê³É====="<<endl;
+		cout<<"¶ÁÈ¡Êý¾Ý"<<m_allFileMess.size()<<"Ìõ£¡"<<endl;
 		ifstre.close();
 	}
 	else
 	{
-		cout<<"=====è¯»å–crmdem.fml32æ–‡ä»¶å¼‚å¸¸====="<<endl;
+		cout<<"=====¶ÁÈ¡crmdem.fml32ÎÄ¼þÒì³£====="<<endl;
 		ifstre.close();
 		return n_acmanager::RETURN_FAILED;
 	}
@@ -92,20 +92,20 @@ int ACConfManager::readMetadataIn()
 				//cout<<currStr.substr(8,currStr.size()-8)<<endl;
 			}
 		}
-		cout<<"=====è¯»å–metadata.inæ–‡ä»¶å®Œæˆ====="<<endl;
-		cout<<"è¯»å–æ•°æ®"<<s_services.size()<<"ä¸ªæœåŠ¡ï¼"<<endl;
+		cout<<"=====¶ÁÈ¡metadata.inÎÄ¼þÍê³É====="<<endl;
+		cout<<"¶ÁÈ¡Êý¾Ý"<<s_services.size()<<"¸ö·þÎñ£¡"<<endl;
 		ifstre.close();
 	}
 	else
 	{
-		cout<<"=====è¯»å–metadata.inæ–‡ä»¶å¼‚å¸¸====="<<endl;
+		cout<<"=====¶ÁÈ¡metadata.inÎÄ¼þÒì³£====="<<endl;
 		ifstre.close();
 		return n_acmanager::RETURN_FAILED;
 	}
 
 	return n_acmanager::RETURN_SUCCESS;
 }
-/* å¤„ç†é…ç½®æ–‡ä»¶
+/* ´¦ÀíÅäÖÃÎÄ¼þ
  *
  */
 int ACConfManager::complateConfig(ACService& service)
@@ -128,7 +128,7 @@ int ACConfManager::complateConfig(ACService& service)
 
 int ACConfManager::parseCrmdemFml32(ACService& service)
 {
-	cout<<"=====å…¥å‚===="<<endl;
+	cout<<"=====Èë²Î===="<<endl;
 	vector<Field>& v_inputFields=service.getInputField();
 	for(string::size_type i=0;i<v_inputFields.size();i++)
 	{
@@ -168,7 +168,7 @@ int ACConfManager::parseCrmdemFml32(ACService& service)
 		}
 	}
 
-	cout<<"=====å‡ºå‚===="<<endl;
+	cout<<"=====³ö²Î===="<<endl;
 	vector<Field>& v_outputFields=service.getOutputField();
 	for(string::size_type i=0;i<v_outputFields.size();i++)
 	{
@@ -213,7 +213,7 @@ int ACConfManager::parseCrmdemFml32(ACService& service)
 		inputField.type=FieldType::FML32;
 		inputField.size=0;
 
-		cout<<"=====å…¥å‚èŠ‚ç‚¹===="<<endl;
+		cout<<"=====Èë²Î½Úµã===="<<endl;
 		if(this->m_allFileMess.find(inputField.name)== this->m_allFileMess.end())
 		{
 			if(writeCrmdemFml32(inputField)!=n_acmanager::RETURN_SUCCESS)
@@ -252,7 +252,7 @@ int ACConfManager::parseCrmdemFml32(ACService& service)
 		outputField.type=FieldType::FML32;
 		outputField.size=0;
 
-		cout<<"=====å‡ºå‚èŠ‚ç‚¹===="<<endl;
+		cout<<"=====³ö²Î½Úµã===="<<endl;
 		if(this->m_allFileMess.find(outputField.name)== this->m_allFileMess.end())
 		{
 			if(writeCrmdemFml32(outputField)!=n_acmanager::RETURN_SUCCESS)
@@ -284,7 +284,7 @@ int ACConfManager::parseCrmdemFml32(ACService& service)
 			cout<<"----"<<outputField.name<<"	"<<outputField.size<<"	"<<outputField.type<<"----"<<endl;
 		}
 	}
-	cout<<"=====å¤„ç†crmdem.fml32æ–‡ä»¶å®Œæˆ====="<<endl;
+	cout<<"=====´¦Àícrmdem.fml32ÎÄ¼þÍê³É====="<<endl;
 	//service.printService();
 	return n_acmanager::RETURN_SUCCESS;
 }
@@ -292,10 +292,10 @@ int ACConfManager::parseCrmdemFml32(ACService& service)
 int ACConfManager::parseMetadataIn(ACService& service)
 {
 
-	//æœåŠ¡å¤´å­—ç¬¦ä¸²
+	//·þÎñÍ·×Ö·û´®
 	string serviceString=replaceString(serviceTemp,"@SERVICE@",service.getBaseMessage().name);
 
-	//è¾“å…¥å­—æ®µå­—ç¬¦ä¸²
+	//ÊäÈë×Ö¶Î×Ö·û´®
 	string inputString="";
 	string inputNodeString="";
 	string inputFieldsString="";
@@ -339,7 +339,7 @@ int ACConfManager::parseMetadataIn(ACService& service)
 		inputString=inputFieldsString;
 	}
 
-	//è¾“å‡ºå­—æ®µå­—ç¬¦ä¸²
+	//Êä³ö×Ö¶Î×Ö·û´®
 	string outputString="";
 	string outputNodeString="";
 	string outputFieldsString="";
@@ -382,17 +382,17 @@ int ACConfManager::parseMetadataIn(ACService& service)
 		outputString=outputFieldsString;
 	}
 
-	//å†™å…¥metadata.inæ–‡ä»¶
+	//Ð´Èëmetadata.inÎÄ¼þ
 	string metadataString=serviceString+inputString+outputString;
 	cout<<metadataString<<endl;
 	if(writeMetadataIn(metadataString,service.getBaseMessage().name)!=n_acmanager::RETURN_SUCCESS)
 	{
-		cout<<"=====å¤„ç†metadata.inæ–‡ä»¶å¤±è´¥====="<<endl;
+		cout<<"=====´¦Àímetadata.inÎÄ¼þÊ§°Ü====="<<endl;
 		return n_acmanager::RETURN_FAILED;
 	}
 	else
 	{
-		cout<<"=====å¤„ç†metadata.inæ–‡ä»¶å®Œæˆ====="<<endl;
+		cout<<"=====´¦Àímetadata.inÎÄ¼þÍê³É====="<<endl;
 		return n_acmanager::RETURN_SUCCESS;
 	}
 }
@@ -427,7 +427,7 @@ int ACConfManager::writeCrmdemFml32(Field& Field)
 	}
 	else
 	{
-		cout<<"=====å†™å…¥crmdem.fml32æ–‡ä»¶å¼‚å¸¸====="<<endl;
+		cout<<"=====Ð´Èëcrmdem.fml32ÎÄ¼þÒì³£====="<<endl;
 		ofstre.close();
 		return n_acmanager::RETURN_FAILED;
 	}
@@ -435,7 +435,7 @@ int ACConfManager::writeCrmdemFml32(Field& Field)
 	return n_acmanager::RETURN_SUCCESS;
 }
 
-//å†™å…¥metadata.inæ–‡ä»¶
+//Ð´Èëmetadata.inÎÄ¼þ
 int ACConfManager::writeMetadataIn(string serverTemp,string serviceName)
 {
 	if(this->s_services.find(serviceName)==this->s_services.end())
@@ -450,7 +450,7 @@ int ACConfManager::writeMetadataIn(string serverTemp,string serviceName)
 		}
 		else
 		{
-			cout<<"=====å†™å…¥metadata.inæ–‡ä»¶å¼‚å¸¸====="<<endl;
+			cout<<"=====Ð´Èëmetadata.inÎÄ¼þÒì³£====="<<endl;
 			ofstre.close();
 			return n_acmanager::RETURN_FAILED;
 		}
@@ -458,7 +458,7 @@ int ACConfManager::writeMetadataIn(string serverTemp,string serviceName)
 	}
 	else
 	{
-		cout<<"=====æœåŠ¡"<<serviceName<<"é…ç½®å·²å­˜åœ¨ï¼Œæ— éœ€å†™å…¥metadata.inæ–‡ä»¶====="<<endl;
+		cout<<"=====·þÎñ"<<serviceName<<"ÅäÖÃÒÑ´æÔÚ£¬ÎÞÐèÐ´Èëmetadata.inÎÄ¼þ====="<<endl;
 		return n_acmanager::RETURN_SUCCESS;
 	}
 }

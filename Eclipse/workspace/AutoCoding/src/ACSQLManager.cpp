@@ -1,7 +1,7 @@
 /*
  * ACSQLManager.cpp
  *
- *  Created on: 2015å¹´5æœˆ14æ—¥
+ *  Created on: 2015Äê5ÔÂ14ÈÕ
  *      Author: HDZhang
  */
 
@@ -30,7 +30,7 @@ ACSQLManager::ACSQLManager(ACService service):service(service)
 	complateSQLScript();
 }
 
-/*ç”Ÿæˆsqlè„šæœ¬
+/*Éú³Ésql½Å±¾
  *
  */
 int ACSQLManager::complateSQLScript()
@@ -50,7 +50,7 @@ int ACSQLManager::complateSQLScript()
 	return n_acmanager::RETURN_SUCCESS;
 }
 
-//åˆ›å»ºæœåŠ¡é…ç½®sqlè„šæœ¬
+//´´½¨·şÎñÅäÖÃsql½Å±¾
 int ACSQLManager::creatServiceSQL()
 {
 	string serviceSQL=serviceSQLTemp;
@@ -71,16 +71,16 @@ int ACSQLManager::creatServiceSQL()
 	}
 	else
 	{
-		cout<<endl<<"=====å†™å…¥tb_pub_service.sqlæ–‡ä»¶å¼‚å¸¸====="<<endl;
+		cout<<endl<<"=====Ğ´Èëtb_pub_service.sqlÎÄ¼şÒì³£====="<<endl;
 		ofstre.close();
 		return n_acmanager::RETURN_FAILED;
 	}
 	cout<<endl<<"==================="<<endl;
 	cout<<serviceSQL<<endl;
-	cout<<"=====ç”Ÿæˆtb_pub_service.sqlæ–‡ä»¶å®Œæˆ====="<<endl;
+	cout<<"=====Éú³Étb_pub_service.sqlÎÄ¼şÍê³É====="<<endl;
 	return n_acmanager::RETURN_SUCCESS;
 }
-//åˆ›å»ºsqlé…ç½®sqlè„šæœ¬
+//´´½¨sqlÅäÖÃsql½Å±¾
 int ACSQLManager::creatSQLParamSQL()
 {
 	string sqlParamSQL=sqlParamSQLTemp;
@@ -121,16 +121,16 @@ int ACSQLManager::creatSQLParamSQL()
 	}
 	else
 	{
-		cout<<endl<<"=====å†™å…¥tb_pub_sqlparam.sqlæ–‡ä»¶å¼‚å¸¸====="<<endl;
+		cout<<endl<<"=====Ğ´Èëtb_pub_sqlparam.sqlÎÄ¼şÒì³£====="<<endl;
 		ofstre.close();
 		return n_acmanager::RETURN_FAILED;
 	}
 	cout<<endl<<"==================="<<endl;
 	cout<<sqlParamSQL<<endl;
-	cout<<"=====ç”Ÿæˆtb_pub_sqlparam.sqlæ–‡ä»¶å®Œæˆ====="<<endl;
+	cout<<"=====Éú³Étb_pub_sqlparam.sqlÎÄ¼şÍê³É====="<<endl;
 	return n_acmanager::RETURN_SUCCESS;
 }
-//åˆ›å»ºå‚æ•°é…ç½®sqlè„šæœ¬
+//´´½¨²ÎÊıÅäÖÃsql½Å±¾
 int ACSQLManager::creatParamCodeDetailSQL()
 {
 	string paramCodedetailSQL;
@@ -148,7 +148,7 @@ int ACSQLManager::creatParamCodeDetailSQL()
 		string paramCodedetailSQL2Temp=replaceString(paramCodedetailSQLTemp2,"@CLASS_ID@",this->service.getBaseMessage().class_id);
 		paramCodedetailSQL2Temp=replaceString(paramCodedetailSQL2Temp,"@GROUP_ID@",this->service.getBaseMessage().group_id);
 
-		//å½“æ—¢æ— å…¥å‚åˆæ— å‡ºå‚çš„æ—¶å€™é»˜è®¤åŠ ä¸€ä¸ªå‡ºå‚
+		//µ±¼ÈÎŞÈë²ÎÓÖÎŞ³ö²ÎµÄÊ±ºòÄ¬ÈÏ¼ÓÒ»¸ö³ö²Î
 		if(service.getNumInoutBindParam()==0 && service.getNumOutputBindParam()==0)
 		{
 			string paramCodedetailTemp=replaceString(paramCodedetailSQL2Temp,"@PARAM_TYPE@",longToString(0));
@@ -210,12 +210,12 @@ int ACSQLManager::creatParamCodeDetailSQL()
 	}
 	else
 	{
-		cout<<endl<<"=====å†™å…¥tb_pub_paramcodedetail.sqlæ–‡ä»¶å¼‚å¸¸====="<<endl;
+		cout<<endl<<"=====Ğ´Èëtb_pub_paramcodedetail.sqlÎÄ¼şÒì³£====="<<endl;
 		ofstre.close();
 		return n_acmanager::RETURN_FAILED;
 	}
 	cout<<endl<<"==================="<<endl;
 	cout<<paramCodedetailSQL<<endl;
-	cout<<"=====ç”Ÿæˆtb_pub_paramcodedetail.sqlæ–‡ä»¶å®Œæˆ====="<<endl;
+	cout<<"=====Éú³Étb_pub_paramcodedetail.sqlÎÄ¼şÍê³É====="<<endl;
 	return n_acmanager::RETURN_SUCCESS;
 }

@@ -1,7 +1,7 @@
 /*
  * ACService.h
  *
- *  Created on: 2015å¹´5æœˆ5æ—¥
+ *  Created on: 2015Äê5ÔÂ5ÈÕ
  *      Author: HDZhang
  */
 
@@ -15,14 +15,14 @@
 
 using namespace std;
 
-//å­—æ®µç±»å‹
+//×Ö¶ÎÀàĞÍ
 enum FieldType
 {
 	STRING,
 	LONG,
 	FML32,
 };
-//å­—æ®µ
+//×Ö¶Î
 struct Field
 {
 public:
@@ -42,7 +42,7 @@ public:
 	}
 };
 
-//æœåŠ¡ç±»å‹
+//·şÎñÀàĞÍ
 const string ACServiceTypeSelect="ATOM_SERVICE_TYPE_SELECT";
 const string ACServiceTypeUpdate="ATOM_SERVICE_TYPE_UPDATE";
 const string ACServiceTypeInsert="ATOM_SERVICE_TYPE_INSERT";
@@ -50,104 +50,104 @@ const string ACServiceTypeDelete="ATOM_SERVICE_TYPE_DELETE";
 const string ACServiceTypeCombo="ATOM_SERVICE_TYPE_COMBO";
 
 
-//æœåŠ¡
+//·şÎñ
 class ACService
 {
 
 public:
-	//ä¿å­˜æœåŠ¡åŸºæœ¬ä¿¡æ¯
+	//±£´æ·şÎñ»ù±¾ĞÅÏ¢
 	struct BaseMess
 	{
-		string name;          //æœåŠ¡å
+		string name;          //·şÎñÃû
 		string class_id;	  //class_id
-		string group_id;      //ç»„ID
-		string input_node;    //å…¥å‚èŠ‚ç‚¹
-		string output_node;   //å‡ºå‚èŠ‚ç‚¹
-		string libName;       //åº“å
+		string group_id;      //×éID
+		string input_node;    //Èë²Î½Úµã
+		string output_node;   //³ö²Î½Úµã
+		string libName;       //¿âÃû
 		string sql;           //sql
 	};
 
-	//ä¿å­˜æœåŠ¡å…¶ä»–ä¿¡æ¯
+	//±£´æ·şÎñÆäËûĞÅÏ¢
 	struct OtherMess
 	{
-		string type;          //æœåŠ¡ç±»å‹
-		string className;    //ç±»å‹å
+		string type;          //·şÎñÀàĞÍ
+		string className;    //ÀàĞÍÃû
 	};
 
-	/***********æ„é€ å‡½æ•°**********
+	/***********¹¹Ôìº¯Êı**********
 	 *
 	 */
 	ACService(map<string,string>& baseMessage);
 	virtual ~ACService();
 
-	/**********åˆå§‹åŒ–æœåŠ¡**********
+	/**********³õÊ¼»¯·şÎñ**********
 	 *
 	 */
 	int init();
 
-	//æ ¹æ®åŸºæœ¬ä¿¡æ¯åˆå§‹åŒ–ç›¸å…³ä¿¡æ¯
+	//¸ù¾İ»ù±¾ĞÅÏ¢³õÊ¼»¯Ïà¹ØĞÅÏ¢
 	int initOtherMessage();
-	//ç”Ÿæˆç±»å
+	//Éú³ÉÀàÃû
 	int creatClassName(string& className);
-	//ç”ŸæˆæœåŠ¡ç±»å‹
+	//Éú³É·şÎñÀàĞÍ
 	int creatServiceType();
 
-	/**********æ ¹æ®sqlåˆå§‹åŒ–è¾“å…¥å­—æ®µ**********
-	 * è¯»å–æ¯ä¸ª[:]ä¹‹å‰ç›´åˆ°ç©ºæ ¼çš„ä½œä¸ºè¾“å…¥å­—æ®µåç§°
+	/**********¸ù¾İsql³õÊ¼»¯ÊäÈë×Ö¶Î**********
+	 * ¶ÁÈ¡Ã¿¸ö[:]Ö®Ç°Ö±µ½¿Õ¸ñµÄ×÷ÎªÊäÈë×Ö¶ÎÃû³Æ
 	 * exp:
 	 * 		latn_id = :LATN_ID
 	   	   	and a.acc_nbr = :ACC_NBR
-	        å…¶ä»–éƒ½ä¼šå¿½ç•¥
+	        ÆäËû¶¼»áºöÂÔ
 	   exp:
 	   	   	to_char(a.record_time, 'yyyy-mm-dd hh:mi:ss') data ,
 	 */
 	int initInputFields();
-	/**********æ ¹æ®sqlåˆå§‹åŒ–è¾“å‡ºå­—æ®µ**********
-	 * è¯»å–æ¯ä¸ª[,]å’Œç©ºæ ¼ä¹‹å‰ç›´åˆ°å¦å¤–ä¸€ä¸ªç©ºæ ¼ä¸ºæ­¢çš„ä½œä¸ºè¾“å‡ºå­—æ®µåç§°ï¼ˆè‡ªåŠ¨è½¬æ¢ä¸ºå¤§å†™ï¼‰
+	/**********¸ù¾İsql³õÊ¼»¯Êä³ö×Ö¶Î**********
+	 * ¶ÁÈ¡Ã¿¸ö[,]ºÍ¿Õ¸ñÖ®Ç°Ö±µ½ÁíÍâÒ»¸ö¿Õ¸ñÎªÖ¹µÄ×÷ÎªÊä³ö×Ö¶ÎÃû³Æ£¨×Ô¶¯×ª»»Îª´óĞ´£©
 	 * exp:
 	 *		select a.latn_id latn_id ,
 	 *		a.acc_nbr acc_nbr ,
-	 * å…¶ä»–éƒ½ä¼šå¿½ç•¥
+	 * ÆäËû¶¼»áºöÂÔ
 	 * exp:
 	 * 	   	to_char(a.record_time, 'yyyy-mm-dd hh:mi:ss') data
 	 * 	   	a.pdf_path pdf_path,\
-	 * 	   	[,]ä¹‹å‰æ— ç©ºæ ¼
+	 * 	   	[,]Ö®Ç°ÎŞ¿Õ¸ñ
 	 */
 	int initOutputFields();
 
-	/**********ä»æ–‡ä»¶è¯»å–è¾“å…¥è¾“å‡ºå­—æ®µ**********
+	/**********´ÓÎÄ¼ş¶ÁÈ¡ÊäÈëÊä³ö×Ö¶Î**********
 	 *
 	 */
 	int readFieldsFile(string path);
 
 
 
-	//æ‰“å°æœåŠ¡ä¿¡æ¯
+	//´òÓ¡·şÎñĞÅÏ¢
 	int printService();
 
-	//è®¿é—®åŸºæœ¬ä¿¡æ¯
+	//·ÃÎÊ»ù±¾ĞÅÏ¢
 	BaseMess& getBaseMessage();
 	OtherMess& getOtherMessage();
-	//è®¿é—®è¾“å…¥è¾“å‡ºå­—æ®µ
+	//·ÃÎÊÊäÈëÊä³ö×Ö¶Î
 	int setInputField(vector<Field>& field);
 	vector<Field>& getInputField();
 	int setOutputField(vector<Field>& field);
 	vector<Field>& getOutputField();
 
-	//è·å–SQLç»‘å®šå‚æ•°ä¸ªæ•°
+	//»ñÈ¡SQL°ó¶¨²ÎÊı¸öÊı
 	int getNumInoutBindParam();
-	//è·å–SQLè¿”å›å‚æ•°ä¸ªæ•°
+	//»ñÈ¡SQL·µ»Ø²ÎÊı¸öÊı
 	int getNumOutputBindParam();
-	map<string,string> m_KeyValue;    //ç®€å•å…³é”®å­—å€¼æ›¿æ¢
+	map<string,string> m_KeyValue;    //¼òµ¥¹Ø¼ü×ÖÖµÌæ»»
 private:
-	BaseMess baseMess;    //åŸºæœ¬ä¿¡æ¯
-	OtherMess otherMess;  //å…¶ä»–ä¿¡æ¯
+	BaseMess baseMess;    //»ù±¾ĞÅÏ¢
+	OtherMess otherMess;  //ÆäËûĞÅÏ¢
 
-	vector<Field> inputFields;   //è¾“å…¥å­—æ®µ
-	vector<Field> outputFields;  //è¾“å‡ºå­—æ®µ
+	vector<Field> inputFields;   //ÊäÈë×Ö¶Î
+	vector<Field> outputFields;  //Êä³ö×Ö¶Î
 
-	int numInputBindParam;  //SQLç»‘å®šå‚æ•°ä¸ªæ•°
-	int numOutputBindParam;  //SQLè¿”å›å‚æ•°ä¸ªæ•°
+	int numInputBindParam;  //SQL°ó¶¨²ÎÊı¸öÊı
+	int numOutputBindParam;  //SQL·µ»Ø²ÎÊı¸öÊı
 };
 
 
