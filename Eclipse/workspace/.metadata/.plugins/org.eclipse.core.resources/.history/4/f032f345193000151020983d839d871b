@@ -4,7 +4,7 @@
  *  Created on: 2014年12月14日
  *      Author: HDZhang
  */
-#include<stdlib.h>
+#include<iostream>
 #include"ACConfManager.h"
 #include"ACService.h"
 #include"ACManager.h"
