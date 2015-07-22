@@ -9,7 +9,7 @@
 		(3)配置需要加载的代码模板（以“@CodeTemplate”为关键字，需要加载多少代码模板，就配置多少）
 		
 		***重要配置字段***
-		@RESULT_PATH	——结果保存路径（结果目录格式参考conf目录下的result.zip）
+		@RESULT_PATH	——结果保存路径（结果目录格式参考程序目录下的result.zip）
 		C:\Users\HDZhang\Desktop\result\	——默认设置为桌面的result目录下
 		
 	例如：
