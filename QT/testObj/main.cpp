@@ -14,6 +14,13 @@ int main(int argc, char *argv[])
     //w.show();
     //return a.exec();
 
-    SonClass* pSonClass=new SonClass;
-    pSonClass->print();
+    //ParentClass* pParentClass=new ParentClass;
+
+    ParentClass<int>* pParentClass=new ParentClass<int>();
+    //SonClass* pSonClass=new SonClass;
+//    pSonClass->print();
+//    pSonClass->tempMet();
+    //cout<<sizeof(ParentClass<int>)<<endl;
+    //cout<<sizeof(*pSonClass)<<endl;
+    delete pParentClass;
 }

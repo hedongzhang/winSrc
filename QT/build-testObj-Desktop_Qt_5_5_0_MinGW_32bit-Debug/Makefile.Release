@@ -518,7 +518,8 @@ release/mainwindow.o: ../testObj/mainwindow.cpp ../testObj/mainwindow.h \
 release/parentclass.o: ../testObj/parentclass.cpp ../testObj/parentclass.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/parentclass.o ../testObj/parentclass.cpp
 
-release/sonclass.o: ../testObj/sonclass.cpp ../testObj/sonclass.h
+release/sonclass.o: ../testObj/sonclass.cpp ../testObj/sonclass.h \
+		../testObj/parentclass.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/sonclass.o ../testObj/sonclass.cpp
 
 release/moc_mainwindow.o: release/moc_mainwindow.cpp 

@@ -3,7 +3,7 @@
 
 #include"parentclass.h"
 
-class SonClass : public ParentClass
+class SonClass //: public ParentClass
 {
 public:
     SonClass();
@@ -13,6 +13,7 @@ public:
     int setValue(int value);
     int print();
     int print(int a);
+    virtual int tempMet();
 private:
     int sonValue;
 };

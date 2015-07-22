@@ -25,3 +25,8 @@ int SonClass::print()
 {
     cout<<"子类值："<<this->sonValue<<endl;
 }
+
+int SonClass::tempMet()
+{
+    cout<<"我是子类的tempMet函数"<<endl;
+}

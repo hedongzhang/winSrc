@@ -518,7 +518,8 @@ debug/mainwindow.o: ../testObj/mainwindow.cpp ../testObj/mainwindow.h \
 debug/parentclass.o: ../testObj/parentclass.cpp ../testObj/parentclass.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/parentclass.o ../testObj/parentclass.cpp
 
-debug/sonclass.o: ../testObj/sonclass.cpp ../testObj/sonclass.h
+debug/sonclass.o: ../testObj/sonclass.cpp ../testObj/sonclass.h \
+		../testObj/parentclass.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/sonclass.o ../testObj/sonclass.cpp
 
 debug/moc_mainwindow.o: debug/moc_mainwindow.cpp 
