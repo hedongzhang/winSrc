@@ -10,7 +10,6 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
-#include <QtWebKitWidgets/QWebView>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
@@ -27,7 +26,6 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralWidget;
-    QWebView *webView;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -39,10 +37,6 @@ public:
         MainWindow->resize(628, 439);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        webView = new QWebView(centralWidget);
-        webView->setObjectName(QStringLiteral("webView"));
-        webView->setGeometry(QRect(20, 40, 300, 200));
-        webView->setUrl(QUrl(QStringLiteral("about:blank")));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));

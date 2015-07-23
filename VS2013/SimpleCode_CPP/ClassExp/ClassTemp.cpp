@@ -5,11 +5,13 @@ int ClassTemp::count = 0;
 
 ClassTemp::ClassTemp()
 {
+	cout << "父类构造函数" << endl;
 }
 
 
 ClassTemp::~ClassTemp()
 {
+	cout << "父类析构函数" << endl;
 }
 
 

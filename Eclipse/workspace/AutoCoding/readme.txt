@@ -1,89 +1,101 @@
-本文档负责对AutoCoding工具的说明
+���ĵ������AutoCoding���ߵ�˵��
 
 ======================================================
-1、 ./conf/config.int
+1�� ./conf/config.int
 
-	主要的配置文件
-		(1)配置基本信息（键可以重复，以最后一个为准）
-		(2)配置需要加载的服务（以 “@ServiceTemplate” 为关键字，需要加载多少服务，就配置多少）
-		(3)配置需要加载的代码模板（以“@CodeTemplate”为关键字，需要加载多少代码模板，就配置多少）
-	例如：
-	#作者                            ——#为注释
+	��Ҫ�������ļ�
+		(1)���û�����Ϣ���������ظ��������һ��Ϊ׼��
+		(2)������Ҫ���صķ����� ��@ServiceTemplate�� Ϊ�ؼ��֣���Ҫ���ض��ٷ��񣬾����ö��٣�
+		(3)������Ҫ���صĴ���ģ�壨�ԡ�@CodeTemplate��Ϊ�ؼ��֣���Ҫ���ض��ٴ���ģ�壬�����ö��٣�
+		
+		***��Ҫ�����ֶ�***
+		@RESULT_PATH	�����������·����Ĭ��Ϊ����Ŀ¼�����Ŀ¼��ʽ�ο�confĿ¼�µ�result.zip��
+		C:\Users\HDZhang\Desktop\result\	����Ĭ������Ϊ�����resultĿ¼��
+		
+	���磺
+	#����                            ����#Ϊע��
 	
-	@AUTOR         ——@后为键
-	HDZhang123     ——为值
+	@AUTOR         ����@��Ϊ��
+	HDZhang123     ����Ϊֵ
 	
-	@ServiceTemplate             需要加载的服务模板
+	@ServiceTemplate             ��Ҫ���صķ���ģ��
 	./template/service2.tmp
 	
-	@CodeTemplate                需要加载的代码模板
+	@CodeTemplate                ��Ҫ���صĴ���ģ��
 	./template/head_template/head_template1.tmp
 	
-	@@          ——文件结束符
+	@@          �����ļ�������
 ======================================================
 
 ======================================================
-2、 ./conf/service/service.ini
+2�� ./conf/service/service.ini
 
-	服务配置文件
-		(1)配置基本信息（键可以重复，以第一个为准）
-		(2)配置<输入输出字段的配置文件>的路径（<以“@FIELDS@”为关键字，可选，若存在此配置则程序优先读取配置的文件的字段信息，不走默认解析sql逻辑）
-		(3)配置输入输出节点：如果无节点，则以NULL标记，如（@INPUT_NODE@ NULL）
-			***这个节点会加入到输入输出节点的动态数组里面***
-					vector<Field> inputFields;   //输入字段
-					vector<Field> outputFields;  //输出字段
+	���������ļ�
+		(1)���û�����Ϣ���������ظ����Ե�һ��Ϊ׼��
+		(2)����<��������ֶε������ļ�>��·����<�ԡ�@FIELDS@��Ϊ�ؼ��֣���ѡ�������ڴ�������������ȶ�ȡ���õ��ļ����ֶ���Ϣ������Ĭ�Ͻ���sql�߼���
+		(3)������������ڵ㣺����޽ڵ㣬����NULL��ǣ��磨@INPUT_NODE@ NULL��
+			***����ڵ����뵽��������ڵ�Ķ�̬��������***
+					vector<Field> inputFields;   //�����ֶ�
+					vector<Field> outputFields;  //����ֶ�
 
-	例如：
-	@AUTOR@      ——替换关键字
-	HDZhang      ——替换值
+	���磺
+	@AUTOR@      �����滻�ؼ���
+	HDZhang      �����滻ֵ
 	
 	
-	@FIELDS@                      ——输入输出字段的配置文件路径
+	@FIELDS@                      ������������ֶε������ļ�·��
 	./conf/field/field1.ini  
 	
-	@INPUT_NODE@                  ——无输入节点
+	@INPUT_NODE@                  ����������ڵ�
 	NULL
 ======================================================
 
 ======================================================
-3、 ./conf/field/field.ini
+3�� ./conf/field/field.ini
 
-	字段配置文件
-		(1)固定配置（键为：@INPUT_BIND_FIELD@、@OUTPUT_BIND_FIELD@，键后面每一行为一个字段，不区分大小写）
-		(2)每行配置字段后面可跟一个数字，标示字段大小
-		(3)每行配置字段后面可跟一个"$"或者"%"，"$"标示此字段为虚值，"%"标示此字段需要动态拼接，需要进行取序列处理
-			"$"和"%"互斥，同时出现以前面的为准。
-	例如：
-		@INPUT_BIND_FIELD@ 1(标示sql绑定字段个数)***因为sql绑定字段个数与需要获取字段个数有时不一致，绑定字段个数不包含需要动态拼接的字段***
+	�ֶ������ļ�
+		(1)�̶����ã���Ϊ��@INPUT_BIND_FIELD@��@OUTPUT_BIND_FIELD@��������ÿһ��Ϊһ���ֶΣ������ִ�Сд��
+		(2)ÿ�������ֶκ���ɸ�һ�����֣���ʾ�ֶδ�С
+		(3)ÿ�������ֶκ���ɸ�һ��"$"����"%"��"$"��ʾ���ֶ�Ϊ��ֵ��"%"��ʾ���ֶ���Ҫ��̬ƴ�ӣ���Ҫ����ȡ���д���
+			"$"��"%"���⣬ͬʱ������ǰ���Ϊ׼��
+	���磺
+		@INPUT_BIND_FIELD@ 1(��ʾsql���ֶθ���)***��Ϊsql���ֶθ�������Ҫ��ȡ�ֶθ�����ʱ��һ�£����ֶθ�����������Ҫ��̬ƴ�ӵ��ֶ�***
 		latn_id
-		acc_nbr 2048（字段大小为2048）$（此字段需进行取序列处理）
-		PROD_INST_PARTY_ID $（此字段需进行取序列处理）
-		PROD_INST_PARTY_ID %（此字段需进行需要动态拼接）
+		acc_nbr 2048���ֶδ�СΪ2048��$�����ֶ������ȡ���д�����
+		PROD_INST_PARTY_ID $�����ֶ������ȡ���д�����
+		PROD_INST_PARTY_ID %�����ֶ��������Ҫ��̬ƴ�ӣ�
 
-		@OUTPUT_BIND_FIELD@ 5(标示sql返回字段个数)***因为sql返回字段个数与需要输出字段个数有时不一致***
+		@OUTPUT_BIND_FIELD@ 5(��ʾsql�����ֶθ���)***��Ϊsql�����ֶθ�������Ҫ����ֶθ�����ʱ��һ��***
 		LATN_ID 
 		ACC_NBR
 ======================================================
 
 ======================================================
-4、 ./template/head_template/head_template1.tmp
+4�� ./template/head_template/head_template1.tmp
 
-	头文件模板
+	ͷ�ļ�ģ��
 	
-	例如：
-	@AUTOR@      ——替换处对应键
+	���磺
+	@AUTOR@      �����滻����Ӧ��
 ======================================================
 
 ======================================================
 5. src_template.tmp
 
-	源文件模板
+	Դ�ļ�ģ��
 
-	例如：
-	@CLASSNAME@      ——替换处对应键
+	���磺
+	@CLASSNAME@      �����滻����Ӧ��
 ======================================================
 
 ======================================================
-6. 其他说明
+6. ����˵��
 
-	如果在crmdem.fml32中出入参数字段为fml32 类型，或者出入节点字段为string或者long类型，则默认在其名称后面加“_NEW”,然后写入crmdem.fml32文件
+	�����crmdem.fml32�г�������ֶ�Ϊfml32 ���ͣ����߳���ڵ��ֶ�Ϊstring����long���ͣ���Ĭ���������ƺ���ӡ�_NEW��,Ȼ��д��crmdem.fml32�ļ�
+	
+======================================================
+
+======================================================
+Autor:	hedongzhang
+Date:	2015.6
+======================================================

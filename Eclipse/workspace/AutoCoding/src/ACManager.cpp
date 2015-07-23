@@ -1,7 +1,7 @@
 /*
  * ACManager.cpp
  *
- *  Created on: 2015å¹´5æœˆ5æ—¥
+ *  Created on: 2015Äê5ÔÂ5ÈÕ
  *      Author: HDZhang
  */
 
@@ -19,7 +19,7 @@ ACManager::ACManager(string configFile):configFile(configFile)
 {
 	if(init()==RETURN_FAILED)
 	{
-		cout<<"=====ACManageråˆå§‹åŒ–å¤±è´¥====="<<endl;
+		cout<<"=====ACManager³õÊ¼»¯Ê§°Ü====="<<endl;
 	}
 	else
 	{
@@ -92,40 +92,40 @@ int ACManager::setCodeTemplateMap(const string keyName,string codeTemplate)
 }
 
 
-/**********å¯åŠ¨åˆå§‹åŒ–**********
- * è¯»å–é…ç½®æ–‡ä»¶ï¼Œæ ¹æ®é…ç½®æ–‡ä»¶è¯»å…¥å…³é”®å˜é‡å€¼å¹¶è½½å…¥å…³é”®å­—æ˜ å°„å’Œæ¨¡æ¿
- * @å­—ç¬¦------æ¨¡æ¿ç±»å‹
- * ä¸€èˆ¬å­—ç¬¦----æ¨¡æ¿è·¯å¾„
- * #å­—ç¬¦------æ³¨é‡Š
+/**********Æô¶¯³õÊ¼»¯**********
+ * ¶ÁÈ¡ÅäÖÃÎÄ¼ş£¬¸ù¾İÅäÖÃÎÄ¼ş¶ÁÈë¹Ø¼ü±äÁ¿Öµ²¢ÔØÈë¹Ø¼ü×ÖÓ³ÉäºÍÄ£°å
+ * @×Ö·û------Ä£°åÀàĞÍ
+ * Ò»°ã×Ö·û----Ä£°åÂ·¾¶
+ * #×Ö·û------×¢ÊÍ
  */
 int ACManager::init()
 {
-	cout<<"=====å¼€å§‹åˆå§‹åŒ–====="<<endl;
+	cout<<"=====¿ªÊ¼³õÊ¼»¯====="<<endl;
 
-	//è¯»å–é…ç½®ä¿¡æ¯
+	//¶ÁÈ¡ÅäÖÃĞÅÏ¢
 	if(readConfig()==RETURN_FAILED)
 	{
-		cout<<"=====è¯»å–é…ç½®ä¿¡æ¯å¤±è´¥====="<<endl;
+		cout<<"=====¶ÁÈ¡ÅäÖÃĞÅÏ¢Ê§°Ü====="<<endl;
 		return RETURN_FAILED;
 	}
 
-	cout<<"======åˆå§‹åŒ–å®Œæˆ======"<<endl<<endl;
+	cout<<"======³õÊ¼»¯Íê³É======"<<endl<<endl;
 	return RETURN_SUCCESS;
 }
 
 
-/**********æ‰“å°è¯»å–çš„åŸºæœ¬ä¿¡æ¯**********
+/**********´òÓ¡¶ÁÈ¡µÄ»ù±¾ĞÅÏ¢**********
  *
  */
 void ACManager::showBaseMessage()
 {
-	cout<< endl << "=====è¯»å–å€¼åˆ—è¡¨=====" << endl;
+	cout<< endl << "=====¶ÁÈ¡ÖµÁĞ±í=====" << endl;
 	for (map<string, string>::iterator ite = m_baseMessage.begin();
 			ite != m_baseMessage.end(); ite++) {
 		cout << ite->first << ":" << ite->second << endl;
 	}
 
-	cout << "=====è¯»å–æ¨¡æ¿åˆ—è¡¨=====" << endl;
+	cout << "=====¶ÁÈ¡Ä£°åÁĞ±í=====" << endl;
 	for (map<string,map<string,string> >::iterator ite = ACManager::m_keyMap.begin();ite != ACManager::m_keyMap.end(); ite++)
 	{
 		cout << ite->first << endl<< "{"<< endl;
@@ -144,10 +144,10 @@ void ACManager::showBaseMessage()
 }
 
 
-//è¯»å–é…ç½®ä¿¡æ¯
+//¶ÁÈ¡ÅäÖÃĞÅÏ¢
 int ACManager::readConfig()
 {
-	cout<<"=====è¯»å–é…ç½®====="<<endl;
+	cout<<"=====¶ÁÈ¡ÅäÖÃ====="<<endl;
 	ifstream ifstre;
 	ifstre.open(this->configFile.c_str());
 	if(ifstre.is_open())
@@ -171,12 +171,12 @@ int ACManager::readConfig()
 						int returnCode=RETURN_SUCCESS;
 						if(currentTemplateName.compare("@ServiceTemplate")==0)
 						{
-							//è¯»å–è·¯å¾„ä¸‹çš„å…³é”®å­—æ˜ å°„æ–‡ä»¶
+							//¶ÁÈ¡Â·¾¶ÏÂµÄ¹Ø¼ü×ÖÓ³ÉäÎÄ¼ş
 							returnCode=readKeyTemplate(currentTemplateValue);
 						}
 						else if(currentTemplateName.compare("@CodeTemplate")==0)
 						{
-							//è¯»å–è·¯å¾„ä¸‹çš„ä»£ç æ¨¡æ¿å¹¶ä¸æ¨¡æ¿æ–‡ä»¶åæ˜ å°„
+							//¶ÁÈ¡Â·¾¶ÏÂµÄ´úÂëÄ£°å²¢ÓëÄ£°åÎÄ¼şÃûÓ³Éä
 							returnCode=readCodeTemplate(currentTemplateValue);
 						}
 						else
@@ -185,7 +185,7 @@ int ACManager::readConfig()
 						}
 						if(returnCode==RETURN_FAILED)
 						{
-							cout<<"=====è¯»å–å…³é”®å­—æ˜ å°„æ–‡ä»¶æˆ–ä»£ç æ¨¡æ¿é…ç½®æ–‡ä»¶å‡ºé”™ï¼===="<<endl;
+							cout<<"=====¶ÁÈ¡¹Ø¼ü×ÖÓ³ÉäÎÄ¼ş»ò´úÂëÄ£°åÅäÖÃÎÄ¼ş³ö´í£¡===="<<endl;
 							ifstre.close();
 							return RETURN_FAILED;
 						}
@@ -198,12 +198,12 @@ int ACManager::readConfig()
 						int returnCode=RETURN_SUCCESS;
 						if(currentTemplateName.compare("@ServiceTemplate")==0)
 						{
-							//è¯»å–è·¯å¾„ä¸‹çš„å…³é”®å­—æ˜ å°„æ–‡ä»¶
+							//¶ÁÈ¡Â·¾¶ÏÂµÄ¹Ø¼ü×ÖÓ³ÉäÎÄ¼ş
 							returnCode=readKeyTemplate(currentTemplateValue);
 						}
 						else if(currentTemplateName.compare("@CodeTemplate")==0)
 						{
-							//è¯»å–è·¯å¾„ä¸‹çš„ä»£ç æ¨¡æ¿å¹¶ä¸æ¨¡æ¿æ–‡ä»¶åæ˜ å°„
+							//¶ÁÈ¡Â·¾¶ÏÂµÄ´úÂëÄ£°å²¢ÓëÄ£°åÎÄ¼şÃûÓ³Éä
 							returnCode=readCodeTemplate(currentTemplateValue);
 						}
 						else
@@ -212,7 +212,7 @@ int ACManager::readConfig()
 						}
 						if(returnCode==RETURN_FAILED)
 						{
-							cout<<"=====è¯»å–å…³é”®å­—æ˜ å°„æ–‡ä»¶æˆ–ä»£ç æ¨¡æ¿é…ç½®æ–‡ä»¶å‡ºé”™ï¼====="<<endl;
+							cout<<"=====¶ÁÈ¡¹Ø¼ü×ÖÓ³ÉäÎÄ¼ş»ò´úÂëÄ£°åÅäÖÃÎÄ¼ş³ö´í£¡====="<<endl;
 							ifstre.close();
 							return RETURN_FAILED;
 						}
@@ -220,7 +220,7 @@ int ACManager::readConfig()
 				}
 				currentTemplateName=templateName;
 				currentTemplateValue="";
-				//è¯»åˆ°ç»“æŸç¬¦é€€å‡º
+				//¶Áµ½½áÊø·ûÍË³ö
 				if(currentTemplateName.compare("@")==0)
 				{
 					break;
@@ -229,7 +229,7 @@ int ACManager::readConfig()
 			}
 			else if(fileContextChar[0]=='#')
 			{
-				//æ³¨é‡Š
+				//×¢ÊÍ
 				continue;
 			}
 			else
@@ -243,16 +243,16 @@ int ACManager::readConfig()
 	}
 	else
 	{
-		cout<<"=====æ‰“å¼€é…ç½®æ–‡ä»¶å¼‚å¸¸====="<<endl;
+		cout<<"=====´ò¿ªÅäÖÃÎÄ¼şÒì³£====="<<endl;
 		ifstre.close();
 		return RETURN_FAILED;
 	}
 
 	showBaseMessage();
-	cout<<"=====é…ç½®è¯»å–ç»“æŸ====="<<endl<<endl;
+	cout<<"=====ÅäÖÃ¶ÁÈ¡½áÊø====="<<endl<<endl;
 	return RETURN_SUCCESS;
 }
-//æ ¹æ®è·¯å¾„è¯»å–å…³é”®å­—æ¨¡æ¿é…ç½®
+//¸ù¾İÂ·¾¶¶ÁÈ¡¹Ø¼ü×ÖÄ£°åÅäÖÃ
 int ACManager::readKeyTemplate(string path)
 {
     string keyTemplateName=path.substr(path.find_last_of('/')+1);
@@ -304,7 +304,7 @@ int ACManager::readKeyTemplate(string path)
     }
     return RETURN_SUCCESS;
 }
-//æ ¹æ®è·¯å¾„è¯»å–ä»£ç æ¨¡æ¿é…ç½®
+//¸ù¾İÂ·¾¶¶ÁÈ¡´úÂëÄ£°åÅäÖÃ
 int ACManager::readCodeTemplate(string path)
 {
     string keyTemplateName=path.substr(path.find_last_of('/')+1);
@@ -316,7 +316,7 @@ int ACManager::readCodeTemplate(string path)
 }
 
 
-/**********è‡ªåŠ¨ç”ŸæˆæœåŠ¡**********
+/**********×Ô¶¯Éú³É·şÎñ**********
  *
  */
 int ACManager::creatServices()
@@ -366,7 +366,7 @@ int ACManager::creatServices()
 }
 
 
-//æ›¿æ¢å­—ç¬¦ä¸²å‡½æ•°
+//Ìæ»»×Ö·û´®º¯Êı
 string n_acmanager::replaceString(string srcString ,string keyString ,string valueString)
 {
 	string::size_type currIndex=srcString.find(keyString);
@@ -378,7 +378,7 @@ string n_acmanager::replaceString(string srcString ,string keyString ,string val
 	return srcString;
 }
 
-//æ•°å­—longè½¬æ¢å­—ç¬¦ä¸²å‡½æ•°
+//Êı×Ölong×ª»»×Ö·û´®º¯Êı
 string n_acmanager::longToString(long longVaiue)
 {
 	ostringstream ostringstre;
@@ -394,9 +394,9 @@ string n_acmanager::getNowDate()
 	tm* current_time = localtime(&nowTime);
 
 	string dataString="";
-	dataString+=n_acmanager::longToString(current_time->tm_year+1900)+"å¹´";
-	dataString+=n_acmanager::longToString(current_time->tm_mon+1)+"æœˆ";
-	dataString+=n_acmanager::longToString(current_time->tm_mday)+"æ—¥";
+	dataString+=n_acmanager::longToString(current_time->tm_year+1900)+"Äê";
+	dataString+=n_acmanager::longToString(current_time->tm_mon+1)+"ÔÂ";
+	dataString+=n_acmanager::longToString(current_time->tm_mday)+"ÈÕ";
 
 	return dataString;
 }
