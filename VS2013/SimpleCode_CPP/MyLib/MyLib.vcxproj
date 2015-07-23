@@ -64,10 +64,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BigNum.h" />
     <ClInclude Include="MyArray.h" />
     <ClInclude Include="MyOpera.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BigNum.cpp" />
     <ClCompile Include="MyArray.cpp" />
     <ClCompile Include="MyOpera.cpp" />
   </ItemGroup>

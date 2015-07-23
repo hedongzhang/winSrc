@@ -21,12 +21,18 @@
     <ClInclude Include="MyOpera.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="BigNum.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MyArray.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="MyOpera.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="BigNum.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

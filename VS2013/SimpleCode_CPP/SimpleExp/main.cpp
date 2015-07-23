@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void main12()
+void main()
 {
 	
 
