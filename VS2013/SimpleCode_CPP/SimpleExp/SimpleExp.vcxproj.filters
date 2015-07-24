@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BigData.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="模板示例.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
