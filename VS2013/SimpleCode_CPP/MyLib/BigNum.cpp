@@ -1,4 +1,5 @@
 #include "BigNum.h"
+#include<string>
 
 //¹¹Ôìº¯Êý
 BigNum::BigNum(const char* pData) :pDataEnd(nullptr), size(0)

@@ -61,12 +61,13 @@ void beginThread(int num,char* key)
 	_beginthread(find, 0, (void*)(pThreadMes + currThreadNum));
 }
 
-void main1()
+void main()
 {
 	time_t timet;
 	unsigned int startTime = time(&timet);
 
-	char* path = "E:\\BaiduYunDownload\\2014传智播客C++第三期更新完毕\\0726\\code\\dangdangwang.txt";
+	//char* path = "E:\\重要文件\\资料\\视频资料\\2014传智播客C++第三期更新完毕\\文档\\dangdangwang.txt";
+	char* path = R"(E:\重要文件\资料\视频资料\2014传智播客C++第三期更新完毕\文档\dangdangwang.txt)";
 	char* pathGet = "C:\\Users\\HDZhang\\Desktop\\dangdangwang.txt";
 	FILE* pFile = fopen(path, "r");
 	FILE* pGetFile = fopen(pathGet, "w");
@@ -104,6 +105,7 @@ void main1()
 	scanf("%s", key);
 	printf("\n线程数：");
 	scanf("%d", &threadNum);
+
 	while (strcmp(key,"-1")!=0)
 	{
 		//DATA_NUM

@@ -9,7 +9,7 @@
 
 #pragma comment(lib, "mylib.lib")
 
-int main()
+void main12()
 {
 	int data[7] = {2,7,9,4,7,6,1};
 	qkSort(data, 0, 6);
