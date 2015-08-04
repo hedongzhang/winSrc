@@ -1,5 +1,7 @@
 e:\coderepertory\mycommcodelib\vs2013\simplecode_cpp\simpleexp\debug\vc120.pdb
 e:\coderepertory\mycommcodelib\vs2013\simplecode_cpp\simpleexp\debug\vc120.idb
+e:\coderepertory\mycommcodelib\vs2013\simplecode_cpp\simpleexp\debug\main.obj
+e:\coderepertory\mycommcodelib\vs2013\simplecode_cpp\simpleexp\debug\文件与多线程.obj
 e:\coderepertory\mycommcodelib\vs2013\simplecode_cpp\simpleexp\debug\输入输出流.obj
 e:\coderepertory\mycommcodelib\vs2013\simplecode_cpp\simpleexp\debug\位运算实现算数运算.obj
 e:\coderepertory\mycommcodelib\vs2013\simplecode_cpp\simpleexp\debug\多线程.obj
@@ -8,9 +10,14 @@ e:\coderepertory\mycommcodelib\vs2013\simplecode_cpp\simpleexp\debug\强制 类�
 e:\coderepertory\mycommcodelib\vs2013\simplecode_cpp\simpleexp\debug\智能指针.obj
 e:\coderepertory\mycommcodelib\vs2013\simplecode_cpp\simpleexp\debug\本地化.obj
 e:\coderepertory\mycommcodelib\vs2013\simplecode_cpp\simpleexp\debug\模板示例.obj
-e:\coderepertory\mycommcodelib\vs2013\simplecode_cpp\simpleexp\debug\main.obj
-e:\coderepertory\mycommcodelib\vs2013\simplecode_cpp\debug\simpleexp.pdb
+e:\coderepertory\mycommcodelib\vs2013\simplecode_cpp\simpleexp\debug\lanbda表达式.obj
+e:\coderepertory\mycommcodelib\vs2013\simplecode_cpp\simpleexp\debug\异常处理.obj
 e:\coderepertory\mycommcodelib\vs2013\simplecode_cpp\debug\simpleexp.ilk
+e:\coderepertory\mycommcodelib\vs2013\simplecode_cpp\debug\simpleexp.exe
+e:\coderepertory\mycommcodelib\vs2013\simplecode_cpp\debug\simpleexp.pdb
 e:\coderepertory\mycommcodelib\vs2013\simplecode_cpp\simpleexp\debug\simpleexp.tlog\cl.command.1.tlog
 e:\coderepertory\mycommcodelib\vs2013\simplecode_cpp\simpleexp\debug\simpleexp.tlog\cl.read.1.tlog
 e:\coderepertory\mycommcodelib\vs2013\simplecode_cpp\simpleexp\debug\simpleexp.tlog\cl.write.1.tlog
+e:\coderepertory\mycommcodelib\vs2013\simplecode_cpp\simpleexp\debug\simpleexp.tlog\link.command.1.tlog
+e:\coderepertory\mycommcodelib\vs2013\simplecode_cpp\simpleexp\debug\simpleexp.tlog\link.read.1.tlog
+e:\coderepertory\mycommcodelib\vs2013\simplecode_cpp\simpleexp\debug\simpleexp.tlog\link.write.1.tlog
