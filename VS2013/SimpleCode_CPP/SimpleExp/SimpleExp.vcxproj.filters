@@ -51,5 +51,8 @@
     <ClCompile Include="异常处理.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="虚函数表.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -65,13 +65,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="BigNum.h" />
+    <ClInclude Include="hdtree.h" />
     <ClInclude Include="MyArray.h" />
     <ClInclude Include="MyOpera.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BigNum.cpp" />
+    <ClCompile Include="hdtree.cpp" />
     <ClCompile Include="MyArray.cpp" />
     <ClCompile Include="MyOpera.cpp" />
+    <ClCompile Include="search_sort.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,22 +1,19 @@
 #include<iostream>
-#include<assert.h>
-#include<string>
-#include<array>
-#include<algorithm>
-#include<hash_set>
-#include<hash_map>
-#include<set>
-#include<bitset>
+#include<boost/array.hpp>
 
 using namespace std;
 
 
-void main12()
+void main123()
 {
-#ifdef __cplusplus
-	cout << "CPP" << endl;
-#else
-	printf("C\n");
-#endif
+	boost::array<int, 6> arr = {1,2,3,4,5,6};
+	boost::array<int, 6>::iterator iter = arr.begin();
+
+	while (iter!=arr.end())
+	{
+		cout << *iter << endl;
+		iter++;
+	}
+
 	system("pause");
 }

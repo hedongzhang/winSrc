@@ -61,7 +61,7 @@ public:
 };
 
 
-void main()
+void mainYCCL()
 {
 	try
 	{

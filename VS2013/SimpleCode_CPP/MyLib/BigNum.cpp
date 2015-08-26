@@ -353,7 +353,7 @@ void BigNum::print()
 
 
 
-void main()
+void mainBN()
 {
 	char mod = 0;
 
