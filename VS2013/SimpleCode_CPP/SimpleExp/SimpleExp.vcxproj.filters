@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BigData.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="模板示例.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -36,10 +33,22 @@
     <ClCompile Include="多线程.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="位运算实现算数运算.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="输入输出流.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="文件与多线程.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Lanbda表达式.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="位运算实现算数运算.cpp">
+    <ClCompile Include="异常处理.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

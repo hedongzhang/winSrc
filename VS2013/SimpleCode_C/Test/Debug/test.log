@@ -1,19 +1,17 @@
-﻿生成启动时间为 2015/7/3 11:39:50。
-     1>项目“F:\百度云\文档\myProject\VS2013\SimpleCode_C\Test\Test.vcxproj”在节点 5 上(Build 个目标)。
+﻿生成启动时间为 2015/7/27 10:30:55。
+     1>项目“E:\codeRepertory\MyCommCodeLib\VS2013\SimpleCode_C\Test\Test.vcxproj”在节点 2 上(Build 个目标)。
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Project1.vcxproj).  This can lead to incorrect clean and rebuild behavior.
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt mian.cpp "多线程读文件.cpp"
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt "多线程读文件.cpp"
          多线程读文件.cpp
-     1>f:\百度云\文档\myproject\vs2013\simplecode_c\test\多线程读文件.cpp(67): warning C4244: “初始化”: 从“time_t”转换到“unsigned int”，可能丢失数据
-         mian.cpp
-         正在生成代码...
+     1>e:\coderepertory\mycommcodelib\vs2013\simplecode_c\test\多线程读文件.cpp(67): warning C4244: “初始化”: 从“time_t”转换到“unsigned int”，可能丢失数据
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\百度云\文档\myProject\VS2013\SimpleCode_C\Debug\Test.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"F:\百度云\文档\myProject\VS2013\SimpleCode_C\Debug\Test.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\百度云\文档\myProject\VS2013\SimpleCode_C\Debug\Test.lib" /MACHINE:X86 Debug\mian.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\codeRepertory\MyCommCodeLib\VS2013\SimpleCode_C\Debug\Test.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\codeRepertory\MyCommCodeLib\VS2013\SimpleCode_C\Debug\Test.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\codeRepertory\MyCommCodeLib\VS2013\SimpleCode_C\Debug\Test.lib" /MACHINE:X86 Debug\mian.obj
          "Debug\多线程读文件.obj"
          ..\Debug\mylib.lib
-         Test.vcxproj -> F:\百度云\文档\myProject\VS2013\SimpleCode_C\Debug\Test.exe
-     1>已完成生成项目“F:\百度云\文档\myProject\VS2013\SimpleCode_C\Test\Test.vcxproj”(Build 个目标)的操作。
+         Test.vcxproj -> E:\codeRepertory\MyCommCodeLib\VS2013\SimpleCode_C\Debug\Test.exe
+     1>已完成生成项目“E:\codeRepertory\MyCommCodeLib\VS2013\SimpleCode_C\Test\Test.vcxproj”(Build 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:01.86
+已用时间 00:00:00.82
